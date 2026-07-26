@@ -17,7 +17,7 @@ CONTEXT = [
     f"Reference site (copy assets from): {REFERENCE_DIR}",
     "Stack: Vanilla HTML/CSS/JS, Tailwind CDN, Lucide icons from unpkg, SF Pro fonts from local assets.",
     "Design tokens in css/global.css — use --var tokens, never raw hex.",
-    "Shared nav in js/nav.js mounted into #nav-mount. Shared footer in js/footer.js into #footer-mount.",
+    "Shared navbar is static HTML in each page (not JS-rendered). Shared footer in js/footer.js into #footer-mount.",
 ]
 
 INSTRUCTIONS = [

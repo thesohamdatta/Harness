@@ -23,20 +23,33 @@ python workflows/adw-pipeline.py --page index        # Run one page
 
 ```
 agent_harness.py              # CLI harness (entry point)
+.opencode/
+  opencode.json               # Project-level OpenCode config
+  agent/
+    builder.md                # Web builder subagent
+    designer.md               # Design audit subagent
+    reviewer.md               # Quality review subagent
+  command/
+    build-page.md             # Build one page via ADW pipeline
+    build-all.md              # Build all pages via ADW pipeline
+    design-audit.md           # Full site design audit
+    harness.md                # Run the Google Antigravity harness
 prompts/
   __init__.py                 # package marker
   aura.py                     # Aura-specific project config + system instructions
   architect.py                # ADW Architect agent config
   developer.py                # ADW Developer agent config
   reviewer.py                 # ADW Reviewer agent config
+  engineer.py                 # Prompt builder (XML-tagged builder)
 workflows/
-  adw-pipeline.py             # Multi-agent pipeline orchestrator
+  adw-pipeline.py             # Multi-agent pipeline orchestrator with quality gates
   adw-pipeline.md             # Pipeline documentation
 .agents/
   skills/
     aura-design/              # Aura design system skill
     adw-pipeline/             # ADW pipeline skill
     harness-usage/            # Harness usage skill
+    prompt-engineering/       # Prompt engineering skill
 docs/
   agents/
     issue-tracker.md          # Local markdown issue tracker config
@@ -52,18 +65,30 @@ CONTEXT.md                    # Domain model glossary
 NOTES.md                      # raw dev-loop notes
 ```
 
-- ADW pipeline: Architect (plans) → Developer (builds) → Reviewer (audits)
+### Pipeline architecture (ADW)
+
+ADW pipeline: Architect (plans) → Developer (builds) → Reviewer (audits) x3 max
 - Each role gets its own `LocalAgentConfig` with tailored system prompts
 - Pipeline outputs to `.scratch/adw-pipeline/`
 - Local skills in `.agents/skills/` for agentic reference
+- Quality gate: reviewer auto-cycles up to 2 rebuilds on FAIL verdict
+- Summary printed at end when running --all
 
 ## Agent roles
 
+### ADW Pipeline (via python workflows/adw-pipeline.py)
 | Role | Tools | Output |
 |---|---|---|
 | Architect | Read-only | Page spec markdown |
 | Developer | Full (read/write) | HTML/CSS/JS files |
 | Reviewer | Read-only | Audit report |
+
+### OpenCode subagents (via /command)
+| Agent | Tools | Use for |
+|---|---|---|
+| builder | Full (r/w/b) | Building or editing pages |
+| designer | Read-only | Design audits against DESIGN.md |
+| reviewer | Read-only | Quality + accessibility checks |
 
 ## Known quirks
 
@@ -88,6 +113,15 @@ best practices:
   - Progressive disclosure via `<references>` pointing to files
 
 Debug: `python agent_harness.py --show-prompt --aura`
+
+## OpenCode commands
+
+| Command | Description |
+|---|---|
+| `/build-page <page>` | Run full ADW pipeline for one page (index/manifesto/docs) |
+| `/build-all` | Run ADW pipeline for all pages with summary report |
+| `/design-audit` | Audit entire site against DESIGN.md |
+| `/harness --aura "..."` | Run the Google Antigravity harness |
 
 ## Design rules
 

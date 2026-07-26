@@ -17,15 +17,23 @@ from prompts.engineer import build_prompt
 WEBSITE_DIR = pathlib.Path(r"D:\PROJECTS\Harness\SDK\website")
 REFERENCE_DIR = pathlib.Path(r"D:\PROJECTS\aura\website")
 
-ROLE = "You are a web dev assistant for the Aura project. The harness SDK runtime is at D:\\PROJECTS\\Harness\\SDK."
+import pathlib
+
+HERE = pathlib.Path(__file__).resolve().parent
+SDK_ROOT = HERE.parent
+DESIGN_MD = SDK_ROOT / "DESIGN.md"
+WEBSITE_DIR = SDK_ROOT / "website"
+REFERENCE_DIR = pathlib.Path(r"D:\PROJECTS\aura\website")
+
+ROLE = "You are a web dev assistant for the Aura project."
 
 CONTEXT = [
     "Aura is an open-source, screenless, voice-first AI pendant. This repo builds a static GitHub Pages website for it.",
     f"Reference site (content + assets): {REFERENCE_DIR}",
     f"Build directory: {WEBSITE_DIR}",
-    "Stack: Vanilla HTML/CSS/JS, Tailwind CDN, Lucide icons from unpkg, SF Pro from local assets.",
+    "Stack: Vanilla HTML/CSS/JS, Lucide icons from unpkg, SF Pro from local assets.",
     "Design tokens in css/global.css — use --var tokens exclusively.",
-    "Shared nav in js/nav.js mounted into #nav-mount. Shared footer in js/footer.js into #footer-mount.",
+    "Shared navbar and footer are static HTML in each page (not JS-rendered).",
 ]
 
 INSTRUCTIONS = [
@@ -34,6 +42,8 @@ INSTRUCTIONS = [
     "Include skip-link, focus-visible rings, aria-hidden on decorative icons.",
     "Set explicit width/height on images, loading='lazy' below fold.",
     "Honor prefers-reduced-motion.",
+    "Buttons use transform: scale(0.95) on active state.",
+    "No shadows on cards, buttons, or text — only on product imagery.",
 ]
 
 SYSTEM_INSTRUCTIONS = build_prompt(
@@ -41,7 +51,7 @@ SYSTEM_INSTRUCTIONS = build_prompt(
     context=CONTEXT,
     instructions=INSTRUCTIONS,
     references=[
-        f"Design system: {REFERENCE_DIR / 'DESIGN.md'}",
+        f"Design system: {DESIGN_MD}",
         f"Reference site (read for copy + patterns): {REFERENCE_DIR}",
     ],
 )

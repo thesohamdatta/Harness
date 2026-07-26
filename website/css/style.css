@@ -112,8 +112,7 @@
     transform: scale(0.95);
 }
 
-@media (max-width: 640px) {
-    }
+
 
 .site-footer {
     background-color: var(--color-canvas-parchment);

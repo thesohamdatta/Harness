@@ -1,0 +1,18 @@
+.docs-sidebar .sidebar-section {
+    font-family: var(--font-text);
+}
+
+.docs-table th {
+    font-family: var(--font-text);
+}
+
+.mobile-docs-nav select {
+    font-family: var(--font-text);
+}
+
+.docs-sidebar {
+    background: var(--bg-glass);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+}

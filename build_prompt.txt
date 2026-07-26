@@ -1,0 +1,103 @@
+You are building a brand new Aura website in D:\PROJECTS\Harness\SDK\website\. This is a complete rebuild following Apple design philosophy.
+
+CRITICAL: First read the REFERENCE SITE at D:\PROJECTS\aura\website\ to study the existing design:
+1. Read DESIGN.md, AGENTS.md for design rules
+2. Read css/global.css, css/fonts.css for design tokens
+3. Read index.html, about.html, ai.html, manifesto.html for page structure
+4. Read js/site-data.js, js/nav.js, js/footer.js for shared components
+
+Then build ALL of these files in order:
+
+FILE 1: D:\PROJECTS\Harness\SDK\website\css\fonts.css
+- SF Pro Display, SF Pro Text, SF Pro Rounded @font-face declarations
+- Copy exactly from reference site
+
+FILE 2: D:\PROJECTS\Harness\SDK\website\css\global.css
+- Design tokens on :root (same as reference)
+- CSS reset, body defaults, focus-visible, scrollbar
+- .glass-nav, .skip-link, .bento-grid classes
+
+FILE 3: D:\PROJECTS\Harness\SDK\website\css\nav.css
+- Fixed navbar, 52px height, z-index 100
+- Frosted glass backdrop-filter: blur(20px) saturate(180%)
+- Transparent state + scrolled state
+- Mobile menu with slide-in
+- Subnav for ai page
+
+FILE 4: D:\PROJECTS\Harness\SDK\website\css\style.css
+- Component patterns: bento cards, FAQ, buttons, hero-pill, footer
+- App demo section styles
+- Timeline component
+- All animations (float, fade-up, orb-pulse)
+- NO transition-all — use specific properties
+
+FILE 5: D:\PROJECTS\Harness\SDK\website\js\site-data.js
+- window.AuraSite with pages array and helper methods
+
+FILE 6: D:\PROJECTS\Harness\SDK\website\js\nav.js
+- Renders nav into #nav-mount with wordmark, links, CTA, mobile toggle
+
+FILE 7: D:\PROJECTS\Harness\SDK\website\js\footer.js
+- Renders footer into #footer-mount with breadcrumb, columns, legal info
+
+FILE 8: D:\PROJECTS\Harness\SDK\website\js\reveal.js
+- Scroll reveal with IntersectionObserver (strategy per page)
+- Respect prefers-reduced-motion
+
+FILE 9: D:\PROJECTS\Harness\SDK\website\js\liquid-glass.js
+- Nav scroll state management, active link highlighting, mobile menu
+
+FILE 10: D:\PROJECTS\Harness\SDK\website\js\icons.js
+- Lucide initialization wrapper
+
+FILE 11: D:\PROJECTS\Harness\SDK\website\index.html
+- Hero with lifestyle-reading image
+- App demo section (Everything captured. Always searchable.)
+- A closer look product grid
+- Vision story (It sees what you point it at)
+- Built to disappear (wearability)
+- Battery & Power (green gradient section)
+- Thesis: The Third Device
+- Companion App
+- Technical Specs (0.5s / ~$50 / 80g)
+- Why Build Yours (5 pill cards)
+- Keep Exploring (CTA)
+- Footer via #footer-mount
+
+FILE 12: D:\PROJECTS\Harness\SDK\website\about.html
+- Hero with about image
+- Mission & Vision 2-column
+- Values (Open Hardware, Privacy First, No Subscriptions)
+- Team section (Soham, Laxman)
+- Honest Timeline (8 items)
+- Thanks to Open Source
+- Final CTA
+
+FILE 13: D:\PROJECTS\Harness\SDK\website\ai.html
+- Subnav with anchor links
+- Hero
+- Bento grid: Perception, Speed, Memory, Integrations
+- Architecture Flow
+- Metrics
+
+FILE 14: D:\PROJECTS\Harness\SDK\website\manifesto.html
+- Hero: "Humans Need a Third Device"
+- Essay body with 18+ paragraphs
+- Social Dilemma section
+- AI Dilemma section
+- Why We Need Aura section
+
+DESIGN RULES:
+- All colors from CSS variables in global.css (never inline hex)
+- Only transition-transform and transition-opacity — never transition-all
+- SF Pro font family from fonts.css
+- Body text 17px
+- All images use width/height attributes
+- aria-hidden on decorative icons
+- focus-visible rings on interactive elements
+- 44x44 minimum touch targets
+- No shadows on buttons/cards — tonal layering instead
+- Frosted glass nav only
+- responsive at 768px breakpoint
+
+Create EVERY file listed above. Do not skip any. Make them complete and production-quality.

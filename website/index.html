@@ -1,0 +1,178 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta name="description" content="Aura is an open-source, screenless, voice-first AI pendant. Worn around the neck. Total BOM ~$50 USD. MIT licensed.">
+<meta name="theme-color" content="#000000">
+<title>Aura | Worn. Screenless. Aware.</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://unpkg.com">
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
+<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
+<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
+<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/nav.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/site-data.js" defer></script>
+<script src="js/nav.js" defer></script>
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="js/icons.js" defer></script>
+<script src="js/footer.js" defer></script>
+</head>
+<body class="bg-white font-body">
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<nav id="navbar" class="nav-transparent">
+<div class="nav-inner">
+  <a href="index.html" class="nav-wordmark">Aura</a>
+  <div id="mobileMenu" class="nav-links">
+    <a href="index.html" class="nav-link active" aria-current="page">Overview</a>
+    <a href="manifesto.html" class="nav-link">Manifesto</a>
+    <a href="docs.html" class="nav-link">Docs</a>
+  </div>
+  <div class="nav-actions">
+    <a href="docs.html#hardware" class="nav-cta">Build Yours</a>
+    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
+      <i data-lucide="menu" class="w-5 h-5"></i>
+    </button>
+  </div>
+</div>
+</nav>
+
+<main id="main-content">
+<section class="relative min-h-screen min-h-[100dvh] w-full overflow-hidden bg-black flex items-center justify-center">
+  <img width="1920" height="1080" alt="Aura worn on a collar" class="absolute inset-0 w-full h-full object-cover object-center opacity-70" src="assets/hero/hero-purple.png">
+  <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60"></div>
+  <div class="relative z-10 text-center px-6 max-w-[800px]">
+    <h1 class="font-display text-[48px] md:text-[80px] text-white font-bold leading-[1.05] tracking-[-0.005em] mb-4">Aura</h1>
+    <p class="font-body text-[19px] md:text-[21px] text-white/70 leading-relaxed max-w-[600px] mx-auto">Worn. Screenless. Aware. An open-source AI pendant that listens, sees, and remembers — without demanding your attention.</p>
+  </div>
+</section>
+
+<section class="py-[80px] md:py-[120px] bg-white">
+<div class="max-w-[var(--content-max)] mx-auto px-6">
+<div class="text-center mb-16 md:mb-20">
+  <span class="font-body text-[13px] font-semibold text-[var(--color-action-blue)] mb-3 block">Capabilities</span>
+  <h2 class="font-display text-[36px] md:text-[56px] text-[var(--color-ink)] tracking-[-0.003em] leading-[1.05]">Listens. Sees. Remembers.</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
+  <div class="glass-card p-8 md:p-10 text-center">
+    <div class="glass-icon w-14 h-14 mx-auto mb-6">
+      <i data-lucide="mic" class="w-7 h-7 text-[var(--color-action-blue)]" aria-hidden="true"></i>
+    </div>
+    <h3 class="font-display text-[21px] font-semibold text-[var(--color-ink)] mb-3">Always listening</h3>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Your voice is transcribed in under half a second. No app to open. No buttons to press.</p>
+  </div>
+  <div class="glass-card p-8 md:p-10 text-center">
+    <div class="glass-icon w-14 h-14 mx-auto mb-6">
+      <i data-lucide="eye" class="w-7 h-7 text-[var(--color-action-blue)]" aria-hidden="true"></i>
+    </div>
+    <h3 class="font-display text-[21px] font-semibold text-[var(--color-ink)] mb-3">Visual understanding</h3>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Point at anything. Aura looks and describes what it sees in seconds.</p>
+  </div>
+  <div class="glass-card p-8 md:p-10 text-center">
+    <div class="glass-icon w-14 h-14 mx-auto mb-6">
+      <i data-lucide="search" class="w-7 h-7 text-[var(--color-action-blue)]" aria-hidden="true"></i>
+    </div>
+    <h3 class="font-display text-[21px] font-semibold text-[var(--color-ink)] mb-3">Never forgets</h3>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Every conversation is indexed and searchable. Ask in plain language, get the right memory back.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="py-[80px] md:py-[120px] bg-[var(--color-canvas-dark)] text-white">
+<div class="max-w-[var(--content-max)] mx-auto px-6 text-center">
+  <span class="font-body text-[13px] font-semibold text-white/40 mb-3 block">The idea</span>
+  <h2 class="font-display text-[36px] md:text-[64px] font-bold tracking-[-0.003em] leading-[1.05] mb-4">The third device.</h2>
+  <p class="font-body text-[19px] md:text-[21px] text-white/60 leading-relaxed mb-16 max-w-[600px] mx-auto">Not a computer. Not a phone. Something worn.</p>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+    <div class="glass-card-dark p-8 flex flex-col items-center text-center">
+      <i data-lucide="monitor" class="w-8 h-8 text-white/80 mb-4" aria-hidden="true"></i>
+      <p class="font-body text-[15px] font-semibold text-white/90">Not a computer</p>
+    </div>
+    <div class="glass-card-dark p-8 flex flex-col items-center text-center">
+      <i data-lucide="smartphone" class="w-8 h-8 text-white/80 mb-4" aria-hidden="true"></i>
+      <p class="font-body text-[15px] font-semibold text-white/90">Not a distraction</p>
+    </div>
+    <div class="glass-card-dark p-8 flex flex-col items-center text-center">
+      <i data-lucide="heart-pulse" class="w-8 h-8 text-white/80 mb-4" aria-hidden="true"></i>
+      <p class="font-body text-[15px] font-semibold text-white/90">A presence</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="py-[80px] md:py-[120px] bg-[var(--color-canvas-parchment)]">
+<div class="max-w-[var(--content-max)] mx-auto px-6">
+<div class="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
+  <div class="md:w-1/2">
+    <span class="font-body text-[13px] font-semibold text-[var(--color-action-blue)] mb-3 block">Specifications</span>
+    <h2 class="font-display text-[36px] md:text-[56px] text-[var(--color-ink)] tracking-[-0.003em] leading-[1.05]">Technical specs.</h2>
+  </div>
+  <div class="md:w-1/2 flex justify-end">
+    <img width="600" height="400" loading="lazy" alt="Aura exploded view" class="w-full max-w-[500px] object-contain" src="assets/product/exploded-view.jpg">
+  </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+  <div>
+    <span class="font-display text-[40px] md:text-[56px] font-bold text-[var(--color-ink)] tracking-tight block mb-2">0.5s</span>
+    <span class="font-body text-[14px] font-semibold text-[var(--color-ink-tertiary)]">Transcription latency</span>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mt-2 leading-relaxed">Voice-to-text via Groq LPU inference. Fast enough for natural conversation.</p>
+  </div>
+  <div>
+    <span class="font-display text-[40px] md:text-[56px] font-bold text-[var(--color-ink)] tracking-tight block mb-2">~$50</span>
+    <span class="font-body text-[14px] font-semibold text-[var(--color-ink-tertiary)]">Bill of materials</span>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mt-2 leading-relaxed">Standard off-the-shelf parts. No markup. MIT licensed.</p>
+  </div>
+  <div>
+    <span class="font-display text-[40px] md:text-[56px] font-bold text-[var(--color-ink)] tracking-tight block mb-2">80g</span>
+    <span class="font-body text-[14px] font-semibold text-[var(--color-ink-tertiary)]">Total weight</span>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mt-2 leading-relaxed">50 x 68 x 18 mm. 350 mAh Li-Po cell. 4 hours active, 45 min charge.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="py-[80px] md:py-[120px] bg-white">
+<div class="max-w-[var(--content-max)] mx-auto px-6">
+<div class="w-full rounded-[32px] overflow-hidden flex flex-col md:flex-row items-center" style="background: rgba(245, 245, 247, 0.8); backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.3);">
+  <div class="p-8 md:p-12 md:w-1/2">
+    <h2 class="font-display text-[32px] md:text-[48px] text-[var(--color-ink)] tracking-[-0.003em] leading-[1.05] mb-6">Build yours today.</h2>
+    <p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-8 max-w-[480px] leading-relaxed">Fork the repo, order the parts, and follow the build guide. No soldering experience required for the base build.</p>
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a href="docs.html#hardware" class="inline-flex items-center gap-3 bg-[var(--color-action-blue)] text-white rounded-full pl-6 pr-2 py-2 text-[15px] font-medium transition-transform duration-300 active:scale-[0.95] group">
+        Build yours
+        <span class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5">
+          <i data-lucide="chevron-right" class="w-4 h-4 text-white" aria-hidden="true"></i>
+        </span>
+      </a>
+      <a href="docs.html" class="inline-flex items-center gap-3 glass-btn pl-6 pr-2 py-2 text-[15px] font-medium group">
+        View docs
+        <span class="w-7 h-7 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5" style="background: rgba(0,0,0,0.05);">
+          <i data-lucide="chevron-right" class="w-4 h-4 text-[var(--color-action-blue)]" aria-hidden="true"></i>
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="md:w-1/2 p-8 md:p-12 flex justify-center">
+    <img width="500" height="333" loading="lazy" alt="Aura component overview" class="w-full max-w-[450px] object-contain" src="assets/product/all-components.png">
+  </div>
+</div>
+</div>
+</section>
+</main>
+
+<div id="footer-mount"></div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click', function(e){
+    var t = document.querySelector(this.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
+</script>
+</body></html>

@@ -1,0 +1,257 @@
+.btn-primary {
+    background-color: var(--color-action-blue);
+    border-radius: var(--radius-pill);
+    color: var(--color-canvas-white);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+    opacity: 0.85;
+}
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+.btn-glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-pill);
+    color: var(--color-ink);
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+.btn-glass:hover {
+    background: rgba(255, 255, 255, 0.85);
+}
+.btn-glass:active {
+    transform: scale(0.95);
+}
+
+.spec-card {
+    border-radius: var(--radius-card);
+    background-color: var(--color-canvas-white);
+}
+
+.section-white {
+    background-color: var(--color-canvas-white);
+}
+
+.section-parchment {
+    background-color: var(--color-canvas-parchment);
+}
+
+.section-dark {
+    background-color: var(--color-canvas-dark);
+    color: var(--color-canvas-white);
+}
+
+.hero-pill {
+    animation: float 4s ease-in-out infinite;
+    transform-origin: center;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: var(--blur-glass);
+    -webkit-backdrop-filter: var(--blur-glass);
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    border-left: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.hero-pill-label {
+    color: rgba(255, 255, 255, 0.92);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    padding-left: 20px;
+    padding-right: 8px;
+}
+
+.hero-pill-divider {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.2);
+    align-self: center;
+}
+
+.hero-pill-btn {
+    background: var(--color-focus-blue);
+    color: #ffffff;
+    border-radius: var(--radius-pill);
+    padding: 8px 18px;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    margin: 4px;
+    text-decoration: none;
+    transition: background 0.2s ease;
+}
+.hero-pill-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 640px) {
+    .hero-pill-container {
+        margin-left: -16px;
+        margin-right: -16px;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(-0.5deg);
+    }
+    50% {
+        transform: translateY(-6px) rotate(-0.5deg);
+    }
+}
+
+@keyframes wavePulse {
+    0%, 100% { transform: scaleY(0.7); }
+    50% { transform: scaleY(1.1); }
+}
+
+.wave-bar {
+    animation: wavePulse 1.5s ease-in-out infinite;
+    transform-origin: bottom;
+}
+
+.wave-bar:nth-child(1) { animation-delay: 0.0s; height: 35%; }
+.wave-bar:nth-child(2) { animation-delay: 0.2s; height: 60%; }
+.wave-bar:nth-child(3) { animation-delay: 0.4s; height: 100%; }
+.wave-bar:nth-child(4) { animation-delay: 0.2s; height: 75%; }
+.wave-bar:nth-child(5) { animation-delay: 0.0s; height: 40%; }
+
+footer a {
+    padding: 8px 0;
+    margin: -8px 0;
+    display: inline-block;
+}
+
+.site-footer {
+    background-color: var(--color-canvas-parchment);
+    color: var(--color-ink);
+}
+
+.footer-link-item {
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-ink-tertiary);
+    line-height: 2.2;
+    transition: color 0.15s ease;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-link-item:hover {
+    color: var(--color-ink);
+}
+
+.footer-github-cta {
+    font-family: var(--font-text);
+    font-size: 13px;
+    color: var(--color-ink-tertiary);
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    margin: 0;
+    background: transparent;
+}
+
+.footer-github-cta:hover {
+    border-color: var(--color-ink-tertiary);
+    color: var(--color-ink);
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.footer-disabled-link {
+    font-family: var(--font-text);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--color-ink-tertiary);
+    line-height: 2.2;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.footer-legal-link {
+    font-family: var(--font-text);
+    font-size: 12px;
+    color: var(--color-ink-tertiary);
+    transition: color 0.15s ease;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-legal-link:hover {
+    color: var(--color-ink);
+}
+
+.footer-legal-disabled {
+    font-family: var(--font-text);
+    font-size: 12px;
+    color: var(--color-ink-tertiary);
+    text-decoration: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.bento-pocket,
+.bento-pocket-dark {
+    position: relative;
+    backdrop-filter: blur(30px) saturate(190%);
+    -webkit-backdrop-filter: blur(30px) saturate(190%);
+    border-radius: 18px;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.3s ease,
+                border-color 0.3s ease;
+}
+
+.bento-pocket {
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.bento-pocket-dark {
+    background: rgba(22, 22, 23, 0.8);
+}
+
+.bento-pocket:hover,
+.bento-pocket:focus-within {
+    transform: scale(1.015) translateY(-2px);
+    background: rgba(255, 255, 255, 0.55);
+}
+
+.bento-pocket-dark:hover,
+.bento-pocket-dark:focus-within {
+    transform: scale(1.015) translateY(-2px);
+    background: rgba(30, 30, 32, 0.85);
+}
+
+@keyframes orb-pulse {
+    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.45; }
+    50% { transform: scale(1.1) rotate(180deg); opacity: 0.65; }
+}
+
+.animate-orb {
+    animation: orb-pulse 8s infinite ease-in-out;
+}
+
+.perspective-nodes {
+    perspective: 1000px;
+}

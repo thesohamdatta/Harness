@@ -25,14 +25,13 @@ canvas {
     --color-canvas-pearl: #fafafc;
 
     --color-ink: #1d1d1f;
-    --color-ink-secondary: #6e6e73;
-    --color-ink-tertiary: #86868b;
+    --color-ink-secondary: #333333;
+    --color-ink-tertiary: #7a7a7a;
     --color-ink-dark: #ffffff;
 
     --color-action-blue: #0066cc;
     --color-focus-blue: #0071e3;
     --color-sky-blue: #2997ff;
-    --color-green: #00a854;
 
     --font-display:  'SF Pro Display', -apple-system, BlinkMacSystemFont,
                      'Helvetica Neue', Arial, sans-serif;
@@ -75,7 +74,7 @@ canvas {
     --bg-glass: rgba(255, 255, 255, 0.72);
     --bg-glass-dark: rgba(0, 0, 0, 0.4);
     --border-glass: rgba(255, 255, 255, 0.2);
-    --focus-ring: 0 0 0 4px rgba(0, 113, 227, 0.6);
+    --focus-ring: 4px solid rgba(0, 113, 227, 0.6);
 
     --radius-pill: 9999px;
     --radius-card: 18px;
@@ -89,6 +88,12 @@ canvas {
     --gutter: 24px;
     --prose-max: 680px;
 }
+
+.font-display { font-family: var(--font-display); }
+.font-text { font-family: var(--font-text); }
+.font-body { font-family: var(--font-text); }
+.font-mono { font-family: var(--font-mono); }
+.font-rounded { font-family: var(--font-rounded); }
 
 body {
     margin: 0;
@@ -114,8 +119,8 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 [tabindex="0"]:focus-visible {
-    outline: none;
-    box-shadow: var(--focus-ring);
+    outline: var(--focus-ring);
+    outline-offset: 2px;
     border-radius: var(--radius-utility);
 }
 
@@ -222,8 +227,8 @@ select:focus-visible,
 }
 .skip-link:focus-visible {
   top: 0;
-  outline: none;
-  box-shadow: var(--focus-ring);
+  outline: var(--focus-ring);
+  outline-offset: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {

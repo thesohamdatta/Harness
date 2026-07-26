@@ -2,12 +2,28 @@
     background-color: var(--color-action-blue);
     border-radius: var(--radius-pill);
     color: var(--color-canvas-white);
+    font-size: var(--type-body);
+    font-weight: 600;
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 .btn-primary:hover {
     opacity: 0.85;
 }
 .btn-primary:active {
+    transform: scale(0.95);
+}
+
+.btn-secondary {
+    border-radius: var(--radius-pill);
+    color: var(--color-focus-blue);
+    font-size: var(--type-body);
+    font-weight: 600;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.btn-secondary:hover {
+    opacity: 0.75;
+}
+.btn-secondary:active {
     transform: scale(0.95);
 }
 
@@ -18,6 +34,8 @@
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: var(--radius-pill);
     color: var(--color-ink);
+    font-size: var(--type-body);
+    font-weight: 600;
     transition: background 0.25s ease, transform 0.2s ease;
 }
 .btn-glass:hover {
@@ -45,9 +63,15 @@
     color: var(--color-canvas-white);
 }
 
+.product-shadow {
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.06));
+}
+
+.font-numeric {
+    font-variant-numeric: tabular-nums;
+}
+
 .hero-pill {
-    animation: float 4s ease-in-out infinite;
-    transform-origin: center;
     background: rgba(255, 255, 255, 0.18);
     backdrop-filter: var(--blur-glass);
     -webkit-backdrop-filter: var(--blur-glass);
@@ -57,11 +81,10 @@
 
 .hero-pill-label {
     color: rgba(255, 255, 255, 0.92);
-    font-family: var(--font-display);
-    font-size: 15px;
-    font-weight: 500;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 600;
     letter-spacing: -0.01em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
     padding-left: 20px;
     padding-right: 8px;
 }
@@ -78,9 +101,9 @@
     color: #ffffff;
     border-radius: var(--radius-pill);
     padding: 8px 18px;
-    font-family: var(--font-display);
-    font-size: 15px;
-    font-weight: 500;
+    font-family: var(--font-text);
+    font-size: 14px;
+    font-weight: 600;
     margin: 4px;
     text-decoration: none;
     transition: background 0.2s ease;
@@ -198,23 +221,12 @@
 
 .bento-pocket:hover,
 .bento-pocket:focus-within {
-    transform: scale(1.015) translateY(-2px);
     background: rgba(255, 255, 255, 0.55);
 }
 
 .bento-pocket-dark:hover,
 .bento-pocket-dark:focus-within {
-    transform: scale(1.015) translateY(-2px);
     background: rgba(30, 30, 32, 0.85);
-}
-
-@keyframes orb-pulse {
-    0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.45; }
-    50% { transform: scale(1.1) rotate(180deg); opacity: 0.65; }
-}
-
-.animate-orb {
-    animation: orb-pulse 8s infinite ease-in-out;
 }
 
 .perspective-nodes {

@@ -1,117 +1,216 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    margin: 0;
-    min-width: 0;
-    overflow-x: hidden;
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
 }
 
 img,
 svg,
 video,
 canvas {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 :root {
-    --color-canvas-white: #ffffff;
-    --color-canvas-parchment: #f5f5f7;
-    --color-canvas-dark: #272729;
-    --color-canvas-black: #000000;
-    --color-canvas-pearl: #fafafc;
+  /* ── Colors ───────────────────────────────────────────────────── */
+  --color-canvas: #ffffff;
+  --color-canvas-white: #ffffff;
+  --color-canvas-parchment: #f5f5f7;
+  --color-canvas-dark: #272729;
+  --color-canvas-black: #000000;
+  --color-canvas-pearl: #fafafc;
+  --color-surface-chip-translucent: #d2d2d7;
 
-    --color-ink: #1d1d1f;
-    --color-ink-secondary: #333333;
-    --color-ink-tertiary: #7a7a7a;
-    --color-ink-dark: #ffffff;
+  --color-ink: #1d1d1f;
+  --color-ink-secondary: #333333;
+  --color-ink-tertiary: #7a7a7a;
+  --color-ink-dark: #ffffff;
 
-    --color-action-blue: #0066cc;
-    --color-focus-blue: #0071e3;
-    --color-sky-blue: #2997ff;
+  --color-action-blue: #0066cc;
+  --color-focus-blue: #0071e3;
+  --color-sky-blue: #2997ff;
 
-    --font-display:  'SF Pro Display', -apple-system, BlinkMacSystemFont,
-                     'Helvetica Neue', Arial, sans-serif;
-    --font-text:     'SF Pro Text',    -apple-system, BlinkMacSystemFont,
-                     'Helvetica Neue', Arial, sans-serif;
-    --font-rounded:  'SF Pro Rounded', -apple-system, BlinkMacSystemFont,
-                     'Helvetica Neue', Arial, sans-serif;
-    --font-mono:     SFMono-Regular, Consolas, Monaco, monospace;
+  --color-ink-muted-53: #86868b;
+  --color-divider-soft: #f0f0f0;
+  --color-hairline: #e0e0e0;
 
-    --type-hero:        80px;
-    --type-display:     56px;
-    --type-title-xl:    48px;
-    --type-title-lg:    40px;
-    --type-title-md:    28px;
-    --type-title-sm:    21px;
-    --type-body-lg:     19px;
-    --type-body:        17px;
-    --type-body-sm:     15px;
-    --type-label:       14px;
-    --type-caption:     13px;
-    --type-micro:       11px;
+  /* ── Fonts ─────────────────────────────────────────────────────── */
+  --font-display:
+    "SF Pro Display", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-text:
+    "SF Pro Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial,
+    sans-serif;
+  --font-rounded:
+    "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+  --font-mono: SFMono-Regular, Consolas, Monaco, monospace;
 
-    --tracking-hero:     -0.005em;
-    --tracking-display:  -0.003em;
-    --tracking-title:    -0.002em;
-    --tracking-body:      0em;
-    --tracking-label:     0em;
-    --tracking-caps:      0;
+  /* ── Type tokens (DESIGN.md canonical) ─────────────────────────── */
+  --type-display-4xl: 120px;
+  --type-display-3xl: 72px;
+  --type-hero-display-lg: 80px;
+  --type-display-2xl: 64px;
+  --type-hero-display: 56px;
+  --type-display-xl: 48px;
+  --type-display-lg: 40px;
+  --type-display-md: 36px;
+  --type-display-sm: 32px;
+  --type-lead: 28px;
+  --type-lead-airy: 24px;
+  --type-tagline: 21px;
+  --type-body-lg: 19px;
+  --type-body-strong: 17px;
+  --type-body: 17px;
+  --type-body-sm: 15px;
+  --type-caption: 14px;
+  --type-caption-strong: 14px;
+  --type-eyebrow: 13px;
+  --type-button-large: 18px;
+  --type-button-utility: 14px;
+  --type-fine-print: 12px;
+  --type-micro: 11px;
+  --type-micro-legal: 10px;
+  --type-nav-link: 12px;
 
-    --leading-tight:   1.05;
-    --leading-snug:    1.2;
-    --leading-normal:  1.47;
-    --leading-relaxed: 1.6;
+  /* Legacy type aliases (backward compat) */
+  --type-hero: 80px;
+  --type-display: 56px;
+  --type-title-xl: 48px;
+  --type-title-lg: 40px;
+  --type-title-md: 28px;
+  --type-title-sm: 21px;
+  --type-label: 14px;
+  --type-caption: 13px; /* maps to eyebrow in DESIGN.md */
 
-    --body-size: 17px;
-    --body-line-height: 1.47;
-    --heading-tracking: -0.02em;
+  /* ── Tracking ──────────────────────────────────────────────────── */
+  --tracking-hero: -0.005em;
+  --tracking-display: -0.003em;
+  --tracking-title: -0.002em;
+  --tracking-body: 0em;
+  --tracking-label: 0em;
+  --tracking-caps: 0;
 
-    --blur-glass: blur(20px) saturate(180%);
-    --bg-glass: rgba(255, 255, 255, 0.72);
-    --bg-glass-dark: rgba(0, 0, 0, 0.4);
-    --border-glass: rgba(255, 255, 255, 0.2);
-    --focus-ring: 4px solid rgba(0, 113, 227, 0.6);
+  /* ── Leading ───────────────────────────────────────────────────── */
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.47;
+  --leading-relaxed: 1.6;
 
-    --radius-pill: 9999px;
-    --radius-card: 18px;
-    --radius-utility: 8px;
-    --radius-tile: 0px;
+  /* ── Body defaults ─────────────────────────────────────────────── */
+  --body-size: 17px;
+  --body-line-height: 1.47;
+  --heading-tracking: -0.02em;
 
-    --content-max: 980px;
-    --hero-max: 1200px;
-    --section-padding: 80px;
-    --section-padding-mobile: 60px;
-    --gutter: 24px;
-    --prose-max: 680px;
+  /* ── Glass material system (Apple HIG hierarchy) ───────────────── */
+  /* Light materials */
+  --material-ultra-thin: blur(40px) saturate(180%);
+  --material-thin: blur(30px) saturate(180%);
+  --material-regular: blur(20px) saturate(180%);
+  --material-thick: blur(12px) saturate(180%);
+  --material-ultra-thick: blur(5px) saturate(180%);
+
+  --bg-ultra-thin: rgba(255, 255, 255, 0.3);
+  --bg-thin: rgba(255, 255, 255, 0.48);
+  --bg-regular: rgba(255, 255, 255, 0.72);
+  --bg-thick: rgba(255, 255, 255, 0.88);
+  --bg-ultra-thick: rgba(255, 255, 255, 0.95);
+
+  /* Dark materials */
+  --bg-dark-ultra-thin: rgba(0, 0, 0, 0.2);
+  --bg-dark-thin: rgba(0, 0, 0, 0.3);
+  --bg-dark-regular: rgba(0, 0, 0, 0.4);
+  --bg-dark-thick: rgba(0, 0, 0, 0.65);
+  --bg-dark-ultra-thick: rgba(0, 0, 0, 0.85);
+
+  --border-glass: rgba(255, 255, 255, 0.2);
+  --border-glass-dark: rgba(255, 255, 255, 0.1);
+
+  /* Legacy glass compat */
+  --blur-glass: blur(20px) saturate(180%);
+  --bg-glass: rgba(255, 255, 255, 0.72);
+  --bg-glass-dark: rgba(0, 0, 0, 0.4);
+
+  --focus-ring: 4px solid rgba(0, 113, 227, 0.6);
+
+  /* ── Radius (DESIGN.md canonical) ──────────────────────────────── */
+  --radius-none: 0px;
+  --radius-xs: 5px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 32px;
+  --radius-pill: 9999px;
+  --radius-full: 9999px;
+
+  /* Legacy radius aliases */
+  --radius-card: 18px;
+  --radius-utility: 8px;
+  --radius-tile: 0px;
+
+  /* ── Motion (Apple HIG spring curves) ──────────────────────────── */
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
+  --ease-glass: cubic-bezier(0.23, 1, 0.32, 1);
+
+  --duration-fast: 0.15s;
+  --duration-normal: 0.3s;
+  --duration-slow: 0.6s;
+
+  /* ── Layout ────────────────────────────────────────────────────── */
+  --content-max: 980px;
+  --hero-max: 1200px;
+  --section-padding: 80px;
+  --section-padding-mobile: 60px;
+  --gutter: 24px;
+  --prose-max: 680px;
 }
 
-.font-display { font-family: var(--font-display); }
-.font-text { font-family: var(--font-text); }
-.font-body { font-family: var(--font-text); }
-.font-mono { font-family: var(--font-mono); }
-.font-rounded { font-family: var(--font-rounded); }
+.font-display {
+  font-family: var(--font-display);
+}
+.font-text {
+  font-family: var(--font-text);
+}
+.font-body {
+  font-family: var(--font-text);
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+.font-rounded {
+  font-family: var(--font-rounded);
+}
 
 body {
-    margin: 0;
-    min-width: 0;
-    overflow-x: hidden;
-    font-family: var(--font-text);
-    font-size: var(--body-size);
-    line-height: var(--body-line-height);
-    color: var(--color-ink);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+  margin: 0;
+  min-width: 0;
+  overflow-x: hidden;
+  font-family: var(--font-text);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    letter-spacing: var(--heading-tracking);
-    scroll-margin-top: 80px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: var(--heading-tracking);
+  scroll-margin-top: 80px;
 }
 
 a:focus-visible,
@@ -119,95 +218,171 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 [tabindex="0"]:focus-visible {
-    outline: var(--focus-ring);
-    outline-offset: 2px;
-    border-radius: var(--radius-utility);
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-utility);
 }
 
+/* ── Glass material system (Apple HIG hierarchy) ──────────────────────── */
+
+/* Material hierarchy: ultra-thin → ultra-thick */
+.glass-ultra-thin {
+  background: var(--bg-ultra-thin);
+  backdrop-filter: var(--material-ultra-thin);
+  -webkit-backdrop-filter: var(--material-ultra-thin);
+}
+.glass-thin {
+  background: var(--bg-thin);
+  backdrop-filter: var(--material-thin);
+  -webkit-backdrop-filter: var(--material-thin);
+}
+.glass-regular {
+  background: var(--bg-regular);
+  backdrop-filter: var(--material-regular);
+  -webkit-backdrop-filter: var(--material-regular);
+}
+.glass-thick {
+  background: var(--bg-thick);
+  backdrop-filter: var(--material-thick);
+  -webkit-backdrop-filter: var(--material-thick);
+}
+.glass-ultra-thick {
+  background: var(--bg-ultra-thick);
+  backdrop-filter: var(--material-ultra-thick);
+  -webkit-backdrop-filter: var(--material-ultra-thick);
+}
+
+/* Dark material variants */
+.glass-dark-ultra-thin {
+  background: var(--bg-dark-ultra-thin);
+  backdrop-filter: var(--material-ultra-thin);
+  -webkit-backdrop-filter: var(--material-ultra-thin);
+}
+.glass-dark-thin {
+  background: var(--bg-dark-thin);
+  backdrop-filter: var(--material-thin);
+  -webkit-backdrop-filter: var(--material-thin);
+}
+.glass-dark-regular {
+  background: var(--bg-dark-regular);
+  backdrop-filter: var(--material-regular);
+  -webkit-backdrop-filter: var(--material-regular);
+}
+.glass-dark-thick {
+  background: var(--bg-dark-thick);
+  backdrop-filter: var(--material-thick);
+  -webkit-backdrop-filter: var(--material-thick);
+}
+.glass-dark-ultra-thick {
+  background: var(--bg-dark-ultra-thick);
+  backdrop-filter: var(--material-ultra-thick);
+  -webkit-backdrop-filter: var(--material-ultra-thick);
+}
+
+/* Legacy glass compat */
 .glass-nav {
-    backdrop-filter: var(--blur-glass);
-    -webkit-backdrop-filter: var(--blur-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
 }
 
 .glass-card {
-    background: var(--bg-glass);
-    backdrop-filter: var(--blur-glass);
-    -webkit-backdrop-filter: var(--blur-glass);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: var(--radius-card);
+  background: var(--bg-glass);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-card);
 }
 
 .glass-card-dark {
-    background: var(--bg-glass-dark);
-    backdrop-filter: var(--blur-glass);
-    -webkit-backdrop-filter: var(--blur-glass);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: var(--radius-card);
+  background: var(--bg-glass-dark);
+  backdrop-filter: var(--blur-glass);
+  -webkit-backdrop-filter: var(--blur-glass);
+  border: 1px solid var(--border-glass-dark);
+  border-radius: var(--radius-card);
 }
 
 .glass-icon {
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(15px) saturate(180%);
-    -webkit-backdrop-filter: blur(15px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(15px) saturate(180%);
+  -webkit-backdrop-filter: blur(15px) saturate(180%);
+  border: 1px solid var(--border-glass);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .glass-btn {
-    background: var(--bg-glass);
-    backdrop-filter: blur(10px) saturate(180%);
-    -webkit-backdrop-filter: blur(10px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: var(--radius-pill);
-    color: var(--color-ink);
-    transition: background 0.25s ease, transform 0.2s ease;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px) saturate(180%);
+  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-pill);
+  color: var(--color-ink);
+  transition:
+    background var(--duration-normal) var(--ease-out),
+    transform var(--duration-fast) var(--ease-spring);
 }
 
 .glass-btn:hover {
-    background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.85);
 }
 
 .glass-btn:active {
-    transform: scale(0.97);
+  transform: scale(0.97);
 }
 
+/* ── Scroll reveal (Apple-style fade + translate) ─────────────────────── */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-spring);
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Custom components ────────────────────────────────────────────────── */
+
 .no-scrollbar::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 ::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: transparent;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: #e4e2e4;
-    border-radius: 10px;
+  background: var(--color-hairline);
+  border-radius: var(--radius-pill);
 }
 
 .bento-grid {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 24px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
 }
 .timeline-line::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background-color: #e4e2e4;
-    transform: translateX(-50%);
-    z-index: 0;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: var(--color-hairline);
+  transform: translateX(-50%);
+  z-index: 0;
 }
 
 .skip-link {
@@ -231,216 +406,11 @@ select:focus-visible,
   outline-offset: 2px;
 }
 
-/* -------------------------------------------------------------------------- */
-
-
-.gap-1 { gap: 4px; }
-.gap-2 { gap: 8px; }
-.gap-3 { gap: 12px; }
-.gap-4 { gap: 16px; }
-.gap-5 { gap: 20px; }
-.gap-6 { gap: 24px; }
-.gap-8 { gap: 32px; }
-.gap-12 { gap: 48px; }
-.gap-16 { gap: 64px; }
-.gap-y-2 { row-gap: 8px; }
-
-.col-span-1 { grid-column: span 1 / span 1; }
-.col-span-2 { grid-column: span 2 / span 2; }
-
-/* Display & Visibility */
-.block { display: block; }
-.inline-block { display: inline-block; }
-.hidden { display: none; }
-
-/* Positioning */
-.relative { position: relative; }
-.absolute { position: absolute; }
-.fixed { position: fixed; }
-.sticky { position: sticky; }
-
-.top-0 { top: 0; }
-.left-0 { left: 0; }
-.right-0 { right: 0; }
-.bottom-0 { bottom: 0; }
-.top-\[52px\] { top: 52px; }
-.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
-.z-10 { z-index: 10; }
-.scroll-mt-24 { scroll-margin-top: 96px; }
-
-/* Sizing */
-.w-full { width: 100%; }
-.w-3\.5 { width: 14px; }
-.w-4 { width: 16px; }
-.w-5 { width: 20px; }
-.w-7 { width: 28px; }
-.w-8 { width: 32px; }
-.w-14 { width: 56px; }
-.w-\[240px\] { width: 240px; }
-
-.h-full { height: 100%; }
-.h-3\.5 { height: 14px; }
-.h-4 { height: 16px; }
-.h-5 { height: 20px; }
-.h-7 { height: 28px; }
-.h-8 { height: 32px; }
-.h-14 { height: 56px; }
-.h-\[calc\(100vh-52px\)\] { height: calc(100vh - 52px); }
-
-.min-h-screen { min-height: 100vh; }
-.min-h-\[100dvh\] { min-height: 100dvh; }
-.min-h-\[calc\(100vh-52px\)\] { min-height: calc(100vh - 52px); }
-.min-w-0 { min-width: 0; }
-
-.max-w-\[var\(--content-max\)\] { max-w: 980px; width: 100%; }
-.max-w-\[450px\] { max-width: 450px; }
-.max-w-\[480px\] { max-width: 480px; }
-.max-w-\[500px\] { max-width: 500px; }
-.max-w-\[600px\] { max-width: 600px; }
-.max-w-\[680px\] { max-width: 680px; }
-.max-w-\[720px\] { max-width: 720px; }
-.max-w-\[800px\] { max-width: 800px; }
-.max-w-\[1200px\] { max-width: 1200px; }
-.mx-auto { margin-left: auto; margin-right: auto; }
-.mx-2 { margin-left: 8px; margin-right: 8px; }
-
-/* Spacing */
-.m-0 { margin: 0; }
-.mb-0 { margin-bottom: 0; }
-.mb-1 { margin-bottom: 4px; }
-.mb-2 { margin-bottom: 8px; }
-.mb-3 { margin-bottom: 12px; }
-.mb-4 { margin-bottom: 16px; }
-.mb-6 { margin-bottom: 24px; }
-.mb-8 { margin-bottom: 32px; }
-.mb-10 { margin-bottom: 40px; }
-.mb-12 { margin-bottom: 48px; }
-.mb-16 { margin-bottom: 64px; }
-.mb-20 { margin-bottom: 80px; }
-
-.mt-2 { margin-top: 8px; }
-.mt-4 { margin-top: 16px; }
-.mt-8 { margin-top: 32px; }
-.mt-16 { margin-top: 64px; }
-
-.p-4 { padding: 16px; }
-.p-8 { padding: 32px; }
-.px-3 { padding-left: 12px; padding-right: 12px; }
-.px-4 { padding-left: 16px; padding-right: 16px; }
-.px-6 { padding-left: 24px; padding-right: 24px; }
-
-.py-1\.5 { padding-top: 6px; padding-bottom: 6px; }
-.py-2 { padding-top: 8px; padding-bottom: 8px; }
-.py-3 { padding-top: 12px; padding-bottom: 12px; }
-.py-5 { padding-top: 20px; padding-bottom: 20px; }
-.py-8 { padding-top: 32px; padding-bottom: 32px; }
-.py-20 { padding-top: 80px; padding-bottom: 80px; }
-.py-\[80px\] { padding-top: 80px; padding-bottom: 80px; }
-
-.pt-6 { padding-top: 24px; }
-.pt-12 { padding-top: 48px; }
-.pt-\[52px\] { padding-top: 52px; }
-.pt-\[120px\] { padding-top: 120px; }
-
-.pb-3 { padding-bottom: 12px; }
-.pb-4 { padding-bottom: 16px; }
-.pb-20 { padding-bottom: 80px; }
-.pb-\[60px\] { padding-bottom: 60px; }
-.pb-\[120px\] { padding-bottom: 120px; }
-
-/* Typography */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-
-.font-bold { font-weight: 600; } /* Aligned to DESIGN.md weight 600 for headlines */
-.font-semibold { font-weight: 600; }
-.font-medium { font-weight: 600; }
-
-.text-white { color: #ffffff; }
-.text-white\/40 { color: rgba(255, 255, 255, 0.4); }
-.text-white\/60 { color: rgba(255, 255, 255, 0.6); }
-.text-white\/70 { color: rgba(255, 255, 255, 0.7); }
-.text-white\/80 { color: rgba(255, 255, 255, 0.8); }
-.text-white\/90 { color: rgba(255, 255, 255, 0.9); }
-
-.leading-\[1\] { line-height: 1; }
-.leading-\[1\.05\] { line-height: 1.05; }
-.leading-relaxed { line-height: 1.47; }
-
-.tracking-tight { letter-spacing: -0.02em; }
-.tracking-wider { letter-spacing: 0.05em; }
-.tracking-\[-0\.003em\] { letter-spacing: -0.003em; }
-.tracking-\[-0\.005em\] { letter-spacing: -0.005em; }
-.uppercase { text-transform: uppercase; }
-
-/* Backgrounds & Colors */
-.bg-white { background-color: #ffffff; }
-.bg-black { background-color: #000000; }
-.bg-black\/5 { background-color: rgba(0, 0, 0, 0.05); }
-
-/* Rounding & Image */
-.rounded-full { border-radius: 9999px; }
-.rounded-md { border-radius: 8px; }
-.rounded-\[32px\] { border-radius: 32px; }
-
-.border-t { border-top: 1px solid var(--color-ink-tertiary); }
-.border-b { border-bottom: 1px solid rgba(0, 0, 0, 0.08); }
-.border-b-black\/10 { border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-
-.object-cover { object-fit: cover; }
-.object-center { object-position: center; }
-.object-contain { object-fit: contain; }
-.opacity-70 { opacity: 0.7; }
-
-.space-y-3 > * + * { margin-top: 12px; }
-.list-decimal { list-style-type: decimal; }
-.pl-6 { padding-left: 24px; }
-
-/* Responsive Media Queries */
-@media (min-width: 640px) {
-  .sm\:flex-row { flex-direction: row; }
-}
-
-@media (min-width: 768px) {
-  .md\:flex { display: flex; }
-  .md\:hidden { display: none; }
-  .md\:flex-row { flex-direction: row; }
-  .md\:flex-col { flex-direction: column; }
-  .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .md\:grid-cols-\[1\.5fr_1fr_1fr_1fr_1fr\] { grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; }
-  .md\:w-1\/2 { width: 50%; }
-  .md\:w-auto { width: auto; }
-  .md\:col-span-1 { grid-column: span 1 / span 1; }
-  
-  .md\:text-left { text-align: left; }
-  
-  .md\:text-\[21px\] { font-size: 21px; }
-  .md\:text-\[32px\] { font-size: 32px; }
-  .md\:text-\[36px\] { font-size: 36px; }
-  .md\:text-\[48px\] { font-size: 48px; }
-  .md\:text-\[56px\] { font-size: 56px; }
-  .md\:text-\[64px\] { font-size: 64px; }
-  .md\:text-\[72px\] { font-size: 72px; }
-  .md\:text-\[80px\] { font-size: 80px; }
-  .md\:text-\[120px\] { font-size: 120px; }
-
-  .md\:pt-\[160px\] { padding-top: 160px; }
-  .md\:pb-\[80px\] { padding-bottom: 80px; }
-  .md\:py-\[120px\] { padding-top: 120px; padding-bottom: 120px; }
-  
-  .md\:mb-0 { margin-bottom: 0; }
-  .md\:mb-16 { margin-bottom: 64px; }
-  .md\:mb-20 { margin-bottom: 80px; }
-
-  .md\:p-10 { padding: 40px; }
-  .md\:p-12 { padding: 48px; }
-
-  .md\:gap-6 { gap: 24px; }
-  .md\:gap-12 { gap: 48px; }
-}
-
+/* ── Reduced motion ───────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *,
+  ::before,
+  ::after {
     animation-delay: -1ms !important;
     animation-duration: 1ms !important;
     animation-iteration-count: 1 !important;
@@ -450,4 +420,3 @@ select:focus-visible,
     transition-delay: 0s !important;
   }
 }
-

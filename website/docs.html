@@ -1,356 +1,877 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="description" content="Technical documentation and build guides for the open-source Aura hardware, firmware, and backend.">
-<meta name="theme-color" content="#ffffff">
-<title>Aura Documentation | Build Manual</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/docs.css">
-<script src="js/nav.js" defer></script>
-<script src="https://unpkg.com/lucide@latest" defer></script>
-</head>
-<body class="bg-white font-body">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      name="description"
+      content="Technical documentation and build guides for the open-source Aura hardware, firmware, and backend."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Aura Documentation | Build Manual</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/docs.css" />
+    <link rel="stylesheet" href="css/utils.css" />
+    <script src="js/nav.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+  </head>
+  <body class="bg-white font-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-wordmark">Aura</a>
+        <div id="mobileMenu" class="nav-links">
+          <a href="index.html" class="nav-link">Overview</a>
+          <a href="manifesto.html" class="nav-link">Manifesto</a>
+          <a href="docs.html" class="nav-link active" aria-current="page"
+            >Docs</a
+          >
+        </div>
+        <div class="nav-actions">
+          <a href="docs.html#hardware" class="nav-cta">Build Yours</a>
+          <button
+            id="navToggle"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Toggle navigation menu"
+          >
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-<nav id="navbar">
-<div class="nav-inner">
-  <a href="index.html" class="nav-wordmark">Aura</a>
-  <div id="mobileMenu" class="nav-links">
-    <a href="index.html" class="nav-link">Overview</a>
-    <a href="manifesto.html" class="nav-link">Manifesto</a>
-    <a href="docs.html" class="nav-link active" aria-current="page">Docs</a>
-  </div>
-  <div class="nav-actions">
-    <a href="docs.html#hardware" class="nav-cta">Build Yours</a>
-    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
-      <i data-lucide="menu" class="w-5 h-5"></i>
+    <div class="flex max-w-[1200px] mx-auto pt-[52px] min-h-screen">
+      <aside
+        id="docs-sidebar"
+        class="docs-sidebar w-[240px] h-[calc(100vh-52px)] sticky top-[52px] hidden md:flex flex-col py-8 px-4 overflow-y-auto shrink-0 self-start"
+      >
+        <div class="mb-6 px-3">
+          <p
+            class="font-display text-[15px] font-semibold text-[var(--color-ink)] mb-1 tracking-tight"
+          >
+            Documentation
+          </p>
+          <p class="font-body text-[12px] text-[var(--color-ink-tertiary)]">
+            Aura Build Manual
+          </p>
+        </div>
+        <nav class="flex flex-col gap-1">
+          <div class="mb-4">
+            <p
+              class="font-body text-[11px] font-bold text-[var(--color-ink-tertiary)] mb-2 px-3 uppercase tracking-wider"
+            >
+              Getting Started
+            </p>
+            <a
+              href="#what-is-aura"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >What Is Aura</a
+            >
+            <a
+              href="#how-it-works"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >How It Works</a
+            >
+            <a
+              href="#bom"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Bill of Materials</a
+            >
+          </div>
+          <div class="mb-4">
+            <p
+              class="font-body text-[11px] font-bold text-[var(--color-ink-tertiary)] mb-2 px-3 uppercase tracking-wider"
+            >
+              Engineering
+            </p>
+            <a
+              href="#hardware"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Hardware Overview</a
+            >
+            <a
+              href="#firmware"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Flashing Firmware</a
+            >
+            <a
+              href="#backend"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Backend Setup</a
+            >
+            <a
+              href="#app"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Companion App</a
+            >
+          </div>
+          <div class="mb-4">
+            <p
+              class="font-body text-[11px] font-bold text-[var(--color-ink-tertiary)] mb-2 px-3 uppercase tracking-wider"
+            >
+              Configuration
+            </p>
+            <a
+              href="#ai-providers"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >AI Providers</a
+            >
+            <a
+              href="#memory"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Memory &amp; RAG</a
+            >
+            <a
+              href="#troubleshooting"
+              class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]"
+              >Troubleshooting</a
+            >
+          </div>
+        </nav>
+      </aside>
+
+      <main id="main-content" class="flex-1 min-w-0 pb-20">
+        <div class="max-w-[720px] mx-auto px-6 pt-12">
+          <nav
+            class="flex items-center gap-2 text-[13px] text-[var(--color-ink-secondary)] mb-8"
+          >
+            <span>Aura</span>
+            <i
+              data-lucide="chevron-right"
+              class="w-3.5 h-3.5"
+              aria-hidden="true"
+            ></i>
+            <span class="text-[var(--color-ink)]">Documentation</span>
+          </nav>
+
+          <h1
+            class="font-display text-[40px] md:text-[64px] text-[var(--color-ink)] font-bold tracking-[-0.003em] leading-[1.05] mb-4"
+          >
+            Aura Build Manual
+          </h1>
+          <p
+            class="font-body text-[17px] text-[var(--color-ink-secondary)] mb-12 max-w-[600px] leading-relaxed"
+          >
+            A structured reference for sourcing the pendant, flashing firmware,
+            running the backend, and pairing the app.
+          </p>
+
+          <section class="mb-16 scroll-mt-24" id="build-path">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Build Path
+            </h2>
+            <ol
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] space-y-3 list-decimal pl-6 leading-relaxed"
+            >
+              <li>
+                <a
+                  href="#bom"
+                  class="text-[var(--color-action-blue)] hover:underline"
+                  >Source the bill of materials</a
+                >
+                and confirm the pendant case parts.
+              </li>
+              <li>
+                <a
+                  href="#hardware"
+                  class="text-[var(--color-action-blue)] hover:underline"
+                  >Assemble the XIAO ESP32-S3 Sense hardware</a
+                >
+                with camera, microphone, battery, and enclosure.
+              </li>
+              <li>
+                <a
+                  href="#firmware"
+                  class="text-[var(--color-action-blue)] hover:underline"
+                  >Flash the firmware</a
+                >
+                and verify serial, camera, BLE, and Wi-Fi.
+              </li>
+              <li>
+                <a
+                  href="#backend"
+                  class="text-[var(--color-action-blue)] hover:underline"
+                  >Deploy the backend</a
+                >
+                with transcription, model routing, storage, and retrieval
+                configured.
+              </li>
+              <li>
+                <a
+                  href="#app"
+                  class="text-[var(--color-action-blue)] hover:underline"
+                  >Pair the companion app</a
+                >, test capture, and review privacy controls.
+              </li>
+            </ol>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="what-is-aura">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              What Is Aura
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Aura is an open-source AI wearable you wear around your neck. It
+              listens, sees, and transcribes so you do not have to pause your
+              day to take notes.
+            </p>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Audio and images are captured and routed to a self-hosted or cloud
+              backend. Summaries and transcripts are accessible from your phone.
+            </p>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              Built on the open Omi ecosystem. Parts cost under $50.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="how-it-works">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              How It Works
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              The pipeline is straightforward:
+            </p>
+            <ul
+              class="list-disc pl-6 mb-4 font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-2 leading-relaxed"
+            >
+              <li>The microphone captures audio continuously.</li>
+              <li>The camera captures images at set intervals.</li>
+              <li>Both are sent to the backend over Wi-Fi.</li>
+              <li>The backend transcribes audio via Deepgram or Whisper.</li>
+              <li>Images are analyzed via GPT-4o Vision or Moondream.</li>
+              <li>Everything is summarized and stored.</li>
+              <li>You see it all in the Omi app on your phone.</li>
+            </ul>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              The ESP32-S3 handles capture and transmission. The backend handles
+              all AI processing. Your phone is the interface.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="bom">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Bill of Materials
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-6 leading-relaxed"
+            >
+              Parts list with estimated costs:
+            </p>
+            <div class="overflow-x-auto mb-6">
+              <table
+                class="w-full text-left font-body text-[14px] text-[var(--color-ink-secondary)] border-collapse"
+              >
+                <thead>
+                  <tr class="border-b border-black/20">
+                    <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">
+                      Item
+                    </th>
+                    <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">
+                      Where to Buy
+                    </th>
+                    <th class="py-3 font-semibold text-[var(--color-ink)]">
+                      Approx Cost
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">XIAO ESP32-S3 Sense</td>
+                    <td class="py-3 pr-4">Seeed Studio / Amazon</td>
+                    <td class="py-3">$15–24</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">150mAh LiPo × 6</td>
+                    <td class="py-3 pr-4">Amazon</td>
+                    <td class="py-3">$12</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Wires</td>
+                    <td class="py-3 pr-4">Amazon</td>
+                    <td class="py-3">$5</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">3D printed case</td>
+                    <td class="py-3 pr-4">Print yourself or order online</td>
+                    <td class="py-3">$5–10</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">USB-C cable</td>
+                    <td class="py-3 pr-4">Anywhere</td>
+                    <td class="py-3">—</td>
+                  </tr>
+                  <tr
+                    class="border-b border-black/20 font-semibold text-[var(--color-ink)]"
+                  >
+                    <td class="py-3 pr-4">Total</td>
+                    <td class="py-3 pr-4"></td>
+                    <td class="py-3">~$50–70</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              Case STL files are in the Aura hardware folder on GitHub.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="hardware">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Hardware Overview
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-6 leading-relaxed"
+            >
+              The XIAO ESP32-S3 Sense is the core. Camera and microphone are
+              integrated on the board, so no extra modules are needed.
+            </p>
+            <div class="overflow-x-auto mb-6">
+              <table
+                class="w-full text-left font-body text-[14px] text-[var(--color-ink-secondary)] border-collapse"
+              >
+                <thead>
+                  <tr class="border-b border-black/20">
+                    <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">
+                      Component
+                    </th>
+                    <th class="py-3 font-semibold text-[var(--color-ink)]">
+                      Details
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Microcontroller</td>
+                    <td class="py-3">XIAO ESP32-S3 Sense</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Camera</td>
+                    <td class="py-3">OV2640 (built into board)</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Microphone</td>
+                    <td class="py-3">PDM (built into board)</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Battery</td>
+                    <td class="py-3">6× 150mAh LiPo cells</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Enclosure</td>
+                    <td class="py-3">Custom 3D printed case</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Connectivity</td>
+                    <td class="py-3">Wi-Fi 2.4 GHz + Bluetooth LE</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Dimensions</td>
+                    <td class="py-3">50 × 68 × 18 mm</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Weight</td>
+                    <td class="py-3">80 g</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4">Battery Life</td>
+                    <td class="py-3">4 h active / 45 min charge</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              Mount the board, route the battery wires, and snap the case shut.
+              The pendant loop is built into the design.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="firmware">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Flashing Firmware
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Clone the firmware repo and flash using PlatformIO:
+            </p>
+            <div
+              class="bg-[var(--color-canvas-parchment)] rounded-[12px] p-4 mb-6 font-mono text-[13px] text-[var(--color-ink)] overflow-x-auto leading-relaxed"
+            >
+              git clone https://github.com/thesohamdatta/Aura-Wearable-AI.git<br />
+              cd Aura-Wearable-AI/firmware<br />
+              pio run --target upload
+            </div>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Connect the board via USB-C, select the correct port, and upload.
+              Verify with the serial monitor:
+            </p>
+            <div
+              class="bg-[var(--color-canvas-parchment)] rounded-[12px] p-4 mb-6 font-mono text-[13px] text-[var(--color-ink)] overflow-x-auto leading-relaxed"
+            >
+              pio device monitor --port COM3
+            </div>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              You should see the boot log with Wi-Fi, camera, and BLE
+              initialization.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="backend">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Backend Setup
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              The backend handles transcription, image analysis, and memory
+              storage. Deploy with Docker:
+            </p>
+            <div
+              class="bg-[var(--color-canvas-parchment)] rounded-[12px] p-4 mb-6 font-mono text-[13px] text-[var(--color-ink)] overflow-x-auto leading-relaxed"
+            >
+              git clone https://github.com/thesohamdatta/Aura-Wearable-AI.git<br />
+              cd Aura-Wearable-AI/backend<br />
+              cp .env.example .env<br />
+              # Edit .env with your API keys<br />
+              docker compose up -d
+            </div>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Required services:
+            </p>
+            <ul
+              class="list-disc pl-6 mb-4 font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-2 leading-relaxed"
+            >
+              <li>
+                <strong>Deepgram</strong> or <strong>Whisper</strong> for
+                transcription
+              </li>
+              <li>
+                <strong>Groq</strong> or <strong>OpenAI</strong> for LLM
+                inference
+              </li>
+              <li><strong>Pinecone</strong> for vector memory storage</li>
+            </ul>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="app">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Companion App
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              The Omi app connects to Aura over Bluetooth LE. It shows your
+              conversation history, memory timeline, and device controls.
+            </p>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Download the app, create an account, and pair your device. The
+              setup wizard will guide you through the process.
+            </p>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              Once paired, you can browse transcripts, search memories, and
+              adjust capture intervals.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="ai-providers">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              AI Providers
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Aura supports multiple AI backends. Configure your providers in
+              the .env file:
+            </p>
+            <div class="overflow-x-auto mb-6">
+              <table
+                class="w-full text-left font-body text-[14px] text-[var(--color-ink-secondary)] border-collapse"
+              >
+                <thead>
+                  <tr class="border-b border-black/20">
+                    <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">
+                      Service
+                    </th>
+                    <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">
+                      Purpose
+                    </th>
+                    <th class="py-3 font-semibold text-[var(--color-ink)]">
+                      API Key Required
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Deepgram Nova-2</td>
+                    <td class="py-3 pr-4">Speech-to-text</td>
+                    <td class="py-3">Yes</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Groq LPU</td>
+                    <td class="py-3 pr-4">Fast LLM inference</td>
+                    <td class="py-3">Yes</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">GPT-4o Vision</td>
+                    <td class="py-3 pr-4">Image analysis</td>
+                    <td class="py-3">Yes</td>
+                  </tr>
+                  <tr class="border-b border-black/5">
+                    <td class="py-3 pr-4">Pinecone</td>
+                    <td class="py-3 pr-4">Vector memory</td>
+                    <td class="py-3">Yes</td>
+                  </tr>
+                  <tr>
+                    <td class="py-3 pr-4">Whisper (local)</td>
+                    <td class="py-3 pr-4">Self-hosted transcription</td>
+                    <td class="py-3">No</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="memory">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Memory &amp; RAG
+            </h2>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed"
+            >
+              Aura uses retrieval-augmented generation to make conversations
+              searchable:
+            </p>
+            <ul
+              class="list-disc pl-6 mb-4 font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-2 leading-relaxed"
+            >
+              <li>
+                Audio is transcribed, chunked, and embedded into Pinecone.
+              </li>
+              <li>
+                When you ask a question, the query is matched against stored
+                vectors.
+              </li>
+              <li>Matched context is fed to the LLM along with your query.</li>
+            </ul>
+            <p
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+            >
+              All memory is private and stored on your own Pinecone index.
+            </p>
+          </section>
+
+          <section class="mb-16 scroll-mt-24" id="troubleshooting">
+            <h2
+              class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10"
+            >
+              Troubleshooting
+            </h2>
+            <div
+              class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-6 leading-relaxed"
+            >
+              <div>
+                <p class="font-semibold text-[var(--color-ink)] mb-1">
+                  Device not connecting to Wi-Fi
+                </p>
+                <p>
+                  Verify SSID and password in the firmware config. Confirm 2.4
+                  GHz band is enabled — ESP32-S3 does not support 5 GHz.
+                </p>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--color-ink)] mb-1">
+                  Camera not capturing images
+                </p>
+                <p>
+                  Ensure the camera ribbon cable is fully seated. Try
+                  re-flashing the firmware. The OV2640 may need a power cycle.
+                </p>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--color-ink)] mb-1">
+                  Audio transcription failing
+                </p>
+                <p>
+                  Check your Deepgram API key in .env. Verify network
+                  connectivity from the backend to Deepgram's API endpoint.
+                </p>
+              </div>
+              <div>
+                <p class="font-semibold text-[var(--color-ink)] mb-1">
+                  Battery not charging
+                </p>
+                <p>
+                  The ESP32-S3 charges at 500 mA max. Use a quality USB-C cable
+                  and power supply. Check voltage with a multimeter.
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <footer
+      class="site-footer border-t border-[#d2d2d7]/50"
+      style="padding: 64px 0 0 0"
+    >
+      <div class="max-w-[var(--content-max)] mx-auto px-6">
+        <div
+          class="flex items-center text-[12px] text-[#86868b] pb-4 mb-6 border-b border-[#d2d2d7]/35 flex-wrap gap-y-2"
+        >
+          <a href="index.html" class="hover:text-[#1d1d1f] transition-colors"
+            >Aura</a
+          >
+          <span class="mx-2 text-[10px] text-[#86868b]">&rsaquo;</span>
+          <span class="text-[#1d1d1f]">Documentation</span>
+        </div>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8 md:gap-6"
+        >
+          <div class="col-span-2 md:col-span-1 mb-10 md:mb-0">
+            <div
+              class="font-display text-[21px] font-semibold text-[#1d1d1f] mb-2"
+            >
+              Aura
+            </div>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Build</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a href="docs.html#hardware" class="footer-link-item"
+                  >Build Yours</a
+                >
+              </li>
+              <li>
+                <a href="docs.html#firmware" class="footer-link-item"
+                  >Firmware</a
+                >
+              </li>
+              <li>
+                <a href="docs.html#backend" class="footer-link-item">SDK</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Learn</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a href="docs.html#how-it-works" class="footer-link-item"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a href="manifesto.html" class="footer-link-item">Manifesto</a>
+              </li>
+              <li><a href="docs.html" class="footer-link-item">Docs</a></li>
+            </ul>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Community</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a
+                  href="https://github.com/thesohamdatta/aura"
+                  target="_blank"
+                  class="footer-link-item"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a href="#" aria-disabled="true" class="footer-disabled-link"
+                  >Discord</a
+                >
+              </li>
+              <li>
+                <a href="#" aria-disabled="true" class="footer-disabled-link"
+                  >Ethics</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Project</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a href="index.html" class="footer-link-item">Overview</a>
+              </li>
+              <li>
+                <a href="manifesto.html" class="footer-link-item">Manifesto</a>
+              </li>
+              <li><a href="docs.html" class="footer-link-item">Docs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="pt-6 pb-4 border-t border-[#d2d2d7]/35 mt-8 text-[12px] text-[#86868b] leading-relaxed"
+        >
+          More ways to build:
+          <a
+            href="https://github.com/thesohamdatta/aura"
+            target="_blank"
+            class="text-[#0066cc] hover:underline"
+            >Fork the GitHub repo</a
+          >
+          or
+          <a href="docs.html" class="text-[#0066cc] hover:underline"
+            >read our assembly guides</a
+          >. Need help? Contact
+          <a
+            href="mailto:thesohamdatta@gmail.com"
+            class="text-[#0066cc] hover:underline"
+            >thesohamdatta@gmail.com</a
+          >.
+        </div>
+
+        <div
+          class="border-t border-[#d2d2d7]/35 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
+        >
+          <p class="font-body text-[12px] text-[#86868b]">
+            &copy; 2026 Aura Project. MIT Licensed.
+          </p>
+          <div class="flex gap-6 flex-row">
+            <a href="#" aria-disabled="true" class="footer-legal-disabled"
+              >MIT License</a
+            >
+            <a href="#" aria-disabled="true" class="footer-legal-disabled"
+              >Privacy</a
+            >
+            <a
+              href="https://github.com/thesohamdatta/aura"
+              target="_blank"
+              class="footer-legal-link"
+              >GitHub</a
+            >
+          </div>
+          <span class="font-body text-[12px] text-[#86868b]">Pune, India</span>
+        </div>
+      </div>
+    </footer>
+
+    <button
+      id="toc-mobile-btn"
+      class="md:hidden fixed bottom-6 right-6 z-50 glass-btn px-5 py-3 text-[13px] font-semibold flex items-center gap-2 active:scale-95 transition-transform duration-200"
+    >
+      <i data-lucide="list" class="w-4 h-4" aria-hidden="true"></i> Contents
     </button>
-  </div>
-</div>
-</nav>
 
-<div class="flex max-w-[1200px] mx-auto pt-[52px]">
-<aside id="docs-sidebar" class="docs-sidebar w-[240px] h-[calc(100vh-52px)] sticky top-[52px] hidden md:flex flex-col py-8 px-4 overflow-y-auto shrink-0">
-  <div class="mb-6 px-3">
-    <p class="font-display text-[15px] font-semibold text-[var(--color-ink)] mb-1 tracking-tight">Documentation</p>
-    <p class="font-body text-[12px] text-[var(--color-ink-tertiary)]">Aura Build Manual</p>
-  </div>
-  <nav class="flex flex-col gap-1">
-    <div class="mb-4">
-      <p class="font-body text-[11px] font-bold text-[var(--color-ink-tertiary)] mb-2 px-3 uppercase tracking-wider">Getting Started</p>
-      <a href="#what-is-aura" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">What Is Aura</a>
-      <a href="#how-it-works" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">How It Works</a>
-      <a href="#bom" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Bill of Materials</a>
-    </div>
-    <div class="mb-4">
-      <p class="font-body text-[11px] font-bold text-[var(--color-ink-tertiary)] mb-2 px-3 uppercase tracking-wider">Engineering</p>
-      <a href="#hardware" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Hardware Overview</a>
-      <a href="#firmware" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Flashing Firmware</a>
-      <a href="#backend" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Backend Setup</a>
-      <a href="#app" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Companion App</a>
-    </div>
-    <div class="mb-4">
-      <p class="font-body text-[11px] font-bold text-[var(--color-ink-tertiary)] mb-2 px-3 uppercase tracking-wider">Configuration</p>
-      <a href="#ai-providers" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">AI Providers</a>
-      <a href="#memory" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Memory &amp; RAG</a>
-      <a href="#troubleshooting" class="flex items-center gap-2 px-3 py-1.5 rounded-md font-body text-[13px] text-[var(--color-ink-secondary)] hover:bg-black/5 hover:text-[var(--color-ink)]">Troubleshooting</a>
-    </div>
-  </nav>
-</aside>
-
-<main id="main-content" class="flex-1 min-w-0 pb-20">
-<div class="max-w-[720px] mx-auto px-6 pt-12">
-
-<nav class="flex items-center gap-2 text-[13px] text-[var(--color-ink-secondary)] mb-8">
-  <span>Aura</span>
-  <i data-lucide="chevron-right" class="w-3.5 h-3.5" aria-hidden="true"></i>
-  <span class="text-[var(--color-ink)]">Documentation</span>
-</nav>
-
-<h1 class="font-display text-[40px] md:text-[64px] text-[var(--color-ink)] font-bold tracking-[-0.003em] leading-[1.05] mb-4">Aura Build Manual</h1>
-<p class="font-body text-[17px] text-[var(--color-ink-secondary)] mb-12 max-w-[600px] leading-relaxed">A structured reference for sourcing the pendant, flashing firmware, running the backend, and pairing the app.</p>
-
-<section class="mb-16 scroll-mt-24" id="build-path">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Build Path</h2>
-<ol class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] space-y-3 list-decimal pl-6 leading-relaxed">
-  <li><a href="#bom" class="text-[var(--color-action-blue)] hover:underline">Source the bill of materials</a> and confirm the pendant case parts.</li>
-  <li><a href="#hardware" class="text-[var(--color-action-blue)] hover:underline">Assemble the XIAO ESP32-S3 Sense hardware</a> with camera, microphone, battery, and enclosure.</li>
-  <li><a href="#firmware" class="text-[var(--color-action-blue)] hover:underline">Flash the firmware</a> and verify serial, camera, BLE, and Wi-Fi.</li>
-  <li><a href="#backend" class="text-[var(--color-action-blue)] hover:underline">Deploy the backend</a> with transcription, model routing, storage, and retrieval configured.</li>
-  <li><a href="#app" class="text-[var(--color-action-blue)] hover:underline">Pair the companion app</a>, test capture, and review privacy controls.</li>
-</ol>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="what-is-aura">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">What Is Aura</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Aura is an open-source AI wearable you wear around your neck. It listens, sees, and transcribes so you do not have to pause your day to take notes.</p>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Audio and images are captured and routed to a self-hosted or cloud backend. Summaries and transcripts are accessible from your phone.</p>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Built on the open Omi ecosystem. Parts cost under $50.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="how-it-works">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">How It Works</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">The pipeline is straightforward:</p>
-<ul class="list-disc pl-6 mb-4 font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-2 leading-relaxed">
-  <li>The microphone captures audio continuously.</li>
-  <li>The camera captures images at set intervals.</li>
-  <li>Both are sent to the backend over Wi-Fi.</li>
-  <li>The backend transcribes audio via Deepgram or Whisper.</li>
-  <li>Images are analyzed via GPT-4o Vision or Moondream.</li>
-  <li>Everything is summarized and stored.</li>
-  <li>You see it all in the Omi app on your phone.</li>
-</ul>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">The ESP32-S3 handles capture and transmission. The backend handles all AI processing. Your phone is the interface.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="bom">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Bill of Materials</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-6 leading-relaxed">Parts list with estimated costs:</p>
-<div class="overflow-x-auto mb-6">
-<table class="w-full text-left font-body text-[14px] text-[var(--color-ink-secondary)] border-collapse">
-  <thead>
-    <tr class="border-b border-black/20">
-      <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">Item</th>
-      <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">Where to Buy</th>
-      <th class="py-3 font-semibold text-[var(--color-ink)]">Approx Cost</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">XIAO ESP32-S3 Sense</td><td class="py-3 pr-4">Seeed Studio / Amazon</td><td class="py-3">$15–24</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">150mAh LiPo × 6</td><td class="py-3 pr-4">Amazon</td><td class="py-3">$12</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Wires</td><td class="py-3 pr-4">Amazon</td><td class="py-3">$5</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">3D printed case</td><td class="py-3 pr-4">Print yourself or order online</td><td class="py-3">$5–10</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">USB-C cable</td><td class="py-3 pr-4">Anywhere</td><td class="py-3">—</td></tr>
-    <tr class="border-b border-black/20 font-semibold text-[var(--color-ink)]"><td class="py-3 pr-4">Total</td><td class="py-3 pr-4"></td><td class="py-3">~$50–70</td></tr>
-  </tbody>
-</table>
-</div>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Case STL files are in the Aura hardware folder on GitHub.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="hardware">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Hardware Overview</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-6 leading-relaxed">The XIAO ESP32-S3 Sense is the core. Camera and microphone are integrated on the board, so no extra modules are needed.</p>
-<div class="overflow-x-auto mb-6">
-<table class="w-full text-left font-body text-[14px] text-[var(--color-ink-secondary)] border-collapse">
-  <thead>
-    <tr class="border-b border-black/20">
-      <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">Component</th>
-      <th class="py-3 font-semibold text-[var(--color-ink)]">Details</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Microcontroller</td><td class="py-3">XIAO ESP32-S3 Sense</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Camera</td><td class="py-3">OV2640 (built into board)</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Microphone</td><td class="py-3">PDM (built into board)</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Battery</td><td class="py-3">6× 150mAh LiPo cells</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Enclosure</td><td class="py-3">Custom 3D printed case</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Connectivity</td><td class="py-3">Wi-Fi 2.4 GHz + Bluetooth LE</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Dimensions</td><td class="py-3">50 × 68 × 18 mm</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Weight</td><td class="py-3">80 g</td></tr>
-    <tr><td class="py-3 pr-4">Battery Life</td><td class="py-3">4 h active / 45 min charge</td></tr>
-  </tbody>
-</table>
-</div>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Mount the board, route the battery wires, and snap the case shut. The pendant loop is built into the design.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="firmware">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Flashing Firmware</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Clone the firmware repo and flash using PlatformIO:</p>
-<div class="bg-[var(--color-canvas-parchment)] rounded-[12px] p-4 mb-6 font-mono text-[13px] text-[var(--color-ink)] overflow-x-auto leading-relaxed">
-git clone https://github.com/thesohamdatta/Aura-Wearable-AI.git<br>
-cd Aura-Wearable-AI/firmware<br>
-pio run --target upload
-</div>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Connect the board via USB-C, select the correct port, and upload. Verify with the serial monitor:</p>
-<div class="bg-[var(--color-canvas-parchment)] rounded-[12px] p-4 mb-6 font-mono text-[13px] text-[var(--color-ink)] overflow-x-auto leading-relaxed">
-pio device monitor --port COM3
-</div>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">You should see the boot log with Wi-Fi, camera, and BLE initialization.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="backend">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Backend Setup</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">The backend handles transcription, image analysis, and memory storage. Deploy with Docker:</p>
-<div class="bg-[var(--color-canvas-parchment)] rounded-[12px] p-4 mb-6 font-mono text-[13px] text-[var(--color-ink)] overflow-x-auto leading-relaxed">
-git clone https://github.com/thesohamdatta/Aura-Wearable-AI.git<br>
-cd Aura-Wearable-AI/backend<br>
-cp .env.example .env<br>
-# Edit .env with your API keys<br>
-docker compose up -d
-</div>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Required services:</p>
-<ul class="list-disc pl-6 mb-4 font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-2 leading-relaxed">
-  <li><strong>Deepgram</strong> or <strong>Whisper</strong> for transcription</li>
-  <li><strong>Groq</strong> or <strong>OpenAI</strong> for LLM inference</li>
-  <li><strong>Pinecone</strong> for vector memory storage</li>
-</ul>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="app">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Companion App</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">The Omi app connects to Aura over Bluetooth LE. It shows your conversation history, memory timeline, and device controls.</p>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Download the app, create an account, and pair your device. The setup wizard will guide you through the process.</p>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">Once paired, you can browse transcripts, search memories, and adjust capture intervals.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="ai-providers">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">AI Providers</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Aura supports multiple AI backends. Configure your providers in the .env file:</p>
-<div class="overflow-x-auto mb-6">
-<table class="w-full text-left font-body text-[14px] text-[var(--color-ink-secondary)] border-collapse">
-  <thead>
-    <tr class="border-b border-black/20">
-      <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">Service</th>
-      <th class="py-3 pr-4 font-semibold text-[var(--color-ink)]">Purpose</th>
-      <th class="py-3 font-semibold text-[var(--color-ink)]">API Key Required</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Deepgram Nova-2</td><td class="py-3 pr-4">Speech-to-text</td><td class="py-3">Yes</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Groq LPU</td><td class="py-3 pr-4">Fast LLM inference</td><td class="py-3">Yes</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">GPT-4o Vision</td><td class="py-3 pr-4">Image analysis</td><td class="py-3">Yes</td></tr>
-    <tr class="border-b border-black/5"><td class="py-3 pr-4">Pinecone</td><td class="py-3 pr-4">Vector memory</td><td class="py-3">Yes</td></tr>
-    <tr><td class="py-3 pr-4">Whisper (local)</td><td class="py-3 pr-4">Self-hosted transcription</td><td class="py-3">No</td></tr>
-  </tbody>
-</table>
-</div>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="memory">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Memory &amp; RAG</h2>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-4 leading-relaxed">Aura uses retrieval-augmented generation to make conversations searchable:</p>
-<ul class="list-disc pl-6 mb-4 font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-2 leading-relaxed">
-  <li>Audio is transcribed, chunked, and embedded into Pinecone.</li>
-  <li>When you ask a question, the query is matched against stored vectors.</li>
-  <li>Matched context is fed to the LLM along with your query.</li>
-</ul>
-<p class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed">All memory is private and stored on your own Pinecone index.</p>
-</section>
-
-<section class="mb-16 scroll-mt-24" id="troubleshooting">
-<h2 class="font-display text-[24px] md:text-[32px] font-bold text-[var(--color-ink)] tracking-tight mb-4 pb-3 border-b border-black/10">Troubleshooting</h2>
-<div class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] flex flex-col gap-6 leading-relaxed">
-  <div>
-    <p class="font-semibold text-[var(--color-ink)] mb-1">Device not connecting to Wi-Fi</p>
-    <p>Verify SSID and password in the firmware config. Confirm 2.4 GHz band is enabled — ESP32-S3 does not support 5 GHz.</p>
-  </div>
-  <div>
-    <p class="font-semibold text-[var(--color-ink)] mb-1">Camera not capturing images</p>
-    <p>Ensure the camera ribbon cable is fully seated. Try re-flashing the firmware. The OV2640 may need a power cycle.</p>
-  </div>
-  <div>
-    <p class="font-semibold text-[var(--color-ink)] mb-1">Audio transcription failing</p>
-    <p>Check your Deepgram API key in .env. Verify network connectivity from the backend to Deepgram's API endpoint.</p>
-  </div>
-  <div>
-    <p class="font-semibold text-[var(--color-ink)] mb-1">Battery not charging</p>
-    <p>The ESP32-S3 charges at 500 mA max. Use a quality USB-C cable and power supply. Check voltage with a multimeter.</p>
-  </div>
-</div>
-</section>
-
-</div>
-</main>
-</div>
-
-<footer class="site-footer border-t border-[#d2d2d7]/50" style="padding: 64px 0 0 0;">
-<div class="max-w-[var(--content-max)] mx-auto px-6">
-
-  <div class="flex items-center text-[12px] text-[#86868b] pb-4 mb-6 border-b border-[#d2d2d7]/35 flex-wrap gap-y-2">
-    <a href="index.html" class="hover:text-[#1d1d1f] transition-colors">Aura</a>
-    <span class="mx-2 text-[10px] text-[#86868b]">&rsaquo;</span>
-    <span class="text-[#1d1d1f]">Documentation</span>
-  </div>
-
-  <div class="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8 md:gap-6">
-    <div class="col-span-2 md:col-span-1 mb-10 md:mb-0">
-      <div class="font-display text-[21px] font-semibold text-[#1d1d1f] mb-2">Aura</div>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Build</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="docs.html#hardware" class="footer-link-item">Build Yours</a></li>
-        <li><a href="docs.html#firmware" class="footer-link-item">Firmware</a></li>
-        <li><a href="docs.html#backend" class="footer-link-item">SDK</a></li>
-      </ul>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Learn</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="docs.html#how-it-works" class="footer-link-item">How It Works</a></li>
-        <li><a href="manifesto.html" class="footer-link-item">Manifesto</a></li>
-        <li><a href="docs.html" class="footer-link-item">Docs</a></li>
-      </ul>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Community</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="https://github.com/thesohamdatta/aura" target="_blank" class="footer-link-item">GitHub</a></li>
-        <li><a href="#" aria-disabled="true" class="footer-disabled-link">Discord</a></li>
-        <li><a href="#" aria-disabled="true" class="footer-disabled-link">Ethics</a></li>
-      </ul>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Project</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="index.html" class="footer-link-item">Overview</a></li>
-        <li><a href="manifesto.html" class="footer-link-item">Manifesto</a></li>
-        <li><a href="docs.html" class="footer-link-item">Docs</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="pt-6 pb-4 border-t border-[#d2d2d7]/35 mt-8 text-[12px] text-[#86868b] leading-relaxed">
-    More ways to build: <a href="https://github.com/thesohamdatta/aura" target="_blank" class="text-[#0066cc] hover:underline">Fork the GitHub repo</a> or <a href="docs.html" class="text-[#0066cc] hover:underline">read our assembly guides</a>. Need help? Contact <a href="mailto:thesohamdatta@gmail.com" class="text-[#0066cc] hover:underline">thesohamdatta@gmail.com</a>.
-  </div>
-
-  <div class="border-t border-[#d2d2d7]/35 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-    <p class="font-body text-[12px] text-[#86868b]">&copy; 2026 Aura Project. MIT Licensed.</p>
-    <div class="flex gap-6 flex-row">
-      <a href="#" aria-disabled="true" class="footer-legal-disabled">MIT License</a>
-      <a href="#" aria-disabled="true" class="footer-legal-disabled">Privacy</a>
-      <a href="https://github.com/thesohamdatta/aura" target="_blank" class="footer-legal-link">GitHub</a>
-    </div>
-    <span class="font-body text-[12px] text-[#86868b]">Pune, India</span>
-  </div>
-
-</div>
-</footer>
-
-<button id="toc-mobile-btn" class="md:hidden fixed bottom-6 right-6 z-50 glass-btn px-5 py-3 text-[13px] font-semibold flex items-center gap-2 active:scale-95 transition-transform duration-200">
-  <i data-lucide="list" class="w-4 h-4" aria-hidden="true"></i> Contents
-</button>
-
-<script>
-(function(){
-  var sidebar = document.getElementById('docs-sidebar');
-  var tocBtn = document.getElementById('toc-mobile-btn');
-  if (sidebar && tocBtn) {
-    tocBtn.addEventListener('click', function(){ sidebar.classList.toggle('hidden'); });
-    document.querySelectorAll('#docs-sidebar a').forEach(function(link){
-      link.addEventListener('click', function(){
-        if (window.innerWidth < 768 && sidebar) sidebar.classList.add('hidden');
-      });
-    });
-  }
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      var t = document.querySelector(this.getAttribute('href'));
-      if (t) t.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
-})();
-</script>
-</body></html>
+    <script>
+      (function () {
+        var sidebar = document.getElementById("docs-sidebar");
+        var tocBtn = document.getElementById("toc-mobile-btn");
+        if (sidebar && tocBtn) {
+          tocBtn.addEventListener("click", function () {
+            sidebar.classList.toggle("hidden");
+          });
+          document.querySelectorAll("#docs-sidebar a").forEach(function (link) {
+            link.addEventListener("click", function () {
+              if (window.innerWidth < 768 && sidebar)
+                sidebar.classList.add("hidden");
+            });
+          });
+        }
+        document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+          a.addEventListener("click", function (e) {
+            var t = document.querySelector(this.getAttribute("href"));
+            if (t) t.scrollIntoView({ behavior: "smooth" });
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>

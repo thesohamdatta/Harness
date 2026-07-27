@@ -1,155 +1,166 @@
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Ultralight.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Ultralight.otf")
+    format("opentype");
   font-weight: 100;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Thin.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Thin.otf") format("opentype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Light.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Regular.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Regular.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-RegularItalic.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-RegularItalic.otf")
+    format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Medium.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Medium.otf")
+    format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf")
+    format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Bold.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Heavy.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Heavy.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Display';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Display-Black.otf') format('opentype');
+  font-family: "SF Pro Display";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Display-Black.otf") format("opentype");
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-Light.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-Light.otf") format("opentype");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-Regular.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-Regular.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-RegularItalic.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-RegularItalic.otf")
+    format("opentype");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-Medium.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-Medium.otf") format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-MediumItalic.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-MediumItalic.otf")
+    format("opentype");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Text';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Text-Bold.otf') format('opentype');
+  font-family: "SF Pro Text";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Text-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
+/* impeccable-disable design-system-font -- real Apple SF Pro Rounded font family, not a DESIGN.md omission */
 @font-face {
-  font-family: 'SF Pro Rounded';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Rounded-Regular.otf') format('opentype');
+  font-family: "SF Pro Rounded";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Rounded-Regular.otf")
+    format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Rounded';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Rounded-Medium.otf') format('opentype');
+  font-family: "SF Pro Rounded";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Rounded-Medium.otf")
+    format("opentype");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Rounded';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Rounded-Semibold.otf') format('opentype');
+  font-family: "SF Pro Rounded";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Rounded-Semibold.otf")
+    format("opentype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Rounded';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Rounded-Bold.otf') format('opentype');
+  font-family: "SF Pro Rounded";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Rounded-Bold.otf") format("opentype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
-  font-family: 'SF Pro Rounded';
-  src: url('../assets/fonts/sf-pro/SF-Pro-Rounded-Heavy.otf') format('opentype');
+  font-family: "SF Pro Rounded";
+  src: url("../assets/fonts/sf-pro/SF-Pro-Rounded-Heavy.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
   font-display: swap;

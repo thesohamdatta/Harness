@@ -1,141 +1,320 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta name="description" content="The case for a third device. Decoupling utility from digital distraction.">
-<meta name="theme-color" content="#ffffff">
-<title>The Third Device | Aura Manifesto</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://unpkg.com">
-<link rel="stylesheet" href="css/fonts.css">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="preload" href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf" as="font" type="font/otf" crossorigin="anonymous">
-<link rel="stylesheet" href="css/global.css">
-<link rel="stylesheet" href="css/nav.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/nav.js" defer></script>
-<script src="https://unpkg.com/lucide@latest" defer></script>
-</head>
-<body class="bg-white font-body">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      name="description"
+      content="The case for a third device. Decoupling utility from digital distraction."
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>The Third Device | Aura Manifesto</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf"
+      as="font"
+      type="font/otf"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/nav.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/utils.css" />
+    <script src="js/nav.js" defer></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+  </head>
+  <body class="bg-white font-body">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav id="navbar">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-wordmark">Aura</a>
+        <div id="mobileMenu" class="nav-links">
+          <a href="index.html" class="nav-link">Overview</a>
+          <a href="manifesto.html" class="nav-link active" aria-current="page"
+            >Manifesto</a
+          >
+          <a href="docs.html" class="nav-link">Docs</a>
+        </div>
+        <div class="nav-actions">
+          <a href="docs.html#hardware" class="nav-cta">Build Yours</a>
+          <button
+            id="navToggle"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Toggle navigation menu"
+          >
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
 
-<nav id="navbar">
-<div class="nav-inner">
-  <a href="index.html" class="nav-wordmark">Aura</a>
-  <div id="mobileMenu" class="nav-links">
-    <a href="index.html" class="nav-link">Overview</a>
-    <a href="manifesto.html" class="nav-link active" aria-current="page">Manifesto</a>
-    <a href="docs.html" class="nav-link">Docs</a>
-  </div>
-  <div class="nav-actions">
-    <a href="docs.html#hardware" class="nav-cta">Build Yours</a>
-    <button id="navToggle" class="nav-toggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle navigation menu">
-      <i data-lucide="menu" class="w-5 h-5"></i>
-    </button>
-  </div>
-</div>
-</nav>
+    <main id="main-content">
+      <header class="pt-[120px] md:pt-[160px] pb-[60px] md:pb-[80px] bg-white">
+        <div class="max-w-[680px] mx-auto px-6">
+          <span
+            class="font-body text-[13px] font-semibold text-[var(--color-action-blue)] mb-4 block"
+            >Manifesto</span
+          >
+          <h1
+            class="font-display text-[40px] md:text-[72px] text-[var(--color-ink)] font-bold tracking-[-0.003em] leading-[1.05] mb-6"
+          >
+            We need a third device.
+          </h1>
+          <p
+            class="font-body text-[19px] md:text-[21px] text-[var(--color-ink-secondary)] leading-relaxed"
+          >
+            A computer to create. A phone to connect. Neither was built to let
+            you be present. Aura is the third device — worn, screenless, always
+            aware.
+          </p>
+        </div>
+      </header>
 
-<main id="main-content">
-<header class="pt-[120px] md:pt-[160px] pb-[60px] md:pb-[80px] bg-white">
-  <div class="max-w-[680px] mx-auto px-6">
-    <span class="font-body text-[13px] font-semibold text-[var(--color-action-blue)] mb-4 block">Manifesto</span>
-    <h1 class="font-display text-[40px] md:text-[72px] text-[var(--color-ink)] font-bold tracking-[-0.003em] leading-[1.05] mb-6">We need a third device.</h1>
-    <p class="font-body text-[19px] md:text-[21px] text-[var(--color-ink-secondary)] leading-relaxed">A computer to create. A phone to connect. Neither was built to let you be present. Aura is the third device — worn, screenless, always aware.</p>
-  </div>
-</header>
+      <article class="max-w-[680px] mx-auto px-6 pb-[120px]">
+        <div
+          class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
+          style="display: flex; flex-direction: column; gap: 24px"
+        >
+          <p>
+            The smartphone is a remarkable machine. It puts infinite knowledge
+            in your pocket and connects you to everyone you know. But the same
+            engineers who made it powerful also made it addictive.
+            Notifications, infinite scrolls, attention algorithms — these are
+            not bugs. They are the product.
+          </p>
 
-<article class="max-w-[680px] mx-auto px-6 pb-[120px]">
-<div class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed" style="display: flex; flex-direction: column; gap: 24px;">
-<p>The smartphone is a remarkable machine. It puts infinite knowledge in your pocket and connects you to everyone you know. But the same engineers who made it powerful also made it addictive. Notifications, infinite scrolls, attention algorithms — these are not bugs. They are the product.</p>
+          <p>
+            We built Aura because we believe utility does not require
+            distraction.
+          </p>
 
-<p>We built Aura because we believe utility does not require distraction.</p>
+          <h2
+            class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4"
+          >
+            The problem
+          </h2>
 
-<h2 class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4">The problem</h2>
+          <p>
+            Every device we own demands something from us. Your phone lights up.
+            Your computer dings. Your watch buzzes. Each interruption pulls you
+            out of the moment and into a feed engineered to keep you there.
+          </p>
 
-<p>Every device we own demands something from us. Your phone lights up. Your computer dings. Your watch buzzes. Each interruption pulls you out of the moment and into a feed engineered to keep you there.</p>
+          <p>
+            This is not a side effect. It is how the attention economy works.
+            The longer you stay, the more they earn. And AI is not going to fix
+            this — it will accelerate it, unless we build something different.
+          </p>
 
-<p>This is not a side effect. It is how the attention economy works. The longer you stay, the more they earn. And AI is not going to fix this — it will accelerate it, unless we build something different.</p>
+          <h2
+            class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4"
+          >
+            Why Aura
+          </h2>
 
-<h2 class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4">Why Aura</h2>
+          <p>
+            Aura does not have a screen. It cannot show you an ad, play a video,
+            or load an infinite feed. It listens, it sees, it remembers — and it
+            leaves your attention where it belongs: on the world around you.
+          </p>
 
-<p>Aura does not have a screen. It cannot show you an ad, play a video, or load an infinite feed. It listens, it sees, it remembers — and it leaves your attention where it belongs: on the world around you.</p>
+          <p>
+            This is the least socially disruptive device we have ever built. No
+            notifications. No pings. No doomscrolling. Just a quiet intelligence
+            that works for you, not for someone else's revenue.
+          </p>
 
-<p>This is the least socially disruptive device we have ever built. No notifications. No pings. No doomscrolling. Just a quiet intelligence that works for you, not for someone else's revenue.</p>
+          <p class="text-[var(--color-ink)] font-semibold mt-8">
+            Less distraction. More done.
+          </p>
 
-<p class="text-[var(--color-ink)] font-semibold mt-8">Less distraction. More done.</p>
+          <p>
+            A personal computer to create. A smartphone to connect. Aura to be
+            present.
+          </p>
 
-<p>A personal computer to create. A smartphone to connect. Aura to be present.</p>
+          <p>That is why we need a third device.</p>
+        </div>
+      </article>
+    </main>
 
-<p>That is why we need a third device.</p>
-</div>
-</article>
-</main>
+    <footer
+      class="site-footer border-t border-[#d2d2d7]/50"
+      style="padding: 64px 0 0 0"
+    >
+      <div class="max-w-[var(--content-max)] mx-auto px-6">
+        <div
+          class="flex items-center text-[12px] text-[#86868b] pb-4 mb-6 border-b border-[#d2d2d7]/35 flex-wrap gap-y-2"
+        >
+          <a href="index.html" class="hover:text-[#1d1d1f] transition-colors"
+            >Aura</a
+          >
+          <span class="mx-2 text-[10px] text-[#86868b]">&rsaquo;</span>
+          <span class="text-[#1d1d1f]">Manifesto</span>
+        </div>
 
-<footer class="site-footer border-t border-[#d2d2d7]/50" style="padding: 64px 0 0 0;">
-<div class="max-w-[var(--content-max)] mx-auto px-6">
+        <div
+          class="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8 md:gap-6"
+        >
+          <div class="col-span-2 md:col-span-1 mb-10 md:mb-0">
+            <div
+              class="font-display text-[21px] font-semibold text-[#1d1d1f] mb-2"
+            >
+              Aura
+            </div>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Build</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a href="docs.html#hardware" class="footer-link-item"
+                  >Build Yours</a
+                >
+              </li>
+              <li>
+                <a href="docs.html#firmware" class="footer-link-item"
+                  >Firmware</a
+                >
+              </li>
+              <li>
+                <a href="docs.html#backend" class="footer-link-item">SDK</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Learn</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a href="docs.html#how-it-works" class="footer-link-item"
+                  >How It Works</a
+                >
+              </li>
+              <li>
+                <a href="manifesto.html" class="footer-link-item">Manifesto</a>
+              </li>
+              <li><a href="docs.html" class="footer-link-item">Docs</a></li>
+            </ul>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Community</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a
+                  href="https://github.com/thesohamdatta/aura"
+                  target="_blank"
+                  class="footer-link-item"
+                  >GitHub</a
+                >
+              </li>
+              <li>
+                <a href="#" aria-disabled="true" class="footer-disabled-link"
+                  >Discord</a
+                >
+              </li>
+              <li>
+                <a href="#" aria-disabled="true" class="footer-disabled-link"
+                  >Ethics</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-span-1">
+            <span
+              class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block"
+              >Project</span
+            >
+            <ul class="space-y-0 flex flex-col">
+              <li>
+                <a href="index.html" class="footer-link-item">Overview</a>
+              </li>
+              <li>
+                <a href="manifesto.html" class="footer-link-item">Manifesto</a>
+              </li>
+              <li><a href="docs.html" class="footer-link-item">Docs</a></li>
+            </ul>
+          </div>
+        </div>
 
-  <div class="flex items-center text-[12px] text-[#86868b] pb-4 mb-6 border-b border-[#d2d2d7]/35 flex-wrap gap-y-2">
-    <a href="index.html" class="hover:text-[#1d1d1f] transition-colors">Aura</a>
-    <span class="mx-2 text-[10px] text-[#86868b]">&rsaquo;</span>
-    <span class="text-[#1d1d1f]">Manifesto</span>
-  </div>
+        <div
+          class="pt-6 pb-4 border-t border-[#d2d2d7]/35 mt-8 text-[12px] text-[#86868b] leading-relaxed"
+        >
+          More ways to build:
+          <a
+            href="https://github.com/thesohamdatta/aura"
+            target="_blank"
+            class="text-[#0066cc] hover:underline"
+            >Fork the GitHub repo</a
+          >
+          or
+          <a href="docs.html" class="text-[#0066cc] hover:underline"
+            >read our assembly guides</a
+          >. Need help? Contact
+          <a
+            href="mailto:thesohamdatta@gmail.com"
+            class="text-[#0066cc] hover:underline"
+            >thesohamdatta@gmail.com</a
+          >.
+        </div>
 
-  <div class="grid grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8 md:gap-6">
-    <div class="col-span-2 md:col-span-1 mb-10 md:mb-0">
-      <div class="font-display text-[21px] font-semibold text-[#1d1d1f] mb-2">Aura</div>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Build</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="docs.html#hardware" class="footer-link-item">Build Yours</a></li>
-        <li><a href="docs.html#firmware" class="footer-link-item">Firmware</a></li>
-        <li><a href="docs.html#backend" class="footer-link-item">SDK</a></li>
-      </ul>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Learn</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="docs.html#how-it-works" class="footer-link-item">How It Works</a></li>
-        <li><a href="manifesto.html" class="footer-link-item">Manifesto</a></li>
-        <li><a href="docs.html" class="footer-link-item">Docs</a></li>
-      </ul>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Community</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="https://github.com/thesohamdatta/aura" target="_blank" class="footer-link-item">GitHub</a></li>
-        <li><a href="#" aria-disabled="true" class="footer-disabled-link">Discord</a></li>
-        <li><a href="#" aria-disabled="true" class="footer-disabled-link">Ethics</a></li>
-      </ul>
-    </div>
-    <div class="col-span-1">
-      <span class="font-body text-[11px] font-medium text-[#1d1d1f]/60 mb-4 block">Project</span>
-      <ul class="space-y-0 flex flex-col">
-        <li><a href="index.html" class="footer-link-item">Overview</a></li>
-        <li><a href="manifesto.html" class="footer-link-item">Manifesto</a></li>
-        <li><a href="docs.html" class="footer-link-item">Docs</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="pt-6 pb-4 border-t border-[#d2d2d7]/35 mt-8 text-[12px] text-[#86868b] leading-relaxed">
-    More ways to build: <a href="https://github.com/thesohamdatta/aura" target="_blank" class="text-[#0066cc] hover:underline">Fork the GitHub repo</a> or <a href="docs.html" class="text-[#0066cc] hover:underline">read our assembly guides</a>. Need help? Contact <a href="mailto:thesohamdatta@gmail.com" class="text-[#0066cc] hover:underline">thesohamdatta@gmail.com</a>.
-  </div>
-
-  <div class="border-t border-[#d2d2d7]/35 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-    <p class="font-body text-[12px] text-[#86868b]">&copy; 2026 Aura Project. MIT Licensed.</p>
-    <div class="flex gap-6 flex-row">
-      <a href="#" aria-disabled="true" class="footer-legal-disabled">MIT License</a>
-      <a href="#" aria-disabled="true" class="footer-legal-disabled">Privacy</a>
-      <a href="https://github.com/thesohamdatta/aura" target="_blank" class="footer-legal-link">GitHub</a>
-    </div>
-    <span class="font-body text-[12px] text-[#86868b]">Pune, India</span>
-  </div>
-
-</div>
-</footer>
-
-</body></html>
+        <div
+          class="border-t border-[#d2d2d7]/35 py-5 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left"
+        >
+          <p class="font-body text-[12px] text-[#86868b]">
+            &copy; 2026 Aura Project. MIT Licensed.
+          </p>
+          <div class="flex gap-6 flex-row">
+            <a href="#" aria-disabled="true" class="footer-legal-disabled"
+              >MIT License</a
+            >
+            <a href="#" aria-disabled="true" class="footer-legal-disabled"
+              >Privacy</a
+            >
+            <a
+              href="https://github.com/thesohamdatta/aura"
+              target="_blank"
+              class="footer-legal-link"
+              >GitHub</a
+            >
+          </div>
+          <span class="font-body text-[12px] text-[#86868b]">Pune, India</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

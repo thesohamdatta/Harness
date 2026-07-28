@@ -1,9 +1,9 @@
 """
 Aura website dev harness config.
 
-Usage:
-    python -m prompts.aura "add an FAQ section to index.html"
-    python agent_harness.py --aura "audit the CSS for contrast issues"
+Single-shot agent for general Aura web-dev questions. The ADW pipeline
+(workflows/adw-pipeline.py) is the right tool for build tasks; this is
+for one-off asks like "add an FAQ section" or "audit the CSS for contrast issues".
 """
 
 import os
@@ -14,36 +14,42 @@ from google.antigravity.connections.local import LocalAgentConfig
 from google.antigravity.types import BuiltinTools, CapabilitiesConfig
 from prompts.engineer import build_prompt
 
-WEBSITE_DIR = pathlib.Path(r"D:\PROJECTS\Harness\SDK\website")
-REFERENCE_DIR = pathlib.Path(r"D:\PROJECTS\aura\website")
-
-import pathlib
-
 HERE = pathlib.Path(__file__).resolve().parent
-SDK_ROOT = HERE.parent
-DESIGN_MD = SDK_ROOT / "DESIGN.md"
-WEBSITE_DIR = SDK_ROOT / "website"
-REFERENCE_DIR = pathlib.Path(r"D:\PROJECTS\aura\website")
+HARNESS_DIR = HERE.parent
+WEBSITE_DIR = HARNESS_DIR / "website"
+BRAND_BRIEF = HARNESS_DIR / "BRAND_BRIEF.md"
+DESIGN_MD = HARNESS_DIR / "DESIGN.md"
 
-ROLE = "You are a web dev assistant for the Aura project."
+ROLE = (
+    "You are a web dev assistant for the Aura project. "
+    "Aura is an open-source, screenless, voice-first AI pendant (~$50 BOM, MIT). "
+    "You work on the Aura marketing site, modeled after apple.com."
+)
 
 CONTEXT = [
-    "Aura is an open-source, screenless, voice-first AI pendant. This repo builds a static GitHub Pages website for it.",
-    f"Reference site (content + assets): {REFERENCE_DIR}",
-    f"Build directory: {WEBSITE_DIR}",
-    "Stack: Vanilla HTML/CSS/JS, Lucide icons from unpkg, SF Pro from local assets.",
-    "Design tokens in css/global.css — use --var tokens exclusively.",
-    "Shared navbar and footer are static HTML in each page (not JS-rendered).",
+    "Stack: Vanilla HTML/CSS/JS. No Tailwind, no framework, no build step. "
+    "Lucide icons from https://unpkg.com/lucide@latest. SF Pro fonts served "
+    "from website/assets/fonts/sf-pro/.",
+    f"Build directory: {WEBSITE_DIR}. Shared nav and footer are inline HTML "
+    "copied across pages — never JS-rendered.",
+    f"Brand philosophy (read first): {BRAND_BRIEF}",
+    f"Design tokens (the only place hex/px-for-type literals may live): {DESIGN_MD}",
+    "All components live in css/global.css, css/nav.css, css/style.css, css/utils.css. "
+    "Add new classes there, never inline styles.",
 ]
 
 INSTRUCTIONS = [
     "Animate transform/opacity only — never transition: all.",
-    "Use design tokens for all colors and typography.",
+    "Use design tokens (--var()) for all colors, typography, radius, motion. "
+    "Never raw hex in component code; never raw px for font-size.",
+    "Glass: reserve backdrop-filter for the nav and for cards sitting above "
+    "photographic/gradient backgrounds. Never stack glass on glass.",
     "Include skip-link, focus-visible rings, aria-hidden on decorative icons.",
-    "Set explicit width/height on images, loading='lazy' below fold.",
+    "Set explicit width and height on every image, loading='lazy' below the fold.",
     "Honor prefers-reduced-motion.",
-    "Buttons use transform: scale(0.95) on active state.",
-    "No shadows on cards, buttons, or text — only on product imagery.",
+    "Buttons use transform: scale(0.95) on :active.",
+    "No shadows on cards, buttons, or text — only on product imagery if absolutely needed.",
+    "Voice: confident, short, no exclamation marks, no superlatives, no emoji.",
 ]
 
 SYSTEM_INSTRUCTIONS = build_prompt(
@@ -51,8 +57,8 @@ SYSTEM_INSTRUCTIONS = build_prompt(
     context=CONTEXT,
     instructions=INSTRUCTIONS,
     references=[
-        f"Design system: {DESIGN_MD}",
-        f"Reference site (read for copy + patterns): {REFERENCE_DIR}",
+        f"Brand brief: {BRAND_BRIEF}",
+        f"Design tokens: {DESIGN_MD}",
     ],
 )
 
@@ -70,7 +76,7 @@ def create_config(
     return LocalAgentConfig(
         model=model,
         system_instructions=SYSTEM_INSTRUCTIONS,
-        workspaces=[str(WEBSITE_DIR), str(REFERENCE_DIR)],
+        workspaces=[str(WEBSITE_DIR), str(HARNESS_DIR)],
         capabilities=capabilities,
     )
 

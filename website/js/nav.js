@@ -2,10 +2,26 @@
   var nav = document.getElementById("navbar");
   if (!nav) return;
 
-  // Active page detection
-  var path = window.location.pathname.split("/").pop() || "index.html";
+  /* Apple-style nav: text-only, no button pill in the chrome.
+   * Primary CTAs live inside the page (hero / closing CTA), never in the nav. */
+  var actions = nav.querySelector(".nav-actions");
+  if (actions) {
+    var cta = actions.querySelector(".nav-cta");
+    if (cta) cta.parentNode.removeChild(cta);
+  }
+
+  /* Defensive: re-apply aria-current on the active link in case the HTML
+   * author forgot. The static nav block already sets .active on each page. */
+  var path = (
+    window.location.pathname.split("/").pop() || "index.html"
+  ).replace(/\.html$/, "");
+  var aliases = { "": "index" };
+  var activeKey = aliases[path] || path;
   document.querySelectorAll(".nav-link").forEach(function (link) {
-    if (link.getAttribute("href") === path) {
+    var href = (link.getAttribute("href") || "")
+      .replace(/^.*\//, "")
+      .replace(/\.html$/, "");
+    if (href === activeKey) {
       link.classList.add("active");
       link.setAttribute("aria-current", "page");
     }

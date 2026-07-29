@@ -8,11 +8,11 @@
   z-index: 100;
   --nav-bg: var(--bg-regular);
   --nav-border: rgba(0, 0, 0, 0.08);
-  --nav-text-primary: #1d1d1f;
-  --nav-text-secondary: #333333;
-  --nav-text-hover: #0066cc;
-  --nav-cta-bg: #0066cc;
-  --nav-cta-text: #ffffff;
+  --nav-text-primary: var(--color-ink);
+  --nav-text-secondary: var(--color-ink-secondary);
+  --nav-text-hover: var(--color-action-blue);
+  --nav-cta-bg: var(--color-action-blue);
+  --nav-cta-text: var(--color-canvas-white);
   background: var(--nav-bg);
   backdrop-filter: var(--material-regular);
   -webkit-backdrop-filter: var(--material-regular);
@@ -26,11 +26,11 @@
 #navbar.nav-transparent {
   --nav-bg: transparent;
   --nav-border: transparent;
-  --nav-text-primary: #ffffff;
+  --nav-text-primary: var(--color-canvas-white);
   --nav-text-secondary: rgba(255, 255, 255, 0.75);
-  --nav-text-hover: #2997ff;
-  --nav-cta-bg: #ffffff;
-  --nav-cta-text: #1d1d1f;
+  --nav-text-hover: var(--color-sky-blue);
+  --nav-cta-bg: var(--color-canvas-white);
+  --nav-cta-text: var(--color-ink);
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -40,11 +40,11 @@
 #navbar.nav-transparent.scrolled {
   --nav-bg: var(--bg-dark-regular);
   --nav-border: rgba(255, 255, 255, 0.08);
-  --nav-text-primary: #ffffff;
+  --nav-text-primary: var(--color-canvas-white);
   --nav-text-secondary: rgba(255, 255, 255, 0.7);
-  --nav-text-hover: #2997ff;
-  --nav-cta-bg: #0066cc;
-  --nav-cta-text: #ffffff;
+  --nav-text-hover: var(--color-sky-blue);
+  --nav-cta-bg: var(--color-action-blue);
+  --nav-cta-text: var(--color-canvas-white);
   background: var(--nav-bg);
   backdrop-filter: var(--material-regular);
   -webkit-backdrop-filter: var(--material-regular);
@@ -166,6 +166,7 @@
 
   #navbar .nav-toggle {
     display: inline-flex;
+    color: var(--nav-text-primary);
   }
 
   #mobileMenu {
@@ -175,35 +176,37 @@
     width: 100%;
     display: none;
     flex-direction: column;
-    padding: 16px;
-    gap: 16px;
+    padding: 16px 20px;
+    gap: 8px;
     z-index: 99;
-    background: var(--nav-bg, rgba(255, 255, 255, 0.95));
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--nav-border, rgba(0, 0, 0, 0.08));
+    /* Light glass material - works on both transparent and scrolled nav */
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: var(--material-regular);
+    -webkit-backdrop-filter: var(--material-regular);
+    border-bottom: 1px solid var(--color-divider-soft);
     opacity: 0;
     transform: translateY(-8px);
     transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
+      opacity 0.25s var(--ease-out),
+      transform 0.25s var(--ease-spring);
   }
 
-  #navbar.nav-transparent #mobileMenu {
-    background: rgba(0, 0, 0, 0.85);
+  /* Scrolled transparent nav - slightly darker glass */
+  #navbar.nav-transparent.scrolled #mobileMenu {
+    background: rgba(39, 39, 41, 0.9);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  #navbar.nav-transparent #mobileMenu .nav-link {
-    color: rgba(255, 255, 255, 0.7);
+  #navbar.nav-transparent.scrolled #mobileMenu .nav-link {
+    color: rgba(255, 255, 255, 0.75);
   }
 
-  #navbar.nav-transparent #mobileMenu .nav-link.active {
-    color: #ffffff;
+  #navbar.nav-transparent.scrolled #mobileMenu .nav-link.active {
+    color: var(--color-canvas-white);
   }
 
-  #navbar.nav-transparent #mobileMenu .nav-link:hover {
-    color: #2997ff;
+  #navbar.nav-transparent.scrolled #mobileMenu .nav-link:hover {
+    color: var(--color-sky-blue);
   }
 
   #mobileMenu.open {
@@ -215,12 +218,22 @@
   #mobileMenu .nav-link {
     color: var(--color-ink-secondary);
     width: 100%;
-    padding: 4px 0;
-    font-size: 14px;
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: var(--radius-sm);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  #mobileMenu .nav-link:active {
+    background-color: rgba(0, 0, 0, 0.04);
   }
 
   #mobileMenu .nav-link.active {
-    color: var(--color-ink);
+    color: var(--color-action-blue);
+    font-weight: 600;
   }
 
   #mobileMenu .nav-link:hover {

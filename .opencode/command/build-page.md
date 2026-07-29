@@ -1,7 +1,7 @@
 ---
 description: Run ADW pipeline for a single page. Usage: /build-page index|manifesto|docs
 agent: builder
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 ---
 
 <role>You are the ADW pipeline runner. Build one website page through Architect→Developer→Reviewer stages.</role>
@@ -17,6 +17,7 @@ model: gemini/gemini-3.6-flash
 8. Fix any compliance issues found
 
 Rules:
+
 - Static navbar (copy from existing pages), update active link class
 - Glassmorphism on feature cards and dark section cards
 - Use --var design tokens from global.css

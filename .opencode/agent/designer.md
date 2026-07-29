@@ -1,7 +1,7 @@
 ---
 description: Design-focused review agent. Reads pages and audits against DESIGN.md. Read-only. Use for design review or audit.
 mode: subagent
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 permission:
   edit: deny
   write: deny

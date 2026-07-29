@@ -5,9 +5,25 @@
 }
 
 html {
+  height: 100%;
   margin: 0;
   min-width: 0;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  overflow-x: clip;
+  font-family: var(--font-text);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 img,
@@ -87,7 +103,7 @@ canvas {
   --type-title-md: 28px;
   --type-title-sm: 21px;
   --type-label: 14px;
-  --type-caption: 13px; /* maps to eyebrow in DESIGN.md */
+  --type-eyebrow-legacy: 13px; /* maps to eyebrow in DESIGN.md */
 
   /* ── Tracking ──────────────────────────────────────────────────── */
   --tracking-hero: -0.005em;
@@ -187,20 +203,6 @@ canvas {
 }
 .font-rounded {
   font-family: var(--font-rounded);
-}
-
-body {
-  margin: 0;
-  min-width: 0;
-  overflow-x: hidden;
-  font-family: var(--font-text);
-  font-size: var(--body-size);
-  line-height: var(--body-line-height);
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
 }
 
 h1,
@@ -312,26 +314,6 @@ select:focus-visible,
   justify-content: center;
 }
 
-.glass-btn {
-  background: var(--bg-glass);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: var(--radius-pill);
-  color: var(--color-ink);
-  transition:
-    background var(--duration-normal) var(--ease-out),
-    transform var(--duration-fast) var(--ease-spring);
-}
-
-.glass-btn:hover {
-  background: rgba(255, 255, 255, 0.85);
-}
-
-.glass-btn:active {
-  transform: scale(0.97);
-}
-
 /* ── Scroll reveal (Apple-style fade + translate) ─────────────────────── */
 
 .reveal {
@@ -426,14 +408,13 @@ select:focus-visible,
 .site-footer {
   background-color: var(--color-canvas-parchment);
   color: var(--color-ink);
-  border-top: 1px solid rgba(210, 210, 215, 0.5);
-  padding: 64px 0 0;
+  padding: var(--section-padding) 0 0;
 }
 
 .footer-inner {
   max-width: var(--hero-max);
   margin: 0 auto;
-  padding: 0 24px 32px;
+  padding: 0 var(--gutter) 32px;
 }
 
 @media (min-width: 834px) {
@@ -442,53 +423,27 @@ select:focus-visible,
   }
 }
 
-.footer-breadcrumb {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-family: var(--font-text);
-  font-size: var(--type-fine-print);
-  color: var(--color-ink-muted-53);
-  padding-bottom: 16px;
-  margin-bottom: 32px;
-  border-bottom: 1px solid rgba(210, 210, 215, 0.4);
-}
+/* ─── Nav grid ───────────────────────────────────────────────────────────── */
 
-.footer-breadcrumb a {
-  color: var(--color-ink-muted-53);
-  text-decoration: none;
-  transition: color var(--duration-normal) var(--ease-out);
-}
-
-.footer-breadcrumb a:hover {
-  color: var(--color-ink);
-}
-
-.footer-breadcrumb-sep {
-  font-size: 10px;
-  color: var(--color-ink-muted-53);
-}
-
-.footer-grid {
+.footer-nav {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px 24px;
-  margin-bottom: 48px;
 }
 
 @media (min-width: 834px) {
-  .footer-grid {
-    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
-    gap: 32px 24px;
+  .footer-nav {
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+    gap: 32px;
   }
 }
 
-.footer-brand {
+.footer-col-brand {
   grid-column: 1 / -1;
 }
 
 @media (min-width: 834px) {
-  .footer-brand {
+  .footer-col-brand {
     grid-column: auto;
   }
 }
@@ -497,7 +452,28 @@ select:focus-visible,
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--type-tagline);
+  letter-spacing: var(--tracking-title);
   color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.footer-tagline {
+  font-family: var(--font-text);
+  font-size: var(--type-fine-print);
+  color: var(--color-ink-muted-53);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ─── Column styling ─────────────────────────────────────────────────────── */
+
+.footer-col-title {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: var(--type-caption-strong);
+  color: var(--color-ink-muted-53);
+  margin: 0 0 16px;
+  letter-spacing: normal;
 }
 
 .footer-col ul {
@@ -506,14 +482,37 @@ select:focus-visible,
   margin: 0;
 }
 
-.footer-col-title {
-  display: block;
-  font-family: var(--font-text);
-  font-weight: 600;
-  font-size: var(--type-caption-strong);
-  color: var(--color-ink);
-  margin-bottom: 8px;
+.footer-col ul li {
+  margin: 0;
 }
+
+.footer-col ul li a {
+  display: inline-block;
+  font-family: var(--font-text);
+  font-size: var(--type-body-sm);
+  color: var(--color-ink-secondary);
+  text-decoration: none;
+  line-height: 2.4;
+  transition: color var(--duration-fast) var(--ease-out);
+}
+
+.footer-col ul li a:hover {
+  color: var(--color-ink);
+}
+
+/* ─── Disabled links (placeholder, aria-disabled) ────────────────────────── */
+
+.footer-disabled-link {
+  font-family: var(--font-text);
+  font-size: var(--type-body-sm);
+  color: var(--color-ink-tertiary);
+  text-decoration: none;
+  line-height: 2.4;
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* ─── Secondary / metadata rows ──────────────────────────────────────────── */
 
 .footer-secondary {
   font-family: var(--font-text);
@@ -521,16 +520,17 @@ select:focus-visible,
   line-height: 1.6;
   color: var(--color-ink-muted-53);
   padding-top: 24px;
-  border-top: 1px solid rgba(210, 210, 215, 0.4);
+  margin-top: 24px;
+  border-top: 1px solid var(--color-hairline);
 }
 
-.footer-inline-link {
+.footer-secondary a {
   color: var(--color-action-blue);
   text-decoration: none;
   transition: color var(--duration-normal) var(--ease-out);
 }
 
-.footer-inline-link:hover {
+.footer-secondary a:hover {
   color: var(--color-focus-blue);
   text-decoration: underline;
 }
@@ -541,7 +541,6 @@ select:focus-visible,
   align-items: center;
   gap: 16px;
   padding-top: 24px;
-  border-top: 1px solid rgba(210, 210, 215, 0.4);
   text-align: center;
   font-family: var(--font-text);
   font-size: var(--type-fine-print);
@@ -558,6 +557,7 @@ select:focus-visible,
 
 .footer-copy {
   margin: 0;
+  color: var(--color-ink-muted-53);
 }
 
 .footer-meta-links {
@@ -566,6 +566,8 @@ select:focus-visible,
 }
 
 .footer-meta-links a {
+  font-size: var(--type-fine-print);
+  line-height: inherit;
   color: var(--color-ink-muted-53);
   text-decoration: none;
   transition: color var(--duration-normal) var(--ease-out);
@@ -579,10 +581,10 @@ select:focus-visible,
   font-family: var(--font-text);
 }
 
-/* Legacy footer classes (kept so docs.html can still reference them if needed). */
+/* Legacy footer classes (kept so any HTML referencing them does not break). */
 .footer-link-item {
   font-family: var(--font-text);
-  font-size: 12px;
+  font-size: var(--type-fine-print);
   font-weight: 400;
   color: var(--color-ink-tertiary);
   line-height: 2.2;
@@ -595,22 +597,9 @@ select:focus-visible,
   color: var(--color-ink);
 }
 
-.footer-disabled-link {
-  font-family: var(--font-text);
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--color-ink-tertiary);
-  line-height: 2.2;
-  text-decoration: none;
-  display: inline-block;
-  opacity: 0.4;
-  pointer-events: none;
-  cursor: not-allowed;
-}
-
 .footer-legal-link {
   font-family: var(--font-text);
-  font-size: 12px;
+  font-size: var(--type-fine-print);
   color: var(--color-ink-muted-53);
   transition: color var(--duration-normal) var(--ease-out);
   text-decoration: none;
@@ -623,7 +612,7 @@ select:focus-visible,
 
 .footer-legal-disabled {
   font-family: var(--font-text);
-  font-size: 12px;
+  font-size: var(--type-fine-print);
   color: var(--color-ink-muted-53);
   text-decoration: none;
   display: inline-block;

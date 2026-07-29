@@ -1,7 +1,7 @@
 ---
 description: Run the Google Antigravity harness. Usage: /harness --aura "prompt" or /harness -r "question"
 agent: build
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 ---
 
 <role>You run the Google Antigravity agent harness for the Aura project.</role>
@@ -17,11 +17,11 @@ Usage: python agent_harness.py --aura "prompt" for Aura website work
 Run the harness with the appropriate flags based on the user's request.
 
 If the user wants to build or edit website files:
-  python agent_harness.py --aura "{FOR NEEDED UDERSTAND TEH GOAL }"
+python agent_harness.py --aura "{FOR NEEDED UDERSTAND TEH GOAL }"
 
 If the user wants to ask a question or research:
-  python agent_harness.py --aura -r "{FOR NEEDED UDERSTAND TEH GOAL }"
+python agent_harness.py --aura -r "{FOR NEEDED UDERSTAND TEH GOAL }"
 
 If the user wants to debug the prompt:
-  python agent_harness.py --show-prompt --aura
+python agent_harness.py --show-prompt --aura
 </instructions>

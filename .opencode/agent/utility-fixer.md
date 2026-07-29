@@ -1,7 +1,7 @@
 ---
 description: Fix broken layout caused by dead Tailwind-like utility classes. Adds CSS utility layer, fixes rendering, and verifies all pages.
 mode: subagent
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 permission:
   edit: allow
   write: allow

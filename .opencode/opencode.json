@@ -1,7 +1,7 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "model": "gemini/gemini-3.6-flash",
-  "small_model": "gemini/gemini-3.6-flash",
+  "model": "deepseek-v4-flash-free",
+  "small_model": "deepseek-v4-flash-free",
   "default_agent": "build",
   "instructions": ["AGENTS.md", "CONTEXT.md", "DESIGN.md"],
   "skills": {
@@ -29,7 +29,7 @@
     "builder": {
       "description": "Builds website pages with full read/write access. Translates specs into HTML/CSS/JS.",
       "mode": "subagent",
-      "model": "gemini/gemini-3.6-flash",
+      "model": "deepseek-v4-flash-free",
       "permission": {
         "edit": "allow",
         "bash": "allow",
@@ -41,7 +41,7 @@
     "designer": {
       "description": "Design-focused review agent. Reads pages and audits against DESIGN.md. Read-only.",
       "mode": "subagent",
-      "model": "gemini/gemini-3.6-flash",
+      "model": "deepseek-v4-flash-free",
       "permission": {
         "edit": "deny",
         "bash": "deny",
@@ -53,7 +53,7 @@
     "reviewer": {
       "description": "Quality reviewer — audits for accessibility, anti-patterns, and DESIGN.md compliance. Read-only.",
       "mode": "subagent",
-      "model": "gemini/gemini-3.6-flash",
+      "model": "deepseek-v4-flash-free",
       "permission": {
         "edit": "deny",
         "bash": "deny",
@@ -65,7 +65,7 @@
     "utility-fixer": {
       "description": "Fixes broken layout caused by dead Tailwind-like utility classes. Adds CSS utility layer and verifies rendering.",
       "mode": "subagent",
-      "model": "gemini/gemini-3.6-flash",
+      "model": "deepseek-v4-flash-free",
       "permission": {
         "edit": "allow",
         "bash": "allow",
@@ -80,31 +80,31 @@
       "description": "Run ADW pipeline for a single page: Architect → Developer → Reviewer. Usage: /build-page index|manifesto|docs",
       "template": "Run the ADW pipeline for page $ARGUMENTS (index, manifesto, or docs). Follow DESIGN.md, CONTEXT.md, and AGENTS.md. Plan, build production-ready HTML/CSS/JS into the website directory, then audit and fix compliance issues.",
       "agent": "builder",
-      "model": "gemini/gemini-3.6-flash"
+      "model": "deepseek-v4-flash-free"
     },
     "build-all": {
       "description": "Run full ADW pipeline for all pages. Usage: /build-all",
       "template": "Run the full ADW pipeline for all pages (index, manifesto, docs). Follow DESIGN.md, CONTEXT.md, and AGENTS.md. Build production-ready pages, copy needed assets, audit against DESIGN.md, fix issues, and summarize results.",
       "agent": "builder",
-      "model": "gemini/gemini-3.6-flash"
+      "model": "deepseek-v4-flash-free"
     },
     "design-audit": {
       "description": "Audit the entire site against DESIGN.md. Usage: /design-audit",
       "template": "Audit the complete website against DESIGN.md. Check colors, typography, layout, shapes, nav, buttons, accessibility, and anti-patterns. Produce a PASS/FAIL report only — do not modify files.",
       "agent": "designer",
-      "model": "gemini/gemini-3.6-flash"
+      "model": "deepseek-v4-flash-free"
     },
     "fix-utilities": {
       "description": "Fix broken layout caused by dead Tailwind-like utility classes. Scans all pages, generates css/utilities.css, links it in all HTML files.",
       "template": "Fix the dead utility class problem. The entire layout uses Tailwind-like classes (flex, grid-cols-3, gap-6, p-8, items-center, md:*) that have no CSS definitions. Scan all 4 HTML files, create a comprehensive css/utilities.css with all missing classes, and link it in every HTML page. Use design tokens from css/global.css. Then remove the empty @media (max-width: 640px) block from style.css. Verify all pages render with proper layout.",
       "agent": "utility-fixer",
-      "model": "gemini/gemini-3.6-flash"
+      "model": "deepseek-v4-flash-free"
     },
     "harness": {
       "description": "Run the Google Antigravity harness. Usage: /harness --aura \"your prompt\" or /harness -r \"question\"",
       "template": "Run the Google Antigravity harness at D:\\PROJECTS\\Harness\\SDK\\agent_harness.py with these arguments: $ARGUMENTS\n\nExamples:\n- python agent_harness.py --aura \"...\"\n- python agent_harness.py -r \"...\"\n- python agent_harness.py --show-prompt --aura",
       "agent": "build",
-      "model": "gemini/gemini-3.6-flash"
+      "model": "deepseek-v4-flash-free"
     }
   }
 }

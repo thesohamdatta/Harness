@@ -27,6 +27,7 @@
   max-width: var(--hero-max);
   margin: 0 auto;
   align-items: flex-start; /* critical — lets the sidebar use sticky */
+  position: relative;
 }
 
 /* ─── Sidebar ────────────────────────────────────────────────────────────── */
@@ -110,7 +111,8 @@
   color: var(--color-ink);
 }
 
-.docs-sidebar-link.is-active {
+.docs-sidebar-link.is-active,
+.docs-sidebar-link.active {
   background-color: rgba(0, 102, 204, 0.08);
   color: var(--color-action-blue);
   font-weight: 600;
@@ -183,8 +185,6 @@
   letter-spacing: var(--tracking-display);
   color: var(--color-ink);
   margin: 0 0 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--color-divider-soft);
 }
 
 @media (min-width: 834px) {

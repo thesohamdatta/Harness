@@ -201,8 +201,8 @@
   align-items: center;
   justify-content: center;
   padding: 12px 28px;
-  background: var(--color-canvas-white);
-  color: var(--color-canvas-black);
+  background: var(--color-action-blue);
+  color: var(--color-canvas-white);
   border-radius: var(--radius-pill);
   font-family: var(--font-text);
   font-size: var(--type-body);
@@ -215,7 +215,7 @@
 }
 
 .btn-hero-primary:hover {
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--color-focus-blue);
 }
 
 .btn-hero-primary:active {

@@ -91,92 +91,9 @@
   transform: scale(0.95);
 }
 
-.site-footer {
-  background-color: var(--color-canvas-parchment);
-  color: var(--color-ink);
-}
-
-.footer-link-item {
-  font-family: var(--font-text);
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--color-ink-tertiary);
-  line-height: 2.2;
-  transition: color 0.15s ease;
-  text-decoration: none;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-link-item:hover {
-  color: var(--color-ink);
-}
-
-.footer-github-cta {
-  font-family: var(--font-text);
-  font-size: 13px;
-  color: var(--color-ink-tertiary);
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-  text-decoration: none;
-  margin: 0;
-  background: transparent;
-}
-
-.footer-github-cta:hover {
-  border-color: var(--color-ink-tertiary);
-  color: var(--color-ink);
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.footer-disabled-link {
-  font-family: var(--font-text);
-  font-size: 12px;
-  font-weight: 400;
-  color: var(--color-ink-tertiary);
-  line-height: 2.2;
-  text-decoration: none;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.footer-legal-link {
-  font-family: var(--font-text);
-  font-size: 12px;
-  color: var(--color-ink-tertiary);
-  transition: color 0.15s ease;
-  text-decoration: none;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-legal-link:hover {
-  color: var(--color-ink);
-}
-
-.footer-legal-disabled {
-  font-family: var(--font-text);
-  font-size: 12px;
-  color: var(--color-ink-tertiary);
-  text-decoration: none;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  opacity: 0.4;
-  pointer-events: none;
-}
+/* Footer classes moved to global.css — all footer styling is canonical there.
+ * Legacy stubs kept here only to prevent 404 on deleted CSS if old cache
+ * references them. No functional rules. */
 
 .bento-pocket,
 .bento-pocket-dark {

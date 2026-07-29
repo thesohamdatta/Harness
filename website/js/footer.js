@@ -5,7 +5,6 @@
  *
  * Mounts into <div id="footer-mount"></div> at the end of <body>.
  * Apple HIG: footer is parchment, narrow columns, no decorative chrome.
- * Reads the current page from location.pathname to label the breadcrumb.
  *
  * Note: this file is intended for browser <script> loading only.
  * It is intentionally written as plain ES5 so it runs without a build step.
@@ -14,46 +13,25 @@
   var mount = document.getElementById("footer-mount");
   if (!mount) return;
 
-  var raw = window.location.pathname.split("/").pop() || "index.html";
-  var path = raw.replace(/\.html$/, "");
-  var labels = {
-    index: "Overview",
-    manifesto: "Manifesto",
-    docs: "Documentation",
-    404: "Not Found",
-  };
-  var crumb = labels[path] || path;
-
-  var c = function (tag, attrs, children) {
-    var open = "<" + tag;
-    for (var k in attrs) open += " " + k + '="' + attrs[k] + '"';
-    open += ">";
-    var close = "<" + "/" + tag + ">";
-    return open + (children || "") + close;
-  };
-
-  function link(href, label, cls) {
-    var extra = cls ? ' class="' + cls + '"' : "";
+  function link(href, label) {
     if (href === "#") {
-      extra = ' class="footer-disabled-link" aria-disabled="true"';
+      return (
+        '<a href="#" class="footer-disabled-link" aria-disabled="true">' +
+        label +
+        "</a>"
+      );
     }
-    return '<a href="' + href + '"' + extra + ">" + label + "<" + "/" + "a>";
+    return '<a href="' + href + '">' + label + "</a>";
   }
 
   function col(title, items) {
-    var html = c("div", { class: "footer-col" }, "");
-    html += c("span", { class: "footer-col-title" }, title);
+    var html = '<div class="footer-col">';
+    html += '<h3 class="footer-col-title">' + title + "</h3>";
     html += "<ul>";
     for (var i = 0; i < items.length; i++) {
-      html +=
-        "<li>" +
-        link(items[i][0], items[i][1], items[i][2]) +
-        "<" +
-        "/" +
-        "li>";
+      html += "<li>" + link(items[i][0], items[i][1]) + "</li>";
     }
-    html += "<" + "/" + "ul>";
-    html += "<" + "/" + "div>";
+    html += "</ul></div>";
     return html;
   }
 
@@ -82,58 +60,40 @@
   html += '<footer class="site-footer">';
   html += '<div class="footer-inner">';
 
-  html += '<nav class="footer-breadcrumb" aria-label="Breadcrumb">';
-  html += link("index.html", "Aura", "footer-breadcrumb-link");
-  html += '<span class="footer-breadcrumb-sep" aria-hidden="true">›</span>';
-  html += "<span>" + crumb + "</span>";
-  html += "<" + "/" + "nav>";
-
-  html += '<div class="footer-grid">';
-  html +=
-    '<div class="footer-brand"><div class="footer-wordmark">Aura</div><' +
-    "/" +
-    "div>";
+  html += '<nav class="footer-nav" aria-label="Site">';
+  html += '<div class="footer-col footer-col-brand">';
+  html += '<div class="footer-wordmark">Aura</div>';
+  html += '<p class="footer-tagline">Open-source, screenless, voice-first.</p>';
+  html += "</div>";
   html += buildCol;
   html += learnCol;
   html += communityCol;
   html += projectCol;
-  html += "<" + "/" + "div>";
+  html += "</nav>";
 
   html += '<div class="footer-secondary">';
   html += "More ways to build: ";
-  html += link(
-    "https://github.com/thesohamdatta/aura",
-    "Fork the GitHub repo",
-    "footer-inline-link"
-  );
+  html += link("https://github.com/thesohamdatta/aura", "Fork the GitHub repo");
   html += " or ";
-  html += link("docs.html", "read our assembly guides", "footer-inline-link");
+  html += link("docs.html", "read our assembly guides");
   html += ". Need help? Contact ";
-  html += link(
-    "mailto:thesohamdatta@gmail.com",
-    "thesohamdatta@gmail.com",
-    "footer-inline-link"
-  );
+  html += link("mailto:thesohamdatta@gmail.com", "thesohamdatta@gmail.com");
   html += ".";
-  html += "<" + "/" + "div>";
+  html += "</div>";
 
   html += '<div class="footer-meta">';
   html +=
-    '<p class="footer-copy">© 2026 Aura. Open source under MIT License.</p>';
+    '<p class="footer-copy">\u00A9 2026 Aura. Open source under MIT License.</p>';
   html += '<div class="footer-meta-links">';
   html += link("#", "MIT License");
   html += link("#", "Privacy");
-  html += link(
-    "https://github.com/thesohamdatta/aura",
-    "GitHub",
-    "footer-legal-link"
-  );
-  html += "<" + "/" + "div>";
+  html += link("https://github.com/thesohamdatta/aura", "GitHub");
+  html += "</div>";
   html += '<span class="footer-locale">Pune, India</span>';
-  html += "<" + "/" + "div>";
+  html += "</div>";
 
-  html += "<" + "/" + "div>";
-  html += "<" + "/" + "footer>";
+  html += "</div>";
+  html += "</footer>";
 
   mount.innerHTML = html;
 })();

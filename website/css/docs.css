@@ -27,6 +27,7 @@
   max-width: var(--hero-max);
   margin: 0 auto;
   align-items: flex-start; /* critical — lets the sidebar use sticky */
+  position: relative;
 }
 
 /* ─── Sidebar ────────────────────────────────────────────────────────────── */

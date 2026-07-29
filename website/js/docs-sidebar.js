@@ -46,6 +46,14 @@
     }
   }
 
+  /* Immediate active state on click — before smooth scroll completes. */
+  for (var k = 0; k < links.length; k++) {
+    links[k].addEventListener("click", function (e) {
+      var id = sectionIdFromHref(this.getAttribute("href") || "");
+      if (id) setActive(id);
+    });
+  }
+
   function onScroll() {
     if (!sections.length) return;
     var offset = 100; /* nav height + breathing room */

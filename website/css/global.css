@@ -7,7 +7,6 @@
 html {
   margin: 0;
   min-width: 0;
-  overflow-x: hidden;
 }
 
 img,
@@ -192,7 +191,6 @@ canvas {
 body {
   margin: 0;
   min-width: 0;
-  overflow-x: hidden;
   font-family: var(--font-text);
   font-size: var(--body-size);
   line-height: var(--body-line-height);

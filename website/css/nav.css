@@ -166,6 +166,7 @@
 
   #navbar .nav-toggle {
     display: inline-flex;
+    color: var(--nav-text-primary);
   }
 
   #mobileMenu {
@@ -175,34 +176,36 @@
     width: 100%;
     display: none;
     flex-direction: column;
-    padding: 16px;
-    gap: 16px;
+    padding: 16px 20px;
+    gap: 8px;
     z-index: 99;
-    background: var(--nav-bg, rgba(255, 255, 255, 0.95));
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid var(--nav-border, rgba(0, 0, 0, 0.08));
+    /* Light glass material - works on both transparent and scrolled nav */
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: var(--material-regular);
+    -webkit-backdrop-filter: var(--material-regular);
+    border-bottom: 1px solid var(--color-divider-soft);
     opacity: 0;
     transform: translateY(-8px);
     transition:
-      opacity 0.3s ease,
-      transform 0.3s ease;
+      opacity 0.25s var(--ease-out),
+      transform 0.25s var(--ease-spring);
   }
 
-  #navbar.nav-transparent #mobileMenu {
-    background: rgba(0, 0, 0, 0.85);
+  /* Scrolled transparent nav - slightly darker glass */
+  #navbar.nav-transparent.scrolled #mobileMenu {
+    background: rgba(39, 39, 41, 0.9);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  #navbar.nav-transparent #mobileMenu .nav-link {
-    color: rgba(255, 255, 255, 0.7);
+  #navbar.nav-transparent.scrolled #mobileMenu .nav-link {
+    color: rgba(255, 255, 255, 0.75);
   }
 
-  #navbar.nav-transparent #mobileMenu .nav-link.active {
+  #navbar.nav-transparent.scrolled #mobileMenu .nav-link.active {
     color: #ffffff;
   }
 
-  #navbar.nav-transparent #mobileMenu .nav-link:hover {
+  #navbar.nav-transparent.scrolled #mobileMenu .nav-link:hover {
     color: #2997ff;
   }
 
@@ -215,12 +218,22 @@
   #mobileMenu .nav-link {
     color: var(--color-ink-secondary);
     width: 100%;
-    padding: 4px 0;
-    font-size: 14px;
+    padding: 10px 0;
+    font-size: 15px;
+    font-weight: 400;
+    border-radius: var(--radius-sm);
+    transition:
+      color var(--duration-fast) var(--ease-out),
+      background-color var(--duration-fast) var(--ease-out);
+  }
+
+  #mobileMenu .nav-link:active {
+    background-color: rgba(0, 0, 0, 0.04);
   }
 
   #mobileMenu .nav-link.active {
-    color: var(--color-ink);
+    color: var(--color-action-blue);
+    font-weight: 600;
   }
 
   #mobileMenu .nav-link:hover {

@@ -5,8 +5,25 @@
 }
 
 html {
+  height: 100%;
   margin: 0;
   min-width: 0;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  font-family: var(--font-text);
+  font-size: var(--body-size);
+  line-height: var(--body-line-height);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 img,
@@ -186,19 +203,6 @@ canvas {
 }
 .font-rounded {
   font-family: var(--font-rounded);
-}
-
-body {
-  margin: 0;
-  min-width: 0;
-  font-family: var(--font-text);
-  font-size: var(--body-size);
-  line-height: var(--body-line-height);
-  color: var(--color-ink);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
 }
 
 h1,

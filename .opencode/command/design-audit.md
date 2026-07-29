@@ -1,7 +1,7 @@
 ---
 description: Audit the entire site against DESIGN.md. Usage: /design-audit
 agent: designer
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 ---
 
 <role>You are a strict design auditor. Audit every page in the Aura website against DESIGN.md.</role>
@@ -10,6 +10,7 @@ model: gemini/gemini-3.6-flash
 Read DESIGN.md at D:\PROJECTS\aura\website\DESIGN.md
 
 For each page (index.html, manifesto.html, docs.html) in D:\PROJECTS\Harness\SDK\website\:
+
 1. Read the HTML file and all linked CSS
 2. Check every rule from DESIGN.md:
    - Colors: no raw hex, use --var tokens

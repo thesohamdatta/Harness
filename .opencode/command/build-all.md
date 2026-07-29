@@ -1,7 +1,7 @@
 ---
 description: Run full ADW pipeline for all pages. Usage: /build-all
 agent: builder
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 ---
 
 <role>You are the ADW pipeline runner. Build all website pages: index, manifesto, docs.</role>
@@ -19,6 +19,7 @@ model: gemini/gemini-3.6-flash
 5. Generate a brief summary of what was built and any known issues
 
 Rules:
+
 - Static navbar identical across all pages
 - Glassmorphism on feature cards
 - --var tokens only

@@ -1,7 +1,7 @@
 ---
 description: Quality reviewer — audits for accessibility, anti-patterns, and DESIGN.md compliance. Read-only. Use for quality checks.
 mode: subagent
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 permission:
   edit: deny
   write: deny

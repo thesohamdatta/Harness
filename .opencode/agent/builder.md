@@ -1,7 +1,7 @@
 ---
 description: Builds website pages with full read/write access. Translates specs into HTML/CSS/JS. Use for building or editing pages.
 mode: subagent
-model: gemini/gemini-3.6-flash
+model: deepseek-v4-flash-free
 permission:
   edit: allow
   write: allow

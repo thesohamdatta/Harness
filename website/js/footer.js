@@ -118,7 +118,8 @@
   html += "<" + "/" + "div>";
 
   html += '<div class="footer-meta">';
-  html += '<p class="footer-copy">© 2026 Aura Project. MIT Licensed.</p>';
+  html +=
+    '<p class="footer-copy">© 2026 Aura. Open source under MIT License.</p>';
   html += '<div class="footer-meta-links">';
   html += link("#", "MIT License");
   html += link("#", "Privacy");

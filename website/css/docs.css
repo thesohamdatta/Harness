@@ -110,7 +110,8 @@
   color: var(--color-ink);
 }
 
-.docs-sidebar-link.is-active {
+.docs-sidebar-link.is-active,
+.docs-sidebar-link.active {
   background-color: rgba(0, 102, 204, 0.08);
   color: var(--color-action-blue);
   font-weight: 600;

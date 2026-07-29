@@ -8,11 +8,11 @@
   z-index: 100;
   --nav-bg: var(--bg-regular);
   --nav-border: rgba(0, 0, 0, 0.08);
-  --nav-text-primary: #1d1d1f;
-  --nav-text-secondary: #333333;
-  --nav-text-hover: #0066cc;
-  --nav-cta-bg: #0066cc;
-  --nav-cta-text: #ffffff;
+  --nav-text-primary: var(--color-ink);
+  --nav-text-secondary: var(--color-ink-secondary);
+  --nav-text-hover: var(--color-action-blue);
+  --nav-cta-bg: var(--color-action-blue);
+  --nav-cta-text: var(--color-canvas-white);
   background: var(--nav-bg);
   backdrop-filter: var(--material-regular);
   -webkit-backdrop-filter: var(--material-regular);
@@ -26,11 +26,11 @@
 #navbar.nav-transparent {
   --nav-bg: transparent;
   --nav-border: transparent;
-  --nav-text-primary: #ffffff;
+  --nav-text-primary: var(--color-canvas-white);
   --nav-text-secondary: rgba(255, 255, 255, 0.75);
-  --nav-text-hover: #2997ff;
-  --nav-cta-bg: #ffffff;
-  --nav-cta-text: #1d1d1f;
+  --nav-text-hover: var(--color-sky-blue);
+  --nav-cta-bg: var(--color-canvas-white);
+  --nav-cta-text: var(--color-ink);
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -40,11 +40,11 @@
 #navbar.nav-transparent.scrolled {
   --nav-bg: var(--bg-dark-regular);
   --nav-border: rgba(255, 255, 255, 0.08);
-  --nav-text-primary: #ffffff;
+  --nav-text-primary: var(--color-canvas-white);
   --nav-text-secondary: rgba(255, 255, 255, 0.7);
-  --nav-text-hover: #2997ff;
-  --nav-cta-bg: #0066cc;
-  --nav-cta-text: #ffffff;
+  --nav-text-hover: var(--color-sky-blue);
+  --nav-cta-bg: var(--color-action-blue);
+  --nav-cta-text: var(--color-canvas-white);
   background: var(--nav-bg);
   backdrop-filter: var(--material-regular);
   -webkit-backdrop-filter: var(--material-regular);
@@ -202,11 +202,11 @@
   }
 
   #navbar.nav-transparent.scrolled #mobileMenu .nav-link.active {
-    color: #ffffff;
+    color: var(--color-canvas-white);
   }
 
   #navbar.nav-transparent.scrolled #mobileMenu .nav-link:hover {
-    color: #2997ff;
+    color: var(--color-sky-blue);
   }
 
   #mobileMenu.open {

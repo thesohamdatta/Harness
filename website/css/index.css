@@ -75,7 +75,7 @@
 
 @media (min-width: 834px) {
   .section-headline {
-    font-size: var(--type-display-2xl);
+    font-size: var(--type-display-xl);
   }
 }
 
@@ -198,7 +198,7 @@
 .hero-headline {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(56px, 9vw, 110px);
+  font-size: clamp(56px, 9vw, 80px);
   line-height: 1.05;
   letter-spacing: var(--tracking-hero);
   margin: 4px 0 12px;
@@ -239,7 +239,9 @@
 
 .hero-descriptor {
   font-family: var(--font-text);
-  font-size: 13px;
+  font-size: var(--type-caption);
+  line-height: 1.43;
+  letter-spacing: var(--tracking-label);
   color: rgba(255, 255, 255, 0.5);
   margin-top: 20px;
 }
@@ -728,14 +730,14 @@
   display: block;
   font-family: var(--font-text);
   font-size: 14px;
-  color: #222;
+  color: var(--color-ink);
   text-decoration: none;
   line-height: 2;
   transition: color var(--duration-fast) var(--ease-out);
 }
 
 .footer-col ul li a:hover {
-  color: #000;
+  color: var(--color-ink);
   text-decoration: none;
 }
 

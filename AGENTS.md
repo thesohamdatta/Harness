@@ -138,6 +138,23 @@ Debug: `python agent_harness.py --show-prompt --aura`
 | `/design-audit`         | Audit entire site against BRAND_BRIEF + DESIGN.md         |
 | `/harness --aura "..."` | Run the Google Antigravity harness                        |
 
+## Repository nesting (important)
+
+This repo (`D:\PROJECTS\AURA\website\1.2`) is a **git submodule** inside the
+parent `aura.git` at `D:\PROJECTS\AURA/`.
+
+```
+D:\PROJECTS\AURA/         ← GIT: aura.github.com/thesohamdatta/aura.git
+└── website/
+    └── 1.2/              ← GIT: Harness.git (this repo)
+```
+
+- **Always check** `git rev-parse --show-toplevel` before committing.
+- Work on the website → commit in this repo (`website/1.2/`).
+- To update the submodule pointer in parent: `git -C D:\PROJECTS\AURA add website/1.2 && git commit`
+- After cloning fresh: `git submodule update --init --recursive`
+- Reference: `.scratch/repo-structure-analysis.md`
+
 ## Design rules
 
 - Brand philosophy lives in `BRAND_BRIEF.md` (read first).

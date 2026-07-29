@@ -1,0 +1,458 @@
+# Instincts generated from https://github.com/thesohamdatta/Harness
+# Generated: 2026-07-29T15:43:29.595Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: Harness-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Commit Length
+
+## Action
+
+Write moderate-length commit messages (~58 characters)
+
+## Evidence
+
+- Average commit message length: 58 chars
+- Based on 11 commits
+
+---
+id: Harness-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: Harness-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: Harness-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: Harness-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: Harness-workflow-css-design-token-refactor
+trigger: "when doing css design token refactor"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Workflow Css Design Token Refactor
+
+## Action
+
+Follow the css-design-token-refactor workflow:
+1. Identify hardcoded CSS values in files like nav.css, global.css, index.css, style.css.
+2. Replace hardcoded colors, font sizes, and other properties with CSS custom properties (design tokens).
+3. Update HTML files (e.g., manifesto.html, index.html) if necessary to match new tokenized styles.
+4. Test for visual consistency and accessibility.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: website/css/global.css, website/css/index.css, website/css/nav.css
+
+---
+id: Harness-workflow-footer-component-redesign
+trigger: "when doing footer component redesign"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Workflow Footer Component Redesign
+
+## Action
+
+Follow the footer-component-redesign workflow:
+1. Update footer layout and content in global.css and index.css.
+2. Remove or consolidate duplicate/legacy footer CSS from style.css and index.css.
+3. Rewrite or simplify footer.js for new structure and accessibility.
+4. Test footer on all relevant pages (index.html, etc.).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: website/css/global.css, website/css/index.css, website/css/style.css
+
+---
+id: Harness-workflow-hero-section-redesign
+trigger: "when doing hero section redesign"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Workflow Hero Section Redesign
+
+## Action
+
+Follow the hero-section-redesign workflow:
+1. Edit hero layout and content in index.html.
+2. Update related CSS in index.css for new layout, typography, and button styles.
+3. Remove unused hero-related CSS classes.
+4. Test hero section for visual correctness and responsiveness.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: website/css/index.css, website/index.html
+
+---
+id: Harness-workflow-sticky-sidebar-and-scroll-behavior-fix
+trigger: "when doing sticky sidebar and scroll behavior fix"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/thesohamdatta/Harness
+---
+
+# Harness Workflow Sticky Sidebar And Scroll Behavior Fix
+
+## Action
+
+Follow the sticky-sidebar-and-scroll-behavior-fix workflow:
+1. Identify root cause of sticky/scroll issue (e.g., overflow-x, scroll container).
+2. Update global.css (and sometimes nav.css or docs.css) to adjust overflow, positioning, or height.
+3. Update or add JS handlers in docs-sidebar.js for scroll-spy or click behavior.
+4. Test sidebar on docs.html and related pages.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: website/css/global.css, website/css/docs.css, website/js/docs-sidebar.js
+
+---
+id: harness-instinct-file-naming-camelcase
+trigger: "When creating or renaming a JavaScript file"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct File Naming Camelcase
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.files
+- Consistent across website/js/footer.js, website/js/docs-sidebar.js
+
+---
+id: harness-instinct-function-naming-camelcase
+trigger: "When defining a function in JavaScript"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Function Naming Camelcase
+
+## Action
+
+Use camelCase for function names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.functions
+
+---
+id: harness-instinct-class-naming-pascalcase
+trigger: "When defining a class in JavaScript"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Class Naming Pascalcase
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.classes
+
+---
+id: harness-instinct-constant-naming-screaming-snake
+trigger: "When defining a constant in JavaScript"
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Constant Naming Screaming Snake
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Pattern in codeStyle.namingConventions.constants
+
+---
+id: harness-instinct-imports-relative
+trigger: "When importing modules in JavaScript"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Imports Relative
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle
+
+---
+id: harness-instinct-exports-named
+trigger: "When exporting modules in JavaScript"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Exports Named
+
+## Action
+
+Use named exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle
+
+---
+id: harness-instinct-test-location-separate
+trigger: "When adding or organizing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Test Location Separate
+
+## Action
+
+Place tests in a separate directory from source code
+
+## Evidence
+
+- Pattern in architecture.testLocation
+
+---
+id: harness-instinct-commit-prefixes
+trigger: "When writing a git commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Commit Prefixes
+
+## Action
+
+Start the commit message with a standardized prefix (e.g., checkpoint, hero, fix, manifesto, docs, footer)
+
+## Evidence
+
+- Seen in commits: 'checkpoint: pre-handoff snapshot before Claude Code transition', 'Hero: strip to minimal (wordmark + 2 CTAs only)', 'Fix: full-bleed hero white space on right/bottom edges', etc.
+
+---
+id: harness-instinct-commit-length
+trigger: "When writing a git commit message"
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Commit Length
+
+## Action
+
+Keep the commit message concise, around 58 characters on average
+
+## Evidence
+
+- Pattern in commits.averageLength
+
+---
+id: harness-instinct-css-design-token-refactor
+trigger: "When someone wants to improve design consistency or update the design system across the site"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Css Design Token Refactor
+
+## Action
+
+Refactor CSS to replace hardcoded values with design tokens (CSS custom properties) and update related HTML as needed
+
+## Evidence
+
+- Workflow: css-design-token-refactor
+- Commits: 'Replace hardcoded colors, font sizes, and other properties with CSS custom properties (design tokens)'
+
+---
+id: harness-instinct-footer-component-redesign
+trigger: "When someone wants to update the footer's design, structure, or accessibility features"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Footer Component Redesign
+
+## Action
+
+Redesign and refactor the footer, update CSS/JS, and test on all relevant pages
+
+## Evidence
+
+- Workflow: footer-component-redesign
+- Commits: 'Update footer layout and content in global.css and index.css', 'Rewrite or simplify footer.js for new structure and accessibility'
+
+---
+id: harness-instinct-hero-section-redesign
+trigger: "When someone wants to update the hero section's appearance or messaging"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Hero Section Redesign
+
+## Action
+
+Edit hero layout/content in index.html, update related CSS, remove unused classes, and test responsiveness
+
+## Evidence
+
+- Workflow: hero-section-redesign
+- Commits: 'Edit hero layout and content in index.html', 'Update related CSS in index.css for new layout, typography, and button styles'
+
+---
+id: harness-instinct-sticky-sidebar-scroll-fix
+trigger: "When someone wants to resolve issues with sidebar stickiness or scroll-spy behavior, especially after layout/CSS changes"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: thesohamdatta/Harness
+---
+
+# Harness Instinct Sticky Sidebar Scroll Fix
+
+## Action
+
+Diagnose sticky/scroll issue, update CSS/JS as needed, and test sidebar on docs.html
+
+## Evidence
+
+- Workflow: sticky-sidebar-and-scroll-behavior-fix
+- Commits: 'Update global.css (and sometimes nav.css or docs.css) to adjust overflow, positioning, or height', 'Update or add JS handlers in docs-sidebar.js for scroll-spy or click behavior'
+

@@ -5,57 +5,47 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta name="description" content="Page not found" />
     <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="404 | Page Not Found | Aura" />
+    <meta
+      property="og:description"
+      content="That page does not exist. Head back to the Aura landing page."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://thesohamdatta.github.io/aura/assets/hero/hero-pendant-dark.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://thesohamdatta.github.io/aura/404.html"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="404 | Page Not Found | Aura" />
+    <meta
+      name="twitter:description"
+      content="That page does not exist. Head back to the Aura landing page."
+    />
+    <meta
+      name="twitter:image"
+      content="https://thesohamdatta.github.io/aura/assets/hero/hero-pendant-dark.webp"
+    />
     <title>404 | Aura</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/nav.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utils.css" />
-    <script src="js/nav.js" defer></script>
   </head>
   <body class="bg-white font-body">
-    <a href="#main-content" class="skip-link">Skip to content</a>
-
-    <nav id="navbar" class="nav-transparent">
-      <div class="nav-inner">
-        <a href="index.html" class="nav-wordmark">Aura</a>
-        <div id="mobileMenu" class="nav-links">
-          <a href="index.html" class="nav-link">Overview</a>
-          <a href="manifesto.html" class="nav-link">Manifesto</a>
-          <a href="docs.html" class="nav-link">Docs</a>
-        </div>
-        <div class="nav-actions">
-          <a href="docs.html#hardware" class="nav-cta">Build Yours</a>
-          <button
-            id="navToggle"
-            class="nav-toggle"
-            aria-expanded="false"
-            aria-controls="mobileMenu"
-            aria-label="Toggle navigation menu"
-          >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-            >
-              <line x1="3" y1="6" x2="21" y2="6" />
-              <line x1="3" y1="12" x2="21" y2="12" />
-              <line x1="3" y1="18" x2="21" y2="18" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </nav>
-
     <main
       id="main-content"
-      class="min-h-[calc(100vh-52px)] flex items-center justify-center px-6"
+      class="min-h-screen flex items-center justify-center px-6"
     >
       <div class="text-center max-w-[500px]">
+        <span
+          class="font-display text-[21px] font-semibold text-[var(--color-ink)] block mb-2"
+          >Aura</span
+        >
         <span
           class="font-display text-[80px] md:text-[120px] font-bold text-[var(--color-ink)] leading-[1] block mb-4"
           >404</span
@@ -68,13 +58,29 @@
         <p
           class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mb-8 leading-relaxed"
         >
-          The page you're looking for doesn't exist or has been moved.
+          That page wandered off. Nothing to see here.
         </p>
         <a
           href="index.html"
           class="btn-primary inline-flex items-center gap-2 px-6 py-3"
           >Back to Overview</a
         >
+        <p
+          class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] mt-8 leading-relaxed"
+        >
+          Or browse the
+          <a
+            href="docs.html"
+            class="text-[var(--color-action-blue)] hover:text-[var(--color-ink)]"
+            >docs</a
+          >
+          or the
+          <a
+            href="manifesto.html"
+            class="text-[var(--color-action-blue)] hover:text-[var(--color-ink)]"
+            >manifesto</a
+          >.
+        </p>
       </div>
     </main>
   </body>

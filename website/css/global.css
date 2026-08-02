@@ -45,14 +45,13 @@ canvas {
 
   --color-ink: #1d1d1f;
   --color-ink-secondary: #333333;
-  --color-ink-tertiary: #7a7a7a;
-  --color-ink-dark: #ffffff;
+  --color-ink-tertiary: #5c5c60;
 
   --color-action-blue: #0066cc;
   --color-focus-blue: #0071e3;
   --color-sky-blue: #2997ff;
 
-  --color-ink-muted-53: #86868b;
+  --color-ink-muted-53: #6e6e73;
   --color-divider-soft: #f0f0f0;
   --color-hairline: #e0e0e0;
 
@@ -95,29 +94,12 @@ canvas {
   --type-micro-legal: 10px;
   --type-nav-link: 12px;
 
-  /* Legacy type aliases (backward compat) */
-  --type-hero: 80px;
-  --type-display: 56px;
-  --type-title-xl: 48px;
-  --type-title-lg: 40px;
-  --type-title-md: 28px;
-  --type-title-sm: 21px;
-  --type-label: 14px;
-  --type-eyebrow-legacy: 13px; /* maps to eyebrow in DESIGN.md */
-
   /* ── Tracking ──────────────────────────────────────────────────── */
   --tracking-hero: -0.005em;
   --tracking-display: -0.003em;
   --tracking-title: -0.002em;
   --tracking-body: 0em;
   --tracking-label: 0em;
-  --tracking-caps: 0;
-
-  /* ── Leading ───────────────────────────────────────────────────── */
-  --leading-tight: 1.05;
-  --leading-snug: 1.2;
-  --leading-normal: 1.47;
-  --leading-relaxed: 1.6;
 
   /* ── Body defaults ─────────────────────────────────────────────── */
   --body-size: 17px;
@@ -165,20 +147,32 @@ canvas {
   --radius-pill: 9999px;
   --radius-full: 9999px;
 
-  /* Legacy radius aliases */
+  /* Legacy radius aliases (referenced by components) */
   --radius-card: 18px;
   --radius-utility: 8px;
-  --radius-tile: 0px;
 
   /* ── Motion (Apple HIG spring curves) ──────────────────────────── */
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
-  --ease-glass: cubic-bezier(0.23, 1, 0.32, 1);
 
   --duration-fast: 0.15s;
   --duration-normal: 0.3s;
   --duration-slow: 0.6s;
+
+  /* Scroll orchestration output (set inline by scroll-orchestrator.js). */
+  --scroll-progress: 0;
+  --section-progress: 0;
+  --stagger-index: 0;
+
+  /* ── Spacing (DESIGN.md canonical) ─────────────────────────────── */
+  --spacing-xxs: 4px;
+  --spacing-xs: 8px;
+  --spacing-sm: 12px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+  --spacing-section: 80px;
 
   /* ── Layout ────────────────────────────────────────────────────── */
   --content-max: 980px;
@@ -186,7 +180,6 @@ canvas {
   --section-padding: 80px;
   --section-padding-mobile: 60px;
   --gutter: 24px;
-  --prose-max: 680px;
 }
 
 .font-display {
@@ -316,15 +309,17 @@ select:focus-visible,
 
 /* ── Scroll reveal (Apple-style fade + translate) ─────────────────────── */
 
-.reveal {
+[data-anim-trigger~="reveal"],
+[data-anim-stagger-item] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(12px);
   transition:
-    opacity var(--duration-slow) var(--ease-out),
-    transform var(--duration-slow) var(--ease-spring);
+    opacity var(--duration-normal) var(--ease-out),
+    transform var(--duration-normal) var(--ease-spring);
+  transition-delay: calc(var(--stagger-index, 0) * 60ms);
 }
 
-.revealed {
+.is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
@@ -374,7 +369,7 @@ select:focus-visible,
   z-index: 9999;
   padding: 12px 24px;
   background: var(--color-action-blue);
-  color: #ffffff;
+  color: var(--color-canvas-white);
   font-family: var(--font-text);
   font-size: 15px;
   font-weight: 600;

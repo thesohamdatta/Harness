@@ -3,38 +3,40 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta name="description" content="" />
+    <meta
+      name="description"
+      content="Aura is an open-source, screenless, voice-first AI pendant you wear around your neck. ~$50 BOM, MIT licensed. Not a computer. Not a phone. Something worn."
+    />
     <meta name="theme-color" content="#000000" />
+    <meta property="og:title" content="Aura | Voice-first AI pendant" />
+    <meta
+      property="og:description"
+      content="Aura is an open-source, screenless, voice-first AI pendant you wear around your neck. ~$50 BOM, MIT licensed."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://thesohamdatta.github.io/aura/assets/hero/hero-pendant-dark.webp"
+    />
+    <meta property="og:url" content="https://thesohamdatta.github.io/aura/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Aura | Voice-first AI pendant" />
+    <meta
+      name="twitter:description"
+      content="Open-source, screenless, voice-first AI pendant. ~$50 BOM, MIT licensed."
+    />
+    <meta
+      name="twitter:image"
+      content="https://thesohamdatta.github.io/aura/assets/hero/hero-pendant-dark.webp"
+    />
     <title>Aura</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://unpkg.com" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link
       rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf"
+      href="assets/fonts/sf-pro/woff2/SF-Pro-Display-Semibold.woff2"
       as="font"
-      type="font/otf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf"
-      as="font"
-      type="font/otf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf"
-      as="font"
-      type="font/otf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf"
-      as="font"
-      type="font/otf"
+      type="font/woff2"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/global.css" />
@@ -43,7 +45,7 @@
     <link rel="stylesheet" href="css/utils.css" />
     <link rel="stylesheet" href="css/index.css" />
     <script src="js/nav.js" defer></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="js/scroll-orchestrator.js" defer></script>
   </head>
   <body class="bg-white font-body">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -66,7 +68,23 @@
             aria-controls="mobileMenu"
             aria-label="Toggle navigation menu"
           >
-            <i data-lucide="menu" class="w-5 h-5"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+              aria-hidden="true"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
           </button>
         </div>
       </div>
@@ -74,20 +92,41 @@
 
     <main id="main-content">
       <!-- 1. HERO — full-bleed photographic, single CTA pill anchored to product -->
-      <section class="hero" aria-label="Aura pendant hero">
+      <section
+        class="hero"
+        aria-label="Aura pendant hero"
+        data-anim-trigger="section"
+        data-anim-anchor="self"
+        data-anim-start="a0t - 100vh"
+        data-anim-end="a0b"
+      >
         <div class="hero-media">
-          <img
-            src="assets/hero/hero-pendant-dark.jpg"
-            alt="Aura pendant against a dark backdrop"
-            width="2400"
-            height="1350"
-            fetchpriority="high"
-          />
+          <picture>
+            <source
+              type="image/webp"
+              srcset="
+                assets/hero/hero-pendant-dark-400w.webp   400w,
+                assets/hero/hero-pendant-dark-800w.webp   800w,
+                assets/hero/hero-pendant-dark-1200w.webp 1200w,
+                assets/hero/hero-pendant-dark-1600w.webp 1600w
+              "
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+            />
+            <img
+              src="assets/hero/hero-pendant-dark.webp"
+              alt="Aura pendant against a dark backdrop"
+              width="1672"
+              height="941"
+              fetchpriority="high"
+            />
+          </picture>
         </div>
         <div class="hero-gradient" aria-hidden="true"></div>
 
         <div class="hero-content">
           <h1 class="hero-headline">Aura</h1>
+
+          <p class="hero-tagline">Worn. Screenless. Aware.</p>
 
           <div class="hero-ctas">
             <a href="docs.html#hardware" class="btn-hero-primary"
@@ -102,11 +141,22 @@
 
       <!-- 2. CAPABILITIES — white tile, three typography-led capability columns -->
       <section
+        id="capabilities"
         class="section section-white"
         aria-labelledby="capabilities-heading"
+        data-anim-trigger="section"
+        data-anim-anchor="self"
+        data-anim-start="top 85%"
+        data-anim-end="bottom 15%"
       >
         <div class="section-inner">
-          <header class="section-header">
+          <header
+            class="section-header"
+            data-anim-trigger="reveal"
+            data-anim-anchor="#capabilities"
+            data-anim-start="top 85%"
+            data-anim-end="bottom 15%"
+          >
             <span class="eyebrow eyebrow-action">Capabilities</span>
             <h2 id="capabilities-heading" class="section-headline">
               Listens. Sees. Remembers.
@@ -114,22 +164,28 @@
           </header>
 
           <div class="capability-backdrop" aria-hidden="true"></div>
-          <div class="capability-grid">
-            <article class="capability glass-card">
+          <div
+            class="capability-grid"
+            data-anim-trigger="stagger"
+            data-anim-anchor="#capabilities"
+            data-anim-start="top 75%"
+            data-anim-end="bottom 15%"
+          >
+            <article class="capability glass-card" data-anim-stagger-item>
               <span class="capability-meta">Groq LPU · &lt; 500 ms</span>
               <h3 class="capability-title">Always listening</h3>
               <p class="capability-body">
                 Voice transcribed in under 500ms. No app. No buttons.
               </p>
             </article>
-            <article class="capability glass-card">
+            <article class="capability glass-card" data-anim-stagger-item>
               <span class="capability-meta">OV2640 · GPT-4o Vision</span>
               <h3 class="capability-title">Visual understanding</h3>
               <p class="capability-body">
                 Point at anything. Aura sees and stores what you're looking at.
               </p>
             </article>
-            <article class="capability glass-card">
+            <article class="capability glass-card" data-anim-stagger-item>
               <span class="capability-meta">Pinecone · RAG</span>
               <h3 class="capability-title">Never forgets</h3>
               <p class="capability-body">
@@ -138,16 +194,34 @@
               </p>
             </article>
           </div>
+          <p class="capability-trust">
+            Self-host your backend. No cloud account required. Your data stays
+            yours.
+            <a href="docs.html#privacy" class="text-link"
+              >How privacy works →</a
+            >
+          </p>
         </div>
       </section>
 
       <!-- 3. THIRD DEVICE — full-bleed dark tile with 3 small glass sub-cards -->
       <section
+        id="third-device"
         class="section section-dark"
         aria-labelledby="third-device-heading"
+        data-anim-trigger="section"
+        data-anim-anchor="self"
+        data-anim-start="top 85%"
+        data-anim-end="bottom 15%"
       >
         <div class="section-inner">
-          <header class="section-header section-header-centered">
+          <header
+            class="section-header section-header-centered"
+            data-anim-trigger="reveal"
+            data-anim-anchor="#third-device"
+            data-anim-start="top 85%"
+            data-anim-end="bottom 15%"
+          >
             <span class="eyebrow eyebrow-light">The idea</span>
             <h2 id="third-device-heading" class="section-headline">
               The third device.
@@ -157,24 +231,75 @@
             </p>
           </header>
 
-          <div class="third-device-grid">
-            <article class="glass-sub-card">
+          <div
+            class="third-device-grid"
+            data-anim-trigger="stagger"
+            data-anim-anchor="#third-device"
+            data-anim-start="top 75%"
+            data-anim-end="bottom 15%"
+          >
+            <article class="glass-sub-card" data-anim-stagger-item>
               <div class="glass-sub-card-icon" aria-hidden="true">
-                <i data-lucide="monitor" class="w-5 h-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-5 h-5"
+                >
+                  <rect width="20" height="14" x="2" y="3" rx="2" />
+                  <line x1="8" x2="16" y1="21" y2="21" />
+                  <line x1="12" x2="12" y1="17" y2="21" />
+                </svg>
               </div>
               <p class="glass-sub-card-label">Not a computer</p>
             </article>
-            <article class="glass-sub-card">
+            <article class="glass-sub-card" data-anim-stagger-item>
               <div class="glass-sub-card-icon" aria-hidden="true">
-                <i data-lucide="smartphone" class="w-5 h-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-5 h-5"
+                >
+                  <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                  <path d="M12 18h.01" />
+                </svg>
               </div>
-              <p class="glass-sub-card-label">Not a distraction</p>
+              <p class="glass-sub-card-label">Not a phone</p>
             </article>
-            <article class="glass-sub-card">
+            <article class="glass-sub-card" data-anim-stagger-item>
               <div class="glass-sub-card-icon" aria-hidden="true">
-                <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-5 h-5"
+                >
+                  <path
+                    d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"
+                  />
+                  <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
+                </svg>
               </div>
-              <p class="glass-sub-card-label">A presence</p>
+              <p class="glass-sub-card-label">Something worn</p>
             </article>
           </div>
         </div>
@@ -182,12 +307,23 @@
 
       <!-- 4. SPECIFICATIONS — parchment tile, exploded product photo + metrics -->
       <section
+        id="specifications"
         class="section section-parchment"
         aria-labelledby="specs-heading"
+        data-anim-trigger="section"
+        data-anim-anchor="self"
+        data-anim-start="top 85%"
+        data-anim-end="bottom 15%"
       >
         <div class="section-inner">
           <div class="specs-header">
-            <div class="specs-header-copy">
+            <div
+              class="specs-header-copy"
+              data-anim-trigger="reveal"
+              data-anim-anchor="#specifications"
+              data-anim-start="top 85%"
+              data-anim-end="bottom 15%"
+            >
               <span class="eyebrow eyebrow-action">Specifications</span>
               <h2 id="specs-heading" class="section-headline">
                 Technical specs.
@@ -196,19 +332,35 @@
                 Standard off-the-shelf parts. No markup. MIT licensed.
               </p>
             </div>
-            <figure class="specs-figure">
+            <figure
+              class="specs-figure"
+              data-anim-trigger="reveal"
+              data-anim-anchor="#specifications"
+              data-anim-start="top 75%"
+              data-anim-end="bottom 15%"
+            >
               <img
                 src="assets/product/exploded-view.jpg"
-                alt="Aura exploded view — battery, MCU, camera, microphone"
+                alt="Aura exploded view: battery, MCU, camera, microphone"
                 width="1200"
                 height="800"
                 loading="lazy"
+                data-anim-trigger="load"
+                data-anim-anchor="#specifications"
+                data-anim-start="top 100%"
+                data-anim-end="bottom 0%"
               />
             </figure>
           </div>
 
-          <dl class="spec-grid">
-            <div class="spec">
+          <dl
+            class="spec-grid"
+            data-anim-trigger="stagger"
+            data-anim-anchor="#specifications"
+            data-anim-start="top 75%"
+            data-anim-end="bottom 15%"
+          >
+            <div class="spec" data-anim-stagger-item>
               <dt class="spec-value font-numeric">0.5s</dt>
               <dd class="spec-label">Transcription latency</dd>
               <dd class="spec-detail">
@@ -216,14 +368,14 @@
                 conversation.
               </dd>
             </div>
-            <div class="spec">
+            <div class="spec" data-anim-stagger-item>
               <dt class="spec-value font-numeric">~$50</dt>
               <dd class="spec-label">Bill of materials</dd>
               <dd class="spec-detail">
                 Standard off-the-shelf parts. No markup. MIT licensed.
               </dd>
             </div>
-            <div class="spec">
+            <div class="spec" data-anim-stagger-item>
               <dt class="spec-value font-numeric">80g</dt>
               <dd class="spec-label">Total weight</dd>
               <dd class="spec-detail">
@@ -235,10 +387,24 @@
       </section>
 
       <!-- 5. BUILD CTA — light tile, side-by-side product photo + CTAs -->
-      <section class="section section-white" aria-labelledby="build-heading">
+      <section
+        id="build"
+        class="section section-white"
+        aria-labelledby="build-heading"
+        data-anim-trigger="section"
+        data-anim-anchor="self"
+        data-anim-start="top 85%"
+        data-anim-end="bottom 15%"
+      >
         <div class="section-inner">
           <div class="build-card">
-            <div class="build-card-copy">
+            <div
+              class="build-card-copy"
+              data-anim-trigger="reveal"
+              data-anim-anchor="#build"
+              data-anim-start="top 85%"
+              data-anim-end="bottom 15%"
+            >
               <h2 id="build-heading" class="build-card-headline">
                 Build yours today.
               </h2>
@@ -253,22 +419,121 @@
                 >
                   <span>Build yours</span>
                   <span class="btn-chevron" aria-hidden="true">
-                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="w-4 h-4"
+                    >
+                      <path d="m9 18 6-6-6-6" />
+                    </svg>
                   </span>
                 </a>
-                <a href="docs.html" class="btn-link">View docs →</a>
+                <a href="docs.html" class="btn-secondary">View docs →</a>
               </div>
             </div>
-            <figure class="build-card-figure">
+            <figure
+              class="build-card-figure"
+              data-anim-trigger="reveal"
+              data-anim-anchor="#build"
+              data-anim-start="top 75%"
+              data-anim-end="bottom 15%"
+            >
               <img
                 src="assets/product/all-components.png"
-                alt="Aura components laid out — MCU board, camera, battery, 3D-printed case"
+                alt="Aura components laid out: MCU board, camera, battery, 3D-printed case"
                 width="1000"
                 height="666"
                 loading="lazy"
+                data-anim-trigger="load"
+                data-anim-anchor="#build"
+                data-anim-start="top 100%"
+                data-anim-end="bottom 0%"
               />
             </figure>
           </div>
+        </div>
+      </section>
+
+      <!-- FAQ SECTION — footer area -->
+      <section class="section section-white" aria-labelledby="faq-heading">
+        <div class="section-inner">
+          <header class="section-header">
+            <span class="eyebrow eyebrow-action">Support</span>
+            <h2 id="faq-heading" class="section-headline">Questions?</h2>
+          </header>
+          <dl class="faq-list">
+            <div class="faq-item">
+              <dt>
+                <button class="faq-question" aria-expanded="false">
+                  How does Aura handle privacy?
+                </button>
+              </dt>
+              <dd class="faq-answer">
+                All processing happens on your self-hosted backend. No cloud
+                account required.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt>
+                <button class="faq-question" aria-expanded="false">
+                  What's the battery life?
+                </button>
+              </dt>
+              <dd class="faq-answer">
+                ~4 hours active use, 45 minutes to full charge.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt>
+                <button class="faq-question" aria-expanded="false">
+                  Do I need to solder?
+                </button>
+              </dt>
+              <dd class="faq-answer">
+                No soldering required for the base build. The case snaps
+                together.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt>
+                <button class="faq-question" aria-expanded="false">
+                  Can I use my own AI providers?
+                </button>
+              </dt>
+              <dd class="faq-answer">
+                Yes. Configure Deepgram, Groq, OpenAI, or local Whisper in the
+                backend .env.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt>
+                <button class="faq-question" aria-expanded="false">
+                  Is the hardware open source?
+                </button>
+              </dt>
+              <dd class="faq-answer">
+                Yes. MIT licensed. Case STLs, firmware, and backend on GitHub.
+              </dd>
+            </div>
+            <div class="faq-item">
+              <dt>
+                <button class="faq-question" aria-expanded="false">
+                  What phone do I need?
+                </button>
+              </dt>
+              <dd class="faq-answer">
+                Any phone with Bluetooth LE. The Omi app runs on iOS and
+                Android.
+              </dd>
+            </div>
+          </dl>
         </div>
       </section>
     </main>
@@ -276,13 +541,5 @@
     <div id="footer-mount"></div>
 
     <script src="js/footer.js" defer></script>
-    <script>
-      // Lucide hydration (runs after footer mount because Lucide may hydrate icons inside the footer too).
-      window.addEventListener("DOMContentLoaded", function () {
-        if (window.lucide && typeof window.lucide.createIcons === "function") {
-          window.lucide.createIcons();
-        }
-      });
-    </script>
   </body>
 </html>

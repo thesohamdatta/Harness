@@ -439,7 +439,7 @@
 }
 
 .text-white {
-  color: #ffffff;
+  color: var(--color-canvas-white);
 }
 .text-white\/40 {
   color: rgba(255, 255, 255, 0.4);
@@ -462,10 +462,10 @@
   color: var(--color-ink-muted-53);
 }
 .text-\[\#1d1d1f\] {
-  color: #1d1d1f;
+  color: var(--color-ink);
 }
 .text-\[\#0066cc\] {
-  color: #0066cc;
+  color: var(--color-action-blue);
 }
 .text-\[\#1d1d1f\]\/60 {
   color: rgba(29, 29, 31, 0.6);
@@ -496,10 +496,10 @@
 
 /* ── Backgrounds ─────────────────────────────────────────────────── */
 .bg-white {
-  background-color: #ffffff;
+  background-color: var(--color-canvas-white);
 }
 .bg-black {
-  background-color: #000000;
+  background-color: var(--color-canvas-black);
 }
 .bg-black\/5 {
   background-color: rgba(0, 0, 0, 0.05);
@@ -544,16 +544,16 @@
 
 /* ── Border Radius ───────────────────────────────────────────────── */
 .rounded-full {
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
 }
 .rounded-md {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 .rounded-\[12px\] {
-  border-radius: 12px;
+  border-radius: var(--radius-md);
 }
 .rounded-\[32px\] {
-  border-radius: 32px;
+  border-radius: var(--radius-xl);
 }
 
 /* ── Image ───────────────────────────────────────────────────────── */
@@ -618,7 +618,7 @@
 }
 
 .hover\:text-\[\#1d1d1f\]:hover {
-  color: #1d1d1f;
+  color: var(--color-ink);
 }
 .hover\:underline:hover {
   text-decoration: underline;
@@ -676,6 +676,9 @@
 .text-\[80px\] {
   font-size: 80px;
 }
+.text-\[var\(--type-body\)\] {
+  font-size: var(--type-body);
+}
 
 /* ── Variable Text Colors ────────────────────────────────────────── */
 .text-\[var\(--color-action-blue\)\] {
@@ -689,9 +692,6 @@
 }
 .text-\[var\(--color-ink-tertiary\)\] {
   color: var(--color-ink-tertiary);
-}
-.text-\[var\(--type-body\)\] {
-  color: var(--type-body);
 }
 
 /* ── Variable Backgrounds ─────────────────────────────────────────── */

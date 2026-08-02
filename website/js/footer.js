@@ -16,9 +16,9 @@
   function link(href, label) {
     if (href === "#") {
       return (
-        '<a href="#" class="footer-disabled-link" aria-disabled="true">' +
+        '<span class="footer-disabled-link" aria-disabled="true">' +
         label +
-        "</a>"
+        "</span>"
       );
     }
     return '<a href="' + href + '">' + label + "</a>";
@@ -36,7 +36,7 @@
   }
 
   var buildCol = col("Build", [
-    ["docs.html#hardware", "Build Yours"],
+    ["docs.html#hardware", "Build yours"],
     ["docs.html#firmware", "Firmware"],
     ["docs.html#backend", "SDK"],
   ]);

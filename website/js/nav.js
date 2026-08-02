@@ -4,11 +4,6 @@
 
   /* Apple-style nav: text-only, no button pill in the chrome.
    * Primary CTAs live inside the page (hero / closing CTA), never in the nav. */
-  var actions = nav.querySelector(".nav-actions");
-  if (actions) {
-    var cta = actions.querySelector(".nav-cta");
-    if (cta) cta.parentNode.removeChild(cta);
-  }
 
   /* Defensive: re-apply aria-current on the active link in case the HTML
    * author forgot. The static nav block already sets .active on each page. */
@@ -27,8 +22,10 @@
     }
   });
 
-  // Transparent nav scroll behavior
-  var isTransparent = nav.classList.contains("nav-transparent");
+  // Transparent/light nav scroll behavior
+  var isTransparent =
+    nav.classList.contains("nav-transparent") ||
+    nav.classList.contains("nav-light");
   if (isTransparent) {
     var ticking = false;
     var onScroll = function () {
@@ -95,16 +92,24 @@
     });
   }
 
-  // Smooth anchor scroll
+  // Smooth anchor scroll (respects reduced-motion preference)
+  var prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
     anchor.addEventListener("click", function (e) {
-      var target = document.querySelector(this.getAttribute("href"));
+      var href = this.getAttribute("href");
+      if (!href || href === "#") return;
+      var target = document.querySelector(href);
       if (target) {
         e.preventDefault();
         var navHeight = nav ? nav.offsetHeight : 0;
         var targetPos =
           target.getBoundingClientRect().top + window.pageYOffset - navHeight;
-        window.scrollTo({ top: targetPos, behavior: "smooth" });
+        window.scrollTo({
+          top: targetPos,
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
       }
     });
   });

@@ -6,32 +6,41 @@
   font-weight: 600;
   text-decoration: none;
   transition:
-    opacity var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
     transform var(--duration-fast) var(--ease-spring);
 }
 .btn-primary:hover {
-  opacity: 0.85;
+  background-color: var(--color-focus-blue);
 }
 .btn-primary:active {
   transform: scale(0.95);
 }
 
+/* Secondary button — transparent blue pill */
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  background: transparent;
   color: var(--color-action-blue);
+  border: 1px solid var(--color-action-blue);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-text);
   font-size: var(--type-body);
-  font-weight: 600;
+  font-weight: 500;
   text-decoration: none;
   transition:
-    opacity var(--duration-normal) var(--ease-out),
+    background-color var(--duration-normal) var(--ease-out),
+    color var(--duration-normal) var(--ease-out),
     transform var(--duration-fast) var(--ease-spring);
+}
+.btn-secondary:hover {
+  background: var(--color-action-blue);
+  color: var(--color-canvas-white);
 }
 .btn-secondary:active {
   transform: scale(0.95);
-}
-
-.spec-card {
-  border-radius: var(--radius-card);
-  background-color: var(--color-canvas-white);
 }
 
 .section-white {
@@ -51,81 +60,112 @@
   font-variant-numeric: tabular-nums;
 }
 
-.hero-pill {
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: var(--blur-glass);
-  -webkit-backdrop-filter: var(--blur-glass);
-  border-left: 1px solid rgba(255, 255, 255, 0.35);
+/* ── Manifesto — editorial page using DESIGN.md tokens only ── */
+
+.manifesto-header {
+  padding-top: calc(var(--section-padding) * 2);
+  padding-bottom: var(--section-padding);
+  background-color: var(--color-canvas-white);
 }
 
-.hero-pill-label {
-  color: rgba(255, 255, 255, 0.92);
+.manifesto-container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.manifesto-eyebrow {
+  display: block;
   font-family: var(--font-text);
-  font-size: 14px;
+  font-size: var(--type-eyebrow);
   font-weight: 600;
-  letter-spacing: -0.01em;
-  padding-left: 20px;
-  padding-right: 8px;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-action-blue);
+  margin-bottom: var(--spacing-md);
 }
 
-.hero-pill-divider {
-  width: 1px;
-  height: 24px;
-  background-color: rgba(255, 255, 255, 0.2);
-  align-self: center;
+.manifesto-title {
+  font-family: var(--font-display);
+  font-size: var(--type-display-3xl);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-lg);
 }
 
-.hero-pill-btn {
-  background: var(--color-focus-blue);
-  color: #ffffff;
-  border-radius: var(--radius-pill);
-  padding: 8px 18px;
+.manifesto-section {
+  padding: 0 0 var(--spacing-xxl);
+}
+
+.manifesto-prose {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.manifesto-prose p {
   font-family: var(--font-text);
-  font-size: 14px;
+  font-size: var(--type-body-lg);
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: var(--tracking-body);
+  color: var(--color-ink-secondary);
+  margin: 0;
+}
+
+.manifesto-prose .manifesto-emphasis {
+  color: var(--color-ink);
   font-weight: 600;
-  margin: 4px;
+  font-size: var(--type-body-strong);
+  line-height: 1.24;
+  margin-top: var(--spacing-xl);
+}
+
+/* Closing */
+.manifesto-closing {
+  padding-top: var(--spacing-xxl);
+  padding-bottom: calc(var(--section-padding) * 2);
+}
+
+.manifesto-closing-text {
+  font-family: var(--font-text);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: var(--tracking-body);
+  color: var(--color-ink-muted-53);
+  margin: 0 0 var(--spacing-sm);
+}
+
+.manifesto-closing-link {
+  margin: 0;
+}
+
+.manifesto-cta {
+  color: var(--color-action-blue);
+  font-family: var(--font-text);
+  font-size: var(--type-body);
+  font-weight: 400;
+  line-height: 1.47;
+  letter-spacing: var(--tracking-body);
   text-decoration: none;
-  transition: background 0.2s ease;
-}
-.hero-pill-btn:active {
-  transform: scale(0.95);
-}
-
-/* Footer classes moved to global.css — all footer styling is canonical there.
- * Legacy stubs kept here only to prevent 404 on deleted CSS if old cache
- * references them. No functional rules. */
-
-.bento-pocket,
-.bento-pocket-dark {
-  position: relative;
-  backdrop-filter: blur(30px) saturate(190%);
-  -webkit-backdrop-filter: blur(30px) saturate(190%);
-  border-radius: 18px;
-  transition:
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.3s ease,
-    border-color 0.3s ease;
+  border-bottom: 1px solid var(--color-action-blue);
+  padding-bottom: 1px;
+  transition: opacity var(--duration-fast) var(--ease-out);
 }
 
-.bento-pocket {
-  background: rgba(255, 255, 255, 0.45);
+.manifesto-cta:hover {
+  opacity: 0.8;
 }
 
-.bento-pocket-dark {
-  background: var(--color-canvas-dark);
-}
-
-.bento-pocket:hover,
-.bento-pocket:focus-within {
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.bento-pocket-dark:hover,
-.bento-pocket-dark:focus-within {
-  background: var(--color-canvas-dark);
-}
-
-.perspective-nodes {
-  perspective: 1000px;
+@media (min-width: 834px) {
+  .manifesto-header {
+    padding-top: calc(var(--section-padding) * 2);
+    padding-bottom: var(--section-padding);
+  }
+  .manifesto-title {
+    font-size: var(--type-display-3xl);
+  }
 }

@@ -11,8 +11,6 @@
   --nav-text-primary: var(--color-ink);
   --nav-text-secondary: var(--color-ink-secondary);
   --nav-text-hover: var(--color-action-blue);
-  --nav-cta-bg: var(--color-action-blue);
-  --nav-cta-text: var(--color-canvas-white);
   background: var(--nav-bg);
   backdrop-filter: var(--material-regular);
   -webkit-backdrop-filter: var(--material-regular);
@@ -29,8 +27,20 @@
   --nav-text-primary: var(--color-canvas-white);
   --nav-text-secondary: rgba(255, 255, 255, 0.75);
   --nav-text-hover: var(--color-sky-blue);
-  --nav-cta-bg: var(--color-canvas-white);
-  --nav-cta-text: var(--color-ink);
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+}
+
+/* Light-page variant: dark ink text at rest against a light header,
+ * dark-glass scrolled state preserved (see .scrolled below). */
+#navbar.nav-light {
+  --nav-bg: transparent;
+  --nav-border: transparent;
+  --nav-text-primary: var(--color-ink);
+  --nav-text-secondary: var(--color-ink-secondary);
+  --nav-text-hover: var(--color-action-blue);
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
@@ -43,8 +53,18 @@
   --nav-text-primary: var(--color-canvas-white);
   --nav-text-secondary: rgba(255, 255, 255, 0.7);
   --nav-text-hover: var(--color-sky-blue);
-  --nav-cta-bg: var(--color-action-blue);
-  --nav-cta-text: var(--color-canvas-white);
+  background: var(--nav-bg);
+  backdrop-filter: var(--material-regular);
+  -webkit-backdrop-filter: var(--material-regular);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+#navbar.nav-light.scrolled {
+  --nav-bg: var(--bg-regular);
+  --nav-border: var(--color-divider-soft);
+  --nav-text-primary: var(--color-ink);
+  --nav-text-secondary: var(--color-ink-secondary);
+  --nav-text-hover: var(--color-action-blue);
   background: var(--nav-bg);
   backdrop-filter: var(--material-regular);
   -webkit-backdrop-filter: var(--material-regular);
@@ -70,7 +90,9 @@
   letter-spacing: -0.12px;
   text-decoration: none;
   padding: 8px 12px;
-  display: inline-block;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
   transition: color 0.2s ease;
 }
 
@@ -99,31 +121,6 @@
   outline: var(--focus-ring);
   outline-offset: 2px;
   border-radius: var(--radius-utility);
-}
-
-#navbar .nav-cta {
-  font-family: var(--font-text);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: -0.12px;
-  padding: 6px 14px;
-  border-radius: var(--radius-pill);
-  background: var(--nav-cta-bg);
-  color: var(--nav-cta-text);
-  text-decoration: none;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease,
-    background 0.25s ease,
-    color 0.25s ease;
-}
-
-#navbar .nav-cta:hover {
-  opacity: 0.85;
-}
-
-#navbar .nav-cta:active {
-  transform: scale(0.95);
 }
 
 .nav-inner {
@@ -209,6 +206,24 @@
     color: var(--color-sky-blue);
   }
 
+  /* Scrolled light nav - darker glass for contrast on white pages */
+  #navbar.nav-light.scrolled #mobileMenu {
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-divider-soft);
+  }
+
+  #navbar.nav-light.scrolled #mobileMenu .nav-link {
+    color: var(--color-ink-secondary);
+  }
+
+  #navbar.nav-light.scrolled #mobileMenu .nav-link.active {
+    color: var(--color-ink);
+  }
+
+  #navbar.nav-light.scrolled #mobileMenu .nav-link:hover {
+    color: var(--color-action-blue);
+  }
+
   #mobileMenu.open {
     display: flex;
     opacity: 1;
@@ -218,6 +233,9 @@
   #mobileMenu .nav-link {
     color: var(--color-ink-secondary);
     width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
     padding: 10px 0;
     font-size: 15px;
     font-weight: 400;

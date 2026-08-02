@@ -8,36 +8,38 @@
       content="Social giants are eating our brains. AI is humanity's last invention. We need a third device."
     />
     <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="The Third Device | Aura Manifesto" />
+    <meta
+      property="og:description"
+      content="Social giants are eating our brains. AI is humanity's last invention. We need a third device."
+    />
+    <meta property="og:type" content="article" />
+    <meta
+      property="og:image"
+      content="https://thesohamdatta.github.io/aura/assets/hero/hero-pendant-dark.webp"
+    />
+    <meta
+      property="og:url"
+      content="https://thesohamdatta.github.io/aura/manifesto.html"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Third Device | Aura Manifesto" />
+    <meta
+      name="twitter:description"
+      content="Social giants are eating our brains. AI is humanity's last invention. We need a third device."
+    />
+    <meta
+      name="twitter:image"
+      content="https://thesohamdatta.github.io/aura/assets/hero/hero-pendant-dark.webp"
+    />
     <title>The Third Device | Aura Manifesto</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-    <link rel="preconnect" href="https://unpkg.com" />
     <link rel="stylesheet" href="css/fonts.css" />
     <link
       rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Display-Regular.otf"
+      href="assets/fonts/sf-pro/woff2/SF-Pro-Display-Semibold.woff2"
       as="font"
-      type="font/otf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Display-Semibold.otf"
-      as="font"
-      type="font/otf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Text-Regular.otf"
-      as="font"
-      type="font/otf"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="preload"
-      href="assets/fonts/sf-pro/SF-Pro-Text-Semibold.otf"
-      as="font"
-      type="font/otf"
+      type="font/woff2"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/global.css" />
@@ -45,12 +47,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utils.css" />
     <script src="js/nav.js" defer></script>
-    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="js/scroll-orchestrator.js" defer></script>
   </head>
   <body class="bg-white font-body">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav id="navbar" class="nav-transparent">
+    <nav id="navbar" class="nav-light">
       <div class="nav-inner">
         <a href="index.html" class="nav-wordmark">Aura</a>
         <div id="mobileMenu" class="nav-links">
@@ -68,157 +70,122 @@
             aria-controls="mobileMenu"
             aria-label="Toggle navigation menu"
           >
-            <i data-lucide="menu" class="w-5 h-5"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="w-5 h-5"
+              aria-hidden="true"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
           </button>
         </div>
       </div>
     </nav>
 
     <main id="main-content">
-      <header class="pt-[120px] md:pt-[160px] pb-[60px] md:pb-[80px] bg-white">
-        <div class="max-w-[680px] mx-auto px-6">
-          <span
-            class="font-body text-[13px] font-semibold text-[var(--color-action-blue)] mb-4 block"
-            >Manifesto</span
-          >
-          <h1
-            class="font-display text-[40px] md:text-[72px] text-[var(--color-ink)] font-bold tracking-[-0.003em] leading-[1.05] mb-6"
-          >
-            Humans need a third device.
-          </h1>
-          <p
-            class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
-          >
-            We have Personal Computers — to create, work, and produce things
-            that matter. We have Tiny Supercomputers — Smartphones — to consume,
-            but we are drawn into the Social Dilemma.
-          </p>
+      <!-- HEADER -->
+      <header class="manifesto-header">
+        <div class="manifesto-container">
+          <span class="manifesto-eyebrow">Manifesto</span>
+          <h1 class="manifesto-title">We need a third device.</h1>
         </div>
       </header>
 
-      <article class="max-w-[680px] mx-auto px-6 pb-[120px]">
-        <div
-          class="font-body text-[var(--type-body)] text-[var(--color-ink-secondary)] leading-relaxed"
-          style="display: flex; flex-direction: column; gap: 24px"
-        >
-          <p>But why have humans never built something different?</p>
+      <!-- SUB-SECTION 1: THE PROBLEM -->
+      <section class="manifesto-section" aria-labelledby="problem-heading">
+        <div class="manifesto-container">
+          <div class="manifesto-prose">
+            <p>The social giants are eating our brains.</p>
+            <p>
+              Their influence has a deeply negative impact on our behaviour: how
+              we talk, what we see, how we do things, how we live. This effect
+              is damaging human nature, and it already has.
+            </p>
+            <p>
+              The smartphone is at the centre of all this. It manipulates our
+              minds without us ever knowing why we do what we do, or how we
+              became this way. We were not like this before.
+            </p>
+            <p>
+              For years, we have developed and refined this technology. Some of
+              the greatest engineers in the world have worked on it, hired for
+              one reason and one reason only: attention. How to capture the
+              maximum attention of people. How to turn that attention into
+              money. How to build an empire out of it.
+            </p>
+            <p>There is no escape here.</p>
+            <p class="manifesto-emphasis">
+              No freedom. No freedom. No freedom.
+            </p>
+            <p>
+              AI is not going to make it good or help us live better in this
+              socially fucked up world. Instead, AI can and will change how we
+              live, what we see, and how we perceive things, things we never
+              needed and never wanted. The Slop. Its impact on our brain is not
+              reversible.
+            </p>
+            <p>
+              AI is absolutely revolutionary and can change humanity. But humans
+              are creating AI, AI is creating AI, and AI will dominate humans.
+              We are in the Matrix.
+            </p>
+            <p class="manifesto-emphasis">
+              Hence, we believe AI is humanity's last invention.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <p>
-            They tried. Ten years before smartphones, they made wearables — but
-            added a screen to it. A screen that demands attention. A screen that
-            distracts. A screen we never needed.
-          </p>
+      <!-- SUB-SECTION 2: WHY AURA -->
+      <section class="manifesto-section" aria-labelledby="aura-heading">
+        <div class="manifesto-container">
+          <div class="manifesto-prose">
+            <p>
+              We need a device that doesn't demand attention, doesn't bombard us
+              with information, doesn't ping us with notifications every second,
+              a device that needs no screen.
+            </p>
+            <p>
+              We need it combining the intelligence of AI and the human mind.
+              The Personal Superintelligence.
+            </p>
+            <p class="manifesto-emphasis">
+              The least socially disruptive device we've ever needed.
+            </p>
+            <p>
+              Humane AI Pin was the beginning, and it will return in another
+              soul.
+            </p>
+          </div>
+        </div>
+      </section>
 
-          <p>That is why we are building Aura.</p>
-
-          <p>
-            A device that combines the productive power of a computer and the
-            connectivity of a smartphone — but with one fundamental difference.
-            It does not pull you in. It works for you, quietly, in the
-            background — transforming your intent into action, without ever
-            asking for your attention.
-          </p>
-
-          <p class="text-[var(--color-ink)] font-semibold mt-8">
-            Less distraction. More done.
-          </p>
-
-          <h2
-            class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4"
-          >
-            The Social Dilemma
-          </h2>
-
-          <p>The social giants are eating our brains.</p>
-
-          <p>
-            Their influence has a deeply negative impact on our behaviour — how
-            we talk, what we see, how we do things, how we live. This effect is
-            damaging human nature, and it already has.
-          </p>
-
-          <p>
-            The smartphone is at the centre of all this. It manipulates our
-            minds without us ever knowing why we do what we do, or how we became
-            this way. We were not like this before.
-          </p>
-
-          <p>
-            For years, we have developed and refined this technology. Some of
-            the greatest engineers in the world have worked on it — hired for
-            one reason and one reason only: attention. How to capture the
-            maximum attention of people. How to turn that attention into money.
-            How to build an empire out of it.
-          </p>
-
-          <p>There is no escape here.</p>
-
-          <p class="text-[var(--color-ink)] font-semibold">
-            No freedom. No freedom. No freedom.
-          </p>
-
-          <h2
-            class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4"
-          >
-            The AI Dilemma
-          </h2>
-
-          <p>
-            AI is not going to make it good or help us live better in this
-            socially fucked up world. Instead, AI can and will change how we
-            live, what we see, and how we perceive things — things we never
-            needed and never wanted. The Slop. Its impact on our brain is not
-            reversible.
-          </p>
-
-          <p>
-            AI is absolutely revolutionary and can change humanity. But humans
-            are creating AI, AI is creating AI, and AI will dominate humans. We
-            are in the Matrix.
-          </p>
-
-          <p class="text-[var(--color-ink)] font-semibold">
-            Hence, we believe AI is humanity's last invention.
-          </p>
-
-          <h2
-            class="font-display text-[24px] md:text-[36px] font-bold text-[var(--color-ink)] tracking-tight mt-16 mb-4"
-          >
-            That's Why We Need Aura
-          </h2>
-
-          <p>
-            We need a device that doesn't demand attention, doesn't bombard us
-            with information, doesn't ping us with notifications every second —
-            a device that needs no screen.
-          </p>
-
-          <p>
-            We need it combining the intelligence of AI and the human mind. The
-            Personal Superintelligence.
-          </p>
-
-          <p class="text-[var(--color-ink)] font-semibold">
-            The least socially disruptive device we've ever needed.
-          </p>
-
-          <p>
-            Humane AI Pin was the beginning — and it will return in another
-            soul.
+      <!-- SUB-SECTION 3: CLOSING -->
+      <section
+        class="manifesto-section manifesto-closing"
+        aria-labelledby="closing-heading"
+      >
+        <div class="manifesto-container">
+          <p class="manifesto-closing-text">When you're ready,</p>
+          <p class="manifesto-closing-link">
+            <a href="docs.html#hardware" class="manifesto-cta">build yours →</a>
           </p>
         </div>
-      </article>
+      </section>
     </main>
 
     <div id="footer-mount"></div>
 
     <script src="js/footer.js" defer></script>
-    <script>
-      window.addEventListener("DOMContentLoaded", function () {
-        if (window.lucide && typeof window.lucide.createIcons === "function") {
-          window.lucide.createIcons();
-        }
-      });
-    </script>
   </body>
 </html>
